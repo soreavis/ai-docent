@@ -1,0 +1,44 @@
+name: Bug Report
+description: Something in a course behaves incorrectly
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where did this happen?
+      options:
+        - Claude Code (terminal)
+        - Claude Code (IDE)
+        - Claude desktop app
+        - claude.ai (web/mobile)
+        - Cowork
+    validations: { required: true }
+  - type: dropdown
+    id: course
+    attributes:
+      label: Which course?
+      options: [foundations, prompt-craft, reliability, security, mechanics, builder]
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes:
+      label: Plugin version
+      description: "From /plugin, or the version in plugin.json"
+    validations: { required: true }
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: "What did you ask, and at which lesson?"
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+    validations: { required: true }
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: "Do not paste secrets, API keys, or personal data."
+    validations: { required: true }

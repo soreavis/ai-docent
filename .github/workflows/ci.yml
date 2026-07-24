@@ -1,0 +1,30 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  validate:
+    name: Validate skills
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.x' }
+      - run: python3 build/validate.py
+
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: shellcheck build/zip.sh
+
+  zips:
+    name: Build claude.ai zips
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./build/zip.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: skill-zips
+          path: dist/*.zip

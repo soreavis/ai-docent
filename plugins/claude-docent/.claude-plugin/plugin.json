@@ -1,0 +1,10 @@
+{
+  "name": "claude-docent",
+  "description": "Multi-session tutor courses that take you from Claude beginner to power user: prompt craft, reliability, security, cost, and building with the API.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Julian Soreavis",
+    "email": "REDACTED"
+  },
+  "license": "MIT"
+}

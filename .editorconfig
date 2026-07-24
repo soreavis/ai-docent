@@ -1,0 +1,24 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{json,yml,yaml,md}]
+indent_style = space
+indent_size = 2
+
+[*.py]
+indent_style = space
+indent_size = 4
+
+[*.sh]
+indent_style = space
+indent_size = 2
+
+# Trailing whitespace is meaningful in Markdown line breaks; keep it off for
+# the course files so wording is never silently altered by an editor.
+[plugins/**/*.md]
+trim_trailing_whitespace = false

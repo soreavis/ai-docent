@@ -1,0 +1,8 @@
+# Build artifacts — regenerate with ./build/zip.sh
+dist/
+
+# Progress files, if a course is ever run from inside this repo
+.claude-docent/
+
+# OS
+.DS_Store

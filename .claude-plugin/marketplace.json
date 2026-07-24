@@ -1,0 +1,15 @@
+{
+  "name": "claude-docent",
+  "description": "Multi-session tutor courses for learning Claude, from your first prompt to building agents.",
+  "owner": {
+    "name": "Julian Soreavis",
+    "email": "REDACTED"
+  },
+  "plugins": [
+    {
+      "name": "claude-docent",
+      "source": "./plugins/claude-docent",
+      "description": "Multi-session tutor courses for learning Claude, from first prompt to building agents."
+    }
+  ]
+}
