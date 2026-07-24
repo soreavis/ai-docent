@@ -8,7 +8,7 @@
 Six multi-session tutor courses that take you from Claude beginner to power user — an onboarding wizard, a personalized plan, hands-on exercises on your own real work, boss fights as level gates, and progress that survives across sessions.
 
 > [!IMPORTANT]
-> **This is an independent, community-maintained project.** It is **not officially affiliated with, endorsed by, or supported by Anthropic.** This is not an official Anthropic or Claude product. Use of this software is entirely at your own risk.
+> **This is an independent, community-maintained project.** It is **not affiliated with, endorsed by, or supported by** Anthropic, OpenAI, Google, GitHub/Microsoft, xAI, Cursor, or any other vendor whose tools it installs into or teaches. Claude, Codex, Gemini, Copilot, Grok, and Cursor are trademarks of their respective owners, used here only to say what this project works with. Use of this software is entirely at your own risk.
 
 ## The courses
 
