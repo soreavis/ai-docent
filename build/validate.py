@@ -66,10 +66,13 @@ for rel, path in MANIFESTS.items():
 
 # The README badge is the version most people actually read, so it is held to
 # the same lockstep as the manifests.
+# The badge uses shields' static/v1 query form, not /badge/version-X-color:
+# in the path form the trailing colour reads as a semver prerelease tag, and
+# release-please rewrites "0.1.0-blue" to "0.1.1", producing a broken badge.
 badge_line = next(
-    (l for l in (ROOT / "README.md").read_text().splitlines() if "badge/version-" in l), ""
+    (l for l in (ROOT / "README.md").read_text().splitlines() if "label=version" in l), ""
 )
-found = re.search(r"badge/version-(\d+\.\d+\.\d+)-", badge_line)
+found = re.search(r"message=(\d+\.\d+\.\d+)&", badge_line)
 check(found, "README.md: no version badge found")
 if found:
     check(found.group(1) == version, f"README.md: badge {found.group(1)} != version.txt {version}")
