@@ -60,6 +60,20 @@ for rel, path in MANIFESTS.items():
         continue
     check(found == version, f"{rel}: version {found} != version.txt {version}")
 
+# The README badge is the version most people actually read, so it is held to
+# the same lockstep as the manifests.
+badge_line = next(
+    (l for l in (ROOT / "README.md").read_text().splitlines() if "badge/version-" in l), ""
+)
+found = re.search(r"badge/version-(\d+\.\d+\.\d+)-", badge_line)
+check(found, "README.md: no version badge found")
+if found:
+    check(found.group(1) == version, f"README.md: badge {found.group(1)} != version.txt {version}")
+check(
+    "x-release-please-version" in badge_line,
+    "README.md: version badge missing the release-please marker",
+)
+
 skills = sorted(p for p in SKILLS.iterdir() if p.is_dir())
 check(skills, "no skills found")
 

@@ -1,7 +1,7 @@
 # ai-docent
 
 [![CI](https://github.com/soreavis/ai-docent/actions/workflows/ci.yml/badge.svg)](https://github.com/soreavis/ai-docent/actions/workflows/ci.yml)
-![Version](https://img.shields.io/badge/version-0.1.0-blue)
+![Version](https://img.shields.io/badge/version-0.1.0-blue) <!-- x-release-please-version -->
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Agent Skills](https://img.shields.io/badge/Agent%20Skills-8%20courses-green)
 
