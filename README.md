@@ -39,7 +39,7 @@ Use your platform's native plugin or skill manager where one exists — those la
 | **Gemini CLI** | `gemini extensions install https://github.com/soreavis/ai-docent` | `gemini extensions update ai-docent` |
 | **Copilot / GitHub CLI** | `gh skill install soreavis/ai-docent <course>` | `gh skill update <course>` |
 | **Grok** | `grok plugin marketplace add soreavis/ai-docent` then `grok plugin install soreavis/ai-docent --trust` | `grok plugin update ai-docent` |
-| **claude.ai / Cowork** | upload a zip per course — see below | re-upload the zip |
+| **claude.ai / Desktop / Cowork** | Customize → Plugins → **+** → Add marketplace → `https://github.com/soreavis/ai-docent` (paid plans) | automatic on marketplace sync |
 | **Other agents** | `npx skills add soreavis/ai-docent --skill <course>` | `npx skills update` |
 
 `<course>` is one of `foundations`, `prompt-craft`, `reliability`, `security`, `mechanics`, `builder`.
@@ -79,18 +79,31 @@ Add this to a project's `.claude/settings.json` and everyone who trusts the fold
 }
 ```
 
-### claude.ai and Cowork
+### claude.ai, Claude Desktop and Cowork
 
-Plugins do **not** appear on claude.ai. That surface takes one zip per course:
+Plugins work here too, from the same marketplace — no zips needed. **Paid plans only (Pro, Max, Team, Enterprise).**
 
-1. Download the zips from the [latest release](https://github.com/soreavis/ai-docent/releases/latest), or build them with `./build/zip.sh`
-2. On claude.ai go to **Customize → Skills** and upload the zip for each course you want
+1. Open **Customize** in the left sidebar, then the **Plugins** tab (in Cowork, open the **Cowork** tab first)
+2. Under **Personal plugins**, click **+** → **Add marketplace** → **Add from a repository**
+3. Point it at `https://github.com/soreavis/ai-docent`
+4. Install **ai-docent**, then type `/` or click **+** to pick a course
+
+The skills a plugin bundles work in chat on the web, the Chat tab in Claude Desktop, and Cowork alike.
+
+**Team and Enterprise** owners can push it to everyone from **Organization settings → Plugins → Add plugin → GitHub**, using `soreavis/ai-docent`. Cowork and Skills both have to be enabled for the organization first.
+
+#### Free plan, or you'd rather have standalone skills
+
+Upload the per-course zips instead:
+
+1. Download them from the [latest release](https://github.com/soreavis/ai-docent/releases/latest), or build them with `./build/zip.sh`
+2. Go to **Customize → Skills** and upload the zip for each course you want
 3. Toggle it on
 
-Requires code execution to be enabled (Settings → Capabilities on Free/Pro/Max; Organization settings on Team/Enterprise). Cowork loads whatever skills are enabled on your claude.ai account, so uploading once covers both.
+Requires code execution to be enabled (Settings → Capabilities on Free/Pro/Max; Organization settings on Team/Enterprise).
 
 > [!NOTE]
-> **There is no auto-update on this surface.** claude.ai has no mechanism to refresh an uploaded skill — when a new version ships, re-download the zip and upload it again.
+> **The zip path has no auto-update.** There is no mechanism to refresh an uploaded skill — when a new version ships, re-download and re-upload. The marketplace path above updates on its own, so prefer it if you're on a paid plan.
 
 ## Where your progress is saved
 
@@ -139,7 +152,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the release process and [AGENTS.md](A
 
 ## Credits
 
-- **Maintained by**: [Julian Soreavis](https://github.com/soreavis)
+- **Created by**: [Julian Soreavis](https://github.com/soreavis)
 
 ## License
 
