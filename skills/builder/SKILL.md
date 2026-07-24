@@ -115,7 +115,7 @@ If you can't write files, show the card and tell them plainly: **this card is th
 
 ## Companion courses
 
-`/ai-docent:foundations` (fundamentals), `/ai-docent:prompt-craft` (better prompts — directly useful for system prompts), `/ai-docent:reliability` (grounding and evals), `/ai-docent:security` (tool/injection/secret safety — essential for builders), `/ai-docent:mechanics` (models, context, cost), `/ai-docent:shipping` (landing agent-generated work others will accept).
+`/ai-docent:foundations` (fundamentals), `/ai-docent:prompt-craft` (better prompts — directly useful for system prompts), `/ai-docent:reliability` (grounding and evals), `/ai-docent:security` (tool/injection/secret safety — essential for builders), `/ai-docent:mechanics` (models, context, cost), `/ai-docent:shipping` (landing agent-generated work others will accept), `/ai-docent:long-haul` (projects that span days without losing the thread).
 
 ## Tone
 

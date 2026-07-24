@@ -2,6 +2,8 @@
 
 Select, merge, reorder, cut to fit the learner. Each level ends with a boss fight that is a real gate. Every exercise runs on the learner's own real changes.
 
+**Non-code work uses the same curriculum.** Read "change" as any deliverable, "diff" as the before/after or tracked changes, "reviewer" as the editor, client, or stakeholder, and "merged" as accepted. Every lesson below holds; only the artifacts change.
+
 ## LEVEL 1 — The shipping gap *(short — 2–3 sessions — but never skip it; everything else builds on this mental model)*
 
 - **1.1 Generated is not done.** The mental model: an agent finishing is an event that happened to *you*; shipping is a claim you make to *someone else*. Between them sits work nobody assigned you. Why "it runs" and "the tests pass" are the beginning of a review, not the end of one. Exercise: take something they shipped or nearly shipped, and list everything that was true of it beyond "it worked."

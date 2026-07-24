@@ -22,13 +22,14 @@ Select, reorder, rename, merge, and cut to fit the learner. Each level ends with
 
 - **2.1 Terminal survival kit** *(only if needed)*: cd, ls, what a folder path is, how to not be scared. 10 minutes, hands-on.
 - **2.2 Install & first contact:** install Claude Code (verify current steps in official docs first!), open it in a folder, ask questions about files, make a first tiny change and see it happen. Exercise: have Claude Code introduce the machine to them — "what's in this folder, explain it like I'm new".
-- **2.3 The build loop:** describe what you want → review Claude's plan → let it work → test → give feedback → repeat. The skill is *describing and reviewing*, not typing code. Exercise: build a single-page personal website from scratch, locally.
-- **2.4 Plan mode & staying in control:** making Claude Code propose before it acts, reviewing diffs, saying no, asking "why did you do it that way". Exercise: request a change, reject the first plan, shape a better one.
-- **2.5 Git as a seatbelt — and recovering a runaway session:** just enough git to be fearless — commits as save points, undoing mistakes — plus what to do when the agent itself goes sideways (loops, edits the wrong thing, fills its context with junk, or "finishes" something half-done): stop it, reset the conversation, restore from git, re-scope. Knowing you can always undo is what makes you fearless. Exercise: break the project on purpose AND let a session get messy, then recover both cleanly.
-- **2.6 CLAUDE.md & standing instructions:** teaching Claude Code your preferences and project rules once, so every session starts smart. Exercise: write a CLAUDE.md for the capstone project together.
-- **2.7 Debugging together:** pasting errors, describing "it looks wrong", letting Claude investigate; the art of good bug reports. Exercise: plant a bug brief secretly; they drive the fix.
-- **2.8 Capstone sprint I:** dedicate 1–3 sessions to building the real capstone project with everything from Level 2. Act as project lead: scope it small, ship something working.
-- **2.9 Level 2 boss fight:** take a small feature from idea → plan → built → committed, solo, with you only observing and reviewing at the end.
+- **2.3 What that command will actually do:** the specific beginner trap with terminal-first agents - not fear of the terminal, but not knowing the *consequence* of what is about to run. Which actions are reversible and which are not: installing a package vs. deleting a folder, editing a file vs. overwriting it, a migration that rewrites data. How to ask the agent what a command does and what it touches *before* approving it, and how to spot the handful that deserve a second look. Exercise: have Claude Code explain three commands it wants to run, then classify each as safe, reversible, or one-way.
+- **2.4 The build loop:** describe what you want → review Claude's plan → let it work → test → give feedback → repeat. The skill is *describing and reviewing*, not typing code. Exercise: build a single-page personal website from scratch, locally.
+- **2.5 Plan mode & staying in control:** making Claude Code propose before it acts, reviewing diffs, saying no, asking "why did you do it that way". Exercise: request a change, reject the first plan, shape a better one.
+- **2.6 Git as a seatbelt — and recovering a runaway session:** just enough git to be fearless — commits as save points, undoing mistakes — plus what to do when the agent itself goes sideways (loops, edits the wrong thing, fills its context with junk, or "finishes" something half-done): stop it, reset the conversation, restore from git, re-scope. Knowing you can always undo is what makes you fearless. Exercise: break the project on purpose AND let a session get messy, then recover both cleanly.
+- **2.7 CLAUDE.md & standing instructions:** teaching Claude Code your preferences and project rules once, so every session starts smart. Exercise: write a CLAUDE.md for the capstone project together.
+- **2.8 Debugging together:** pasting errors, describing "it looks wrong", letting Claude investigate; the art of good bug reports. Exercise: plant a bug brief secretly; they drive the fix.
+- **2.9 Capstone sprint I:** dedicate 1–3 sessions to building the real capstone project with everything from Level 2. Act as project lead: scope it small, ship something working.
+- **2.10 Level 2 boss fight:** take a small feature from idea → plan → built → committed, solo, with you only observing and reviewing at the end.
 
 ## LEVEL 3 — Power user: Cowork, connectors & workflows
 
@@ -62,3 +63,4 @@ Select, reorder, rename, merge, and cut to fit the learner. Each level ends with
 - Knowing the limits: what Claude is bad at and how to compensate.
 - New chat vs. continue: context hygiene.
 - Security sense: secrets, passwords, personal data — what stays out of prompts.
+- Don't get deskilled: use the agent to close knowledge gaps, not to skip them. Ask *why* the generated answer works, predict before you run, and debug it yourself when it breaks. The failure to avoid is being productive today and unable to fix your own project in six months.

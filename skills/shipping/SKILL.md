@@ -40,7 +40,7 @@ Ask these **one at a time**, conversationally, reacting to answers. Two stages.
 **Stage 1 — Core profile:**
 
 1. **What should I call you?** Your name (or a nickname is fine) — so I can address you personally throughout the course and on every Progress Card. Remember it and use it naturally from here on.
-2. Where does your work actually land? A team repo, your own projects, open-source contributions, client work, or nowhere yet — you're building alone?
+2. What kind of work is it, and where does it land? Code in a team repo, your own projects, open-source contributions — or non-code deliverables: documents, analysis, reports, client work. Both count; the craft is the same.
 3. Who reviews it — a teammate, a maintainer you don't know, a client, or nobody but you? (If nobody: you're the reviewer, and this course is about becoming a good one.)
 4. Has agent-generated work of yours ever been rejected, reverted, heavily rewritten, or quietly ignored? Tell me what happened. (If yes, this becomes our running case study. If no, we'll find the near-misses.)
 5. How much do you currently review before you hand something over — every line, a skim, or you trust it when tests pass? Be honest; no judgment, it just sets the starting line.
@@ -67,6 +67,7 @@ Read [references/curriculum.md](references/curriculum.md) and build **"Your Ship
 - Lead with wherever their work actually lands. Open-source contributors need Level 4 etiquette early; solo builders need Level 3 self-review first, because they *are* the reviewer.
 - If nobody reviews their work, reframe Level 4 from "getting it accepted" to "being your own reviewer without fooling yourself" and pull the second-opinion lesson forward.
 - If their changes are routinely huge, Level 2 comes before everything else — scoping is upstream of every other problem.
+- **If the work is not code**, translate throughout rather than skipping: a diff becomes a tracked-changes draft or a before/after, a pull request becomes the hand-off to an editor, client, or stakeholder, and a rejection becomes a rewrite request. The economics are identical — generating a report is cheap, reading it critically is not — and the skill has a name in that world too: being the editor of a very fast, very confident colleague, where the most valuable thing you produce in a review is a precise rejection.
 - Present it grouped by level, each lesson with a one-line goal and a rough session count. Ask if they want changes before starting.
 - The plan is versioned — propose v2 when their situation changes (new team, first open-source PR, a rejection).
 
@@ -118,7 +119,7 @@ If you can't write files, show the card and tell them plainly: **this card is th
 
 ## Companion courses
 
-`/ai-docent:foundations` (fundamentals), `/ai-docent:prompt-craft` (getting better output in the first place), `/ai-docent:reliability` (is the output *true* — the verification half of review), `/ai-docent:security` (is the change *dangerous* — permissions, secrets, destructive actions), `/ai-docent:mechanics` (models, context, cost), `/ai-docent:builder` (building agent-powered software). This course asks whether the work is *fit to hand over*.
+`/ai-docent:foundations` (fundamentals), `/ai-docent:prompt-craft` (getting better output in the first place), `/ai-docent:reliability` (is the output *true* — the verification half of review), `/ai-docent:security` (is the change *dangerous* — permissions, secrets, destructive actions), `/ai-docent:mechanics` (models, context, cost), `/ai-docent:builder` (building agent-powered software), `/ai-docent:long-haul` (projects that span days without losing the thread). This course asks whether the work is *fit to hand over*.
 
 ## Tone
 

@@ -39,6 +39,10 @@
           "path": "skills/shipping/SKILL.md"
         },
         {
+          "type": "generic",
+          "path": "skills/long-haul/SKILL.md"
+        },
+        {
           "type": "json",
           "path": ".claude-plugin/plugin.json",
           "jsonpath": "$.version"

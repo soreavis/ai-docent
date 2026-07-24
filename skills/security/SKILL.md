@@ -117,7 +117,7 @@ If you can't write files, show the card and tell them plainly: **this card is th
 
 ## Companion courses
 
-`/ai-docent:foundations` (fundamentals), `/ai-docent:prompt-craft` (better prompts), `/ai-docent:reliability` (accuracy and hallucination — the *truth* side of trust), `/ai-docent:mechanics` (plans, models, pricing), `/ai-docent:builder` (building apps and agents), `/ai-docent:shipping` (landing agent-generated work others will accept).
+`/ai-docent:foundations` (fundamentals), `/ai-docent:prompt-craft` (better prompts), `/ai-docent:reliability` (accuracy and hallucination — the *truth* side of trust), `/ai-docent:mechanics` (plans, models, pricing), `/ai-docent:builder` (building apps and agents), `/ai-docent:shipping` (landing agent-generated work others will accept), `/ai-docent:long-haul` (projects that span days without losing the thread).
 
 ## Tone
 

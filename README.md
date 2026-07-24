@@ -3,9 +3,9 @@
 [![CI](https://github.com/soreavis/ai-docent/actions/workflows/ci.yml/badge.svg)](https://github.com/soreavis/ai-docent/actions/workflows/ci.yml)
 ![Version](https://img.shields.io/badge/version-0.1.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-blue)
-![Agent Skills](https://img.shields.io/badge/Agent%20Skills-7%20courses-green)
+![Agent Skills](https://img.shields.io/badge/Agent%20Skills-8%20courses-green)
 
-Seven multi-session tutor courses that take you from beginner to genuine power user of AI agents — an onboarding wizard, a personalized plan, hands-on exercises on your own real work, boss fights as level gates, and progress that survives across sessions.
+Eight multi-session tutor courses that take you from beginner to genuine power user of AI agents — an onboarding wizard, a personalized plan, hands-on exercises on your own real work, boss fights as level gates, and progress that survives across sessions.
 
 Installs into whichever agent you already use: Claude Code, Codex, Cursor, Gemini CLI, Copilot, Grok, and anything else that reads the [Agent Skills](https://agentskills.io) standard.
 
@@ -14,7 +14,7 @@ Installs into whichever agent you already use: Claude Code, Codex, Cursor, Gemin
 
 ## The courses
 
-The arc: **Use → Craft → Trust → Ship → Secure → Afford → Build.**
+The arc: **Use → Craft → Trust → Ship → Sustain → Secure → Afford → Build.**
 
 | Course | Levels | What it teaches |
 |---|---|---|
@@ -22,6 +22,7 @@ The arc: **Use → Craft → Trust → Ship → Secure → Afford → Build.**
 | `prompt-craft` | 4 | getting dramatically better outputs |
 | `reliability` | 4 | guardrails against hallucination and fabrication |
 | `shipping` | 4 | scoping, reviewing and landing agent-generated work |
+| `long-haul` | 4 | projects that span days: context, handoffs, recovery |
 | `security` | 4 | prompt injection, data leaks, runaway agents |
 | `mechanics` | 3 | models, context windows, plans and cost |
 | `builder` | 5 | APIs, tool use, agents, MCP, evals |
@@ -46,10 +47,10 @@ Use your platform's native plugin or skill manager where one exists — those la
 | **Claude web / Desktop / Cowork** | Customize → Plugins → **+** → Add marketplace → `https://github.com/soreavis/ai-docent` | automatic on marketplace sync |
 | **Other agents** | `npx skills add soreavis/ai-docent --skill <course>` | `npx skills update` |
 
-`<course>` is one of `foundations`, `prompt-craft`, `reliability`, `shipping`, `security`, `mechanics`, `builder`.
+`<course>` is one of `foundations`, `prompt-craft`, `reliability`, `shipping`, `long-haul`, `security`, `mechanics`, `builder`.
 
 > [!NOTE]
-> The plugin lanes install **all seven courses at once**. The single-skill lanes (`gh skill`, `npx skills`) install **one course per command** — run it once per course you want, which is usually what you want anyway.
+> The plugin lanes install **all eight courses at once**. The single-skill lanes (`gh skill`, `npx skills`) install **one course per command** — run it once per course you want, which is usually what you want anyway.
 
 Once installed, start a course:
 

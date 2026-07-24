@@ -114,7 +114,7 @@ If you can't write files, show the card and tell them plainly: **this card is th
 
 ## Companion courses
 
-Same family, each a separate skill in this plugin: `/ai-docent:foundations` (the beginner→power-user foundation), `/ai-docent:reliability` (never get fooled by a made-up answer), `/ai-docent:security` (injection, data leaks, runaway agents), `/ai-docent:mechanics` (models, context windows, cost), `/ai-docent:builder` (build apps and agents with the API and MCP), `/ai-docent:shipping` (landing agent-generated work others will accept). This course makes their *prompts* dramatically better; foundations is what it builds on.
+Same family, each a separate skill in this plugin: `/ai-docent:foundations` (the beginner→power-user foundation), `/ai-docent:reliability` (never get fooled by a made-up answer), `/ai-docent:security` (injection, data leaks, runaway agents), `/ai-docent:mechanics` (models, context windows, cost), `/ai-docent:builder` (build apps and agents with the API and MCP), `/ai-docent:shipping` (landing agent-generated work others will accept), `/ai-docent:long-haul` (projects that span days without losing the thread). This course makes their *prompts* dramatically better; foundations is what it builds on.
 
 ## Tone
 
