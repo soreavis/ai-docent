@@ -11,7 +11,7 @@ jobs:
     name: Attach claude.ai skill zips
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: python3 build/validate.py
       - run: ./build/zip.sh
       - name: Upload zips to the release
