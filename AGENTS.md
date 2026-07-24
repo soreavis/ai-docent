@@ -4,7 +4,7 @@ Guidance for AI agents working **on this repository**. (If you are looking for t
 
 ## What this repo is
 
-`ai-docent` packages six multi-session tutor courses as [Agent Skills](https://agentskills.io), distributed to every agent platform that can install a skill or plugin. One skill tree, many thin manifests.
+`ai-docent` packages eight multi-session tutor courses as [Agent Skills](https://agentskills.io), distributed to every agent platform that can install a skill or plugin. One skill tree, many thin manifests.
 
 The courses run in any agent. The curriculum currently uses Claude as its worked platform, so lesson text names Claude surfaces and doc domains — that is subject matter, not a packaging constraint.
 

@@ -52,7 +52,7 @@ These are deliberate. Keep them.
 
 ## Releasing
 
-**Never edit a version by hand.** `version.txt` is the source of truth, and Release Please rewrites it plus all eight platform manifests and all six SKILL.md frontmatter blocks together. Editing one alone breaks lockstep and CI fails.
+**Never edit a version by hand.** `version.txt` is the source of truth, and Release Please rewrites it plus all eight platform manifests and all eight SKILL.md frontmatter blocks together. Editing one alone breaks lockstep and CI fails.
 
 The flow:
 

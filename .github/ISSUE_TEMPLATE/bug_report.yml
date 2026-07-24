@@ -17,7 +17,7 @@ body:
     id: course
     attributes:
       label: Which course?
-      options: [foundations, prompt-craft, reliability, security, mechanics, builder]
+      options: [foundations, prompt-craft, reliability, shipping, long-haul, security, mechanics, builder]
     validations: { required: true }
   - type: input
     id: version
