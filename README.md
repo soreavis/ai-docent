@@ -132,7 +132,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) — including the [release process](CONTR
 ## Credits
 
 - **Maintained by**: [Julian Soreavis](https://github.com/soreavis)
-- **Built with**: [Claude Code](https://claude.ai/code)
 
 ## License
 
