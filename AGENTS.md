@@ -23,6 +23,7 @@ version.txt                     single source of truth for the version
 - **`description` must stay ≤200 characters.** The open spec allows 1024, but the strictest uploader (claude.ai) is stricter, and the same file ships to both.
 - **Keep `SKILL.md` under 500 lines.** Detail belongs in `references/`, which loads only when read.
 - **A skill's folder name must equal its frontmatter `name`.** Uploads are rejected otherwise.
+- **`allowed-tools` is deliberately omitted.** Not an oversight. The field is marked experimental in the Agent Skills spec and its support varies by runtime, while every course's accuracy rule depends on web search — a wrong or incomplete allowlist would silently disable the primary anti-hallucination guardrail on some hosts. Revisit only when the field is stable across the runtimes in the README install table, and if you add it, name the web-search tool for every one of them.
 
 ## Course conventions — these are deliberate, keep them
 
@@ -32,6 +33,7 @@ version.txt                     single source of truth for the version
 - **`reliability` keeps its planted-error protocol.** Every deliberately planted fabrication is tracked in an explicit list and revealed before the session ends. Unrevealed items carry into the Progress Card.
 - **`security` keeps its describe-don't-perform protocol.** Attacks are inert, fenced, labeled, and neutralized before the exercise closes. Never executed.
 - **No personal, employer, or client names** anywhere in the courses.
+- **Four guardrails must live inside the GROUND RULES block of every course** — the tool guard, the uncertainty rule, the never-construct-a-URL rule, and enumerated doc domains. They sit there rather than lower down so a truncated paste still carries them. `build/validate.py` fails the build if any is missing; see the 2026-07-24 hallucination audit for why each exists.
 
 ## Cross-references
 

@@ -110,6 +110,16 @@ for skill in skills:
         "unearned point is a fabrication" in (skill / "references/game-mode.md").read_text(),
         f"{skill.name}: game-mode.md missing the scoring-honesty rule",
     )
+    # Anti-hallucination guardrails, from the 2026-07-24 audit. These must sit
+    # inside the GROUND RULES block so a truncated paste still carries them.
+    ground = text.split("## GROUND RULES", 1)[-1].split("\n## ", 1)[0]
+    check("No search tool" in ground, f"{skill.name}: no tool guard in GROUND RULES")
+    check("When unsure, say so" in ground, f"{skill.name}: no uncertainty rule in GROUND RULES")
+    check("Never construct a URL" in ground, f"{skill.name}: no URL-fabrication rule in GROUND RULES")
+    check(
+        "code.claude.com/docs" in text or "platform.claude.com/docs" in text,
+        f"{skill.name}: no enumerated doc domains to ground links against",
+    )
     # docs.claude.com is stale; it may only appear as an explicit warning.
     for line in text.splitlines():
         if "docs.claude.com" in line and not re.search(r"never|stale", line, re.I):

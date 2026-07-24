@@ -27,6 +27,7 @@ claude plugin validate .     # Claude Code manifest check
 - every `references/` link resolves
 - the name-first wizard question, `disable-model-invocation: true`, a file-based progress card, and the Game Mode scoring-honesty rule are all present
 - no `docs.claude.com` citations and no leftover paste-in scaffolding
+- the four anti-hallucination guardrails are present **inside** each course's GROUND RULES block: the tool guard, the uncertainty rule, the never-construct-a-URL rule, and enumerated doc domains
 - **every one of the eight platform manifests carries the same version as `version.txt`**
 
 ## Course conventions
