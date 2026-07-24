@@ -10,7 +10,7 @@
 
 **Do not open a public issue for security vulnerabilities.**
 
-Please report security issues privately via [GitHub Security Advisories](https://github.com/soreavis/ai-docent/security/advisories/new).
+Please report security issues privately via [GitHub Security Advisories](https://github.com/soreavis/ai-docent/security/advisories/new), or by email to REDACTED if that form is unavailable to you.
 
 Include:
 

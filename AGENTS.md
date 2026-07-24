@@ -19,7 +19,7 @@ version.txt                     single source of truth for the version
 ## Rules
 
 - **Never edit a version by hand.** `version.txt` is the source of truth and Release Please rewrites every manifest and every SKILL.md frontmatter from it. Editing one manifest alone breaks lockstep and CI fails.
-- **Run `python3 build/validate.py` before you commit.** It checks the Agent Skills spec, this repo's course conventions, and version lockstep across all eight manifests.
+- **Run `python3 build/validate.py` before you commit.** It checks the Agent Skills spec, this repo's course conventions, and version lockstep across all eight manifests and the README badge.
 - **`description` must stay ≤200 characters.** The open spec allows 1024, but the strictest uploader (claude.ai) is stricter, and the same file ships to both.
 - **Keep `SKILL.md` under 500 lines.** Detail belongs in `references/`, which loads only when read.
 - **A skill's folder name must equal its frontmatter `name`.** Uploads are rejected otherwise.
