@@ -156,4 +156,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the release process and [AGENTS.md](A
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT © 2026 Julian Soreavis — see [LICENSE](LICENSE).
