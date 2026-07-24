@@ -7,8 +7,6 @@
       "release-type": "simple",
       "include-component-in-tag": false,
       "version-file": "version.txt",
-      "_comment": "release-as pins the first public release to 0.1.0 while the repo is in preparation. Remove it after v0.1.0 ships so conventional commits drive the version again.",
-      "release-as": "0.1.0",
       "extra-files": [
         {
           "type": "generic",
