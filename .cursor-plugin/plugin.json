@@ -1,7 +1,7 @@
 {
   "name": "ai-docent",
   "version": "0.1.0",
-  "description": "Six multi-session tutor courses that take you from Claude beginner to power user: foundations, prompt craft, reliability, security, cost mechanics, and building with the API. Each runs an onboarding wizard, builds a personalized plan, and saves your progress between sessions.",
+  "description": "Six multi-session tutor courses that take you from beginner to genuine power user of AI agents: foundations, prompt craft, reliability, security, cost mechanics, and building. Each runs an onboarding wizard, builds a personalized plan, and saves your progress between sessions.",
   "author": {
     "name": "Julian Soreavis"
   },
@@ -12,7 +12,7 @@
     "learning",
     "tutorial",
     "courses",
-    "claude",
+    "ai-agents",
     "onboarding"
   ],
   "skills": "./skills"

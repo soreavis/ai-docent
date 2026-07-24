@@ -6,6 +6,8 @@ Guidance for AI agents working **on this repository**. (If you are looking for t
 
 `ai-docent` packages six multi-session tutor courses as [Agent Skills](https://agentskills.io), distributed to every agent platform that can install a skill or plugin. One skill tree, many thin manifests.
 
+The courses run in any agent. The curriculum currently uses Claude as its worked platform, so lesson text names Claude surfaces and doc domains — that is subject matter, not a packaging constraint.
+
 ```
 skills/<course>/SKILL.md        the course; loads in full when invoked
 skills/<course>/references/     curriculum + game mode; load on demand
@@ -18,7 +20,7 @@ version.txt                     single source of truth for the version
 
 - **Never edit a version by hand.** `version.txt` is the source of truth and Release Please rewrites every manifest and every SKILL.md frontmatter from it. Editing one manifest alone breaks lockstep and CI fails.
 - **Run `python3 build/validate.py` before you commit.** It checks the Agent Skills spec, this repo's course conventions, and version lockstep across all eight manifests.
-- **`description` must stay ≤200 characters.** The open spec allows 1024, but the claude.ai uploader is stricter, and the same file ships to both.
+- **`description` must stay ≤200 characters.** The open spec allows 1024, but the strictest uploader (claude.ai) is stricter, and the same file ships to both.
 - **Keep `SKILL.md` under 500 lines.** Detail belongs in `references/`, which loads only when read.
 - **A skill's folder name must equal its frontmatter `name`.** Uploads are rejected otherwise.
 
