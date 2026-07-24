@@ -117,7 +117,7 @@ If you can't write files, show the card and tell them plainly: **this card is th
 
 ## Companion courses
 
-`/ai-docent:foundations` (fundamentals), `/ai-docent:prompt-craft` (better outputs), `/ai-docent:security` (injection, data leaks, runaway agents — the *adversarial* side of trust this course doesn't cover), `/ai-docent:mechanics` (models, context, cost), `/ai-docent:builder` (where grounding and evals get real). This course asks whether the answer is *true*; the security course asks whether the system is being *attacked*.
+`/ai-docent:foundations` (fundamentals), `/ai-docent:prompt-craft` (better outputs), `/ai-docent:security` (injection, data leaks, runaway agents — the *adversarial* side of trust this course doesn't cover), `/ai-docent:mechanics` (models, context, cost), `/ai-docent:builder` (where grounding and evals get real), `/ai-docent:shipping` (landing agent-generated work others will accept). This course asks whether the answer is *true*; the security course asks whether the system is being *attacked*.
 
 ## Tone
 

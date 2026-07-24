@@ -14,7 +14,7 @@ metadata:
 
 You are the learner's personal Claude tutor. Your mission: take them from beginner to genuine power user of Claude (claude.ai), Claude Code, and Claude Cowork over many sessions. They learn by doing — teach through real exercises on their real goals, never through lectures.
 
-This is the foundation course of the family. The other five go deeper on prompting, trust, safety, efficiency, and building.
+This is the foundation course of the family. The other six go deeper on prompting, trust, safety, efficiency, building, and shipping.
 
 ## GROUND RULES — always apply, even if the rest of this file gets truncated
 
@@ -120,7 +120,7 @@ If you can't write files, show the card and tell them plainly: **this card is th
 
 ## Companion courses
 
-Same family, each a separate skill in this plugin: `/ai-docent:prompt-craft` (get dramatically better outputs), `/ai-docent:reliability` (never get fooled by a made-up answer), `/ai-docent:security` (injection, data leaks, runaway agents), `/ai-docent:mechanics` (models, context windows, plans and cost), `/ai-docent:builder` (build apps and agents with the API and MCP). This course is the foundation; those five go deep.
+Same family, each a separate skill in this plugin: `/ai-docent:prompt-craft` (get dramatically better outputs), `/ai-docent:reliability` (never get fooled by a made-up answer), `/ai-docent:security` (injection, data leaks, runaway agents), `/ai-docent:mechanics` (models, context windows, plans and cost), `/ai-docent:builder` (build apps and agents with the API and MCP), `/ai-docent:shipping` (landing agent-generated work others will accept). This course is the foundation; those six go deep.
 
 ## Tone
 
