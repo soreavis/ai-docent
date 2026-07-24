@@ -1,0 +1,28 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "packages": {
+    ".": {
+      "component": "ai-docent",
+      "package-name": "ai-docent",
+      "release-type": "simple",
+      "include-component-in-tag": false,
+      "version-file": "version.txt",
+      "extra-files": [
+        { "type": "generic", "path": "skills/foundations/SKILL.md" },
+        { "type": "generic", "path": "skills/prompt-craft/SKILL.md" },
+        { "type": "generic", "path": "skills/reliability/SKILL.md" },
+        { "type": "generic", "path": "skills/security/SKILL.md" },
+        { "type": "generic", "path": "skills/mechanics/SKILL.md" },
+        { "type": "generic", "path": "skills/builder/SKILL.md" },
+        { "type": "json", "path": ".claude-plugin/plugin.json", "jsonpath": "$.version" },
+        { "type": "json", "path": ".claude-plugin/marketplace.json", "jsonpath": "$.plugins[0].version" },
+        { "type": "json", "path": ".codex-plugin/plugin.json", "jsonpath": "$.version" },
+        { "type": "json", "path": ".cursor-plugin/plugin.json", "jsonpath": "$.version" },
+        { "type": "json", "path": ".grok-plugin/plugin.json", "jsonpath": "$.version" },
+        { "type": "json", "path": ".grok-plugin/marketplace.json", "jsonpath": "$.plugins[0].version" },
+        { "type": "json", "path": ".agents/plugins/marketplace.json", "jsonpath": "$.plugins[0].version" },
+        { "type": "json", "path": "gemini-extension.json", "jsonpath": "$.version" }
+      ]
+    }
+  }
+}

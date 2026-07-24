@@ -1,0 +1,19 @@
+{
+  "name": "ai-docent",
+  "version": "0.1.0",
+  "description": "Six multi-session tutor courses that take you from Claude beginner to power user: foundations, prompt craft, reliability, security, cost mechanics, and building with the API. Each runs an onboarding wizard, builds a personalized plan, and saves your progress between sessions.",
+  "author": {
+    "name": "Julian Soreavis"
+  },
+  "homepage": "https://github.com/soreavis/ai-docent",
+  "repository": "https://github.com/soreavis/ai-docent",
+  "license": "MIT",
+  "keywords": [
+    "learning",
+    "tutorial",
+    "courses",
+    "claude",
+    "onboarding"
+  ],
+  "skills": "./skills"
+}

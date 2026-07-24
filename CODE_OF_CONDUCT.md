@@ -22,7 +22,7 @@ Examples of unacceptable behavior:
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the maintainers through [GitHub Security Advisories](https://github.com/soreavis/claude-docent/security/advisories/new) or by opening a private report. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the maintainers through [GitHub Security Advisories](https://github.com/soreavis/ai-docent/security/advisories/new) or by opening a private report. All complaints will be reviewed and investigated promptly and fairly.
 
 ## Attribution
 

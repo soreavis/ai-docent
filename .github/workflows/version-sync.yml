@@ -1,0 +1,25 @@
+name: Version lockstep
+
+# Release Please bumps version.txt, every SKILL.md, and every platform manifest
+# together. This workflow fails loudly if anything drifts out of lockstep —
+# most likely because a manifest version was edited by hand.
+
+on:
+  pull_request:
+    paths:
+      - "version.txt"
+      - "skills/**/SKILL.md"
+      - "**/plugin.json"
+      - "**/marketplace.json"
+      - "gemini-extension.json"
+  push:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: { python-version: '3.x' }
+      - run: python3 build/validate.py

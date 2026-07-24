@@ -5,7 +5,7 @@
 set -euo pipefail
 
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-skills="$root/plugins/claude-docent/skills"
+skills="$root/skills"
 dist="$root/dist"
 rm -rf "$dist"
 mkdir -p "$dist"

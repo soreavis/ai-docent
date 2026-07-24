@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Validate every skill against the Agent Skills spec and this repo's conventions.
+"""Validate every skill against the Agent Skills spec, and every platform
+manifest against version.txt.
 
 Run locally with `python3 build/validate.py`; CI runs the same script.
 """
@@ -9,9 +10,21 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PLUGIN = ROOT / "plugins" / "claude-docent"
+SKILLS = ROOT / "skills"
 NAME_RE = re.compile(r"[a-z0-9]+(-[a-z0-9]+)*")
 DESC_MAX = 200  # claude.ai upload cap; the open spec allows 1024
+
+# Every manifest that must carry the release version, and where it lives.
+MANIFESTS = {
+    ".claude-plugin/plugin.json": ("version",),
+    ".claude-plugin/marketplace.json": ("plugins", 0, "version"),
+    ".codex-plugin/plugin.json": ("version",),
+    ".cursor-plugin/plugin.json": ("version",),
+    ".grok-plugin/plugin.json": ("version",),
+    ".grok-plugin/marketplace.json": ("plugins", 0, "version"),
+    ".agents/plugins/marketplace.json": ("plugins", 0, "version"),
+    "gemini-extension.json": ("version",),
+}
 
 failures = []
 
@@ -21,13 +34,33 @@ def check(cond, msg):
         failures.append(msg)
 
 
-for manifest in (ROOT / ".claude-plugin/marketplace.json", PLUGIN / ".claude-plugin/plugin.json"):
-    try:
-        json.loads(manifest.read_text())
-    except Exception as exc:
-        failures.append(f"{manifest.name}: invalid JSON — {exc}")
+def dig(obj, path):
+    for key in path:
+        obj = obj[key]
+    return obj
 
-skills = sorted(p for p in (PLUGIN / "skills").iterdir() if p.is_dir())
+
+version = (ROOT / "version.txt").read_text().strip()
+check(re.fullmatch(r"\d+\.\d+\.\d+", version), f"version.txt: '{version}' is not semver")
+
+for rel, path in MANIFESTS.items():
+    f = ROOT / rel
+    if not f.exists():
+        failures.append(f"{rel}: missing")
+        continue
+    try:
+        data = json.loads(f.read_text())
+    except Exception as exc:
+        failures.append(f"{rel}: invalid JSON — {exc}")
+        continue
+    try:
+        found = dig(data, path)
+    except (KeyError, IndexError):
+        failures.append(f"{rel}: no version at {'.'.join(map(str, path))}")
+        continue
+    check(found == version, f"{rel}: version {found} != version.txt {version}")
+
+skills = sorted(p for p in SKILLS.iterdir() if p.is_dir())
 check(skills, "no skills found")
 
 for skill in skills:
@@ -53,6 +86,16 @@ for skill in skills:
     if desc:
         n = len(desc.group(1).strip())
         check(n <= DESC_MAX, f"{skill.name}: description {n} chars, max {DESC_MAX}")
+
+    skill_version = re.search(r"^  version: (.+)$", fm, re.M)
+    check(skill_version, f"{skill.name}: no metadata.version")
+    if skill_version:
+        found = skill_version.group(1).strip().strip('"')
+        check(found == version, f"{skill.name}: version {found} != version.txt {version}")
+    check(
+        "x-release-please-start-version" in fm,
+        f"{skill.name}: missing the release-please version marker",
+    )
 
     check(text.count("\n") < 500, f"{skill.name}: SKILL.md over 500 lines")
 
@@ -82,4 +125,5 @@ if failures:
         print(f"  - {f}")
     sys.exit(1)
 
-print(f"✔ {len(skills)} skills pass: {', '.join(s.name for s in skills)}")
+print(f"✔ v{version} — {len(skills)} skills, {len(MANIFESTS)} manifests in lockstep")
+print(f"  skills: {', '.join(s.name for s in skills)}")

@@ -2,24 +2,25 @@
   "name": "ai-docent",
   "owner": {
     "name": "Julian Soreavis",
-    "email": "REDACTED",
     "url": "https://github.com/soreavis"
   },
-  "metadata": {
-    "description": "Marketplace for the ai-docent tutor courses",
-    "version": "1.0.0"
-  },
+  "description": "Marketplace for the ai-docent tutor courses",
   "plugins": [
     {
       "name": "ai-docent",
       "source": {
-        "source": "url",
-        "url": "https://github.com/soreavis/ai-docent.git"
+        "type": "local",
+        "path": "."
       },
       "description": "Six multi-session tutor courses that take you from Claude beginner to power user, with an onboarding wizard, a personalized plan, and progress saved between sessions.",
       "version": "0.1.0",
       "category": "learning",
-      "strict": true
+      "homepage": "https://github.com/soreavis/ai-docent",
+      "keywords": [
+        "ai docent",
+        "learning",
+        "courses"
+      ]
     }
   ]
 }

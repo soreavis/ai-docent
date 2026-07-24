@@ -2,7 +2,7 @@
 dist/
 
 # Progress files, if a course is ever run from inside this repo
-.claude-docent/
+.ai-docent/
 
 # OS
 .DS_Store
