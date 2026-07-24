@@ -59,7 +59,7 @@ The flow:
 1. Merge conventional commits to `main`
 2. Release Please opens a release PR with the version bump and CHANGELOG entry
 3. Merge that PR — it tags the release and publishes it
-4. Publishing triggers `.github/workflows/release.yml`, which validates, builds the per-course zips, and attaches them to the release
+4. The same workflow run then builds the per-course zips and attaches them to the release. This lives in `release-please.yml` rather than a separate `release:` trigger because a release created with `GITHUB_TOKEN` does not start another workflow run.
 
 `feat:` bumps the minor, `fix:` the patch, and `feat!:` or a `BREAKING CHANGE:` footer the major.
 

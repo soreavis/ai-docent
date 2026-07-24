@@ -2,6 +2,10 @@
 """Validate every skill against the Agent Skills spec, and every platform
 manifest against version.txt.
 
+Release Please bumps version.txt, every SKILL.md, and every platform manifest
+together. This script fails loudly if any of them drift apart — most likely
+because a version was edited by hand.
+
 Run locally with `python3 build/validate.py`; CI runs the same script.
 """
 import json
