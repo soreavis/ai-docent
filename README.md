@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Agent Skills](https://img.shields.io/badge/Agent%20Skills-8%20courses-green)
 
-Eight multi-session tutor courses that take you from beginner to genuine power user of AI agents — an onboarding wizard, a personalized plan, hands-on exercises on your own real work, boss fights as level gates, and progress that survives across sessions.
+Eight multi-session tutor courses that take you from beginner to genuine power user of AI agents — an onboarding wizard, a personalized plan, hands-on exercises on your own real work, boss fights as level gates, a coaching voice you choose, and progress that survives across sessions.
 
 Installs into whichever agent you already use: Claude Code, Codex, Cursor, Gemini CLI, Copilot, Grok, and anything else that reads the [Agent Skills](https://agentskills.io) standard.
 
@@ -48,16 +48,30 @@ Use your platform's native plugin or skill manager where one exists — those la
 | **ChatGPT** | Skills → **Create** → **Upload from your computer**, one [release zip](https://github.com/soreavis/ai-docent/releases/latest) per course | re-upload the newer zip |
 | **Other agents** | `npx skills add soreavis/ai-docent --skill <course>` | `npx skills update` |
 
-`<course>` is one of `foundations`, `prompt-craft`, `reliability`, `shipping`, `long-haul`, `security`, `mechanics`, `builder`.
+`<course>` is one of `foundations`, `prompt-craft`, `reliability`, `shipping`, `long-haul`, `security`, `mechanics`, `builder` — or `start`, the launcher that picks one for you. The plugin lanes include it automatically; on the single-skill lanes, install `start` alongside at least one course, since on its own it has nothing to hand you off to.
 
 > [!NOTE]
 > The plugin lanes install **all eight courses at once**. The skill lanes take one course per command by default, which is usually what you want — but `npx skills add soreavis/ai-docent --skill '*'` installs the lot if you'd rather. `gh skill` is in preview and its flags may change.
 
-Once installed, start a course:
+Once installed, if you're not sure where to begin, start here — it asks what's actually going wrong and points you at one course:
+
+```
+/ai-docent:start
+```
+
+It also runs the whole eight-course arc in order as a single guided program, keeping the track's place across sessions. Or skip it and open a course directly:
 
 ```
 /ai-docent:foundations
 ```
+
+### Choosing how it talks to you
+
+Every course asks, once, how you want to be taught: **Coach** (warm and direct, the default), **Blunt** (terse, no praise), **Socratic** (mostly questions), **Peer** (casual colleague), **Patient** (no assumed background), **Formal** (professional and structured) — or describe your own. The choice is recorded on your Progress Card, so it survives between sessions, and you can change it any time by saying so.
+
+Tone is delivery, never content. No voice will drop a hedge, skip a verification, or state a figure it didn't look up — where a voice and a guardrail conflict, the guardrail wins and the course says so.
+
+Longer guides — your first session, how sessions run, best practices, troubleshooting — are in [docs/](docs/).
 
 ### Turning on automatic updates
 
@@ -120,6 +134,7 @@ ai-docent/
 │   └── references/
 │       ├── curriculum.md           # loaded when building the lesson plan
 │       └── game-mode.md            # loaded only if Game Mode is on
+├── docs/                           # how to use the courses
 ├── version.txt                     # single source of truth for the version
 ├── .claude-plugin/                 # plugin.json + marketplace.json
 ├── .codex-plugin/ .cursor-plugin/ .grok-plugin/

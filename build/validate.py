@@ -84,6 +84,10 @@ check(
 skills = sorted(p for p in SKILLS.iterdir() if p.is_dir())
 check(skills, "no skills found")
 
+# `start` is a launcher, not a course: it routes and sequences but teaches
+# nothing. Prose counts ("eight courses") must not include it.
+courses = []
+
 for skill in skills:
     md = skill / "SKILL.md"
     if not md.exists():
@@ -94,6 +98,8 @@ for skill in skills:
         failures.append(f"{skill.name}: SKILL.md has no YAML frontmatter")
         continue
     fm = text.split("---")[1]
+    if "role: launcher" not in fm:
+        courses.append(skill)
 
     name = re.search(r"^name: (.+)$", fm, re.M)
     desc = re.search(r"^description: (.+)$", fm, re.M)
@@ -138,6 +144,24 @@ for skill in skills:
     check("When unsure, say so" in ground, f"{skill.name}: no uncertainty rule in GROUND RULES")
     check("Never construct a URL" in ground, f"{skill.name}: no URL-fabrication rule in GROUND RULES")
     check(
+        "Never state a figure you did not look up" in ground,
+        f"{skill.name}: no unlooked-up-figure rule in GROUND RULES",
+    )
+    # Tone is the one feature that can quietly undo the rest: a voice the learner
+    # picked must never license a claim the evidence doesn't.
+    check(
+        "Tone never changes what is true" in ground,
+        f"{skill.name}: tone must not be allowed to override the guardrails",
+    )
+    check("Tone of voice?" in text, f"{skill.name}: wizard never offers a tone")
+    check("Tone: [chosen voice" in text, f"{skill.name}: Progress Card does not carry the tone")
+    tone = skill / "references/tone.md"
+    check(tone.exists(), f"{skill.name}: missing references/tone.md")
+    check(
+        tone.exists() and "Tone is delivery, never content" in tone.read_text(),
+        f"{skill.name}: tone.md missing the delivery-not-content floor",
+    )
+    check(
         "code.claude.com/docs" in text or "platform.claude.com/docs" in text,
         f"{skill.name}: no enumerated doc domains to ground links against",
     )
@@ -156,8 +180,8 @@ WORDS = "one two three four five six seven eight nine ten".split()
 for rel in [*MANIFESTS, "README.md"]:
     text = (ROOT / rel).read_text()
     for n, word in enumerate(WORDS, 1):
-        if n != len(skills) and re.search(rf"\b{word}\b[^.]{{0,40}}\bcourses\b", text, re.I):
-            failures.append(f"{rel}: claims '{word} courses' but there are {len(skills)}")
+        if n != len(courses) and re.search(rf"\b{word}\b[^.]{{0,40}}\bcourses\b", text, re.I):
+            failures.append(f"{rel}: claims '{word} courses' but there are {len(courses)}")
 
 if failures:
     print(f"✘ {len(failures)} failure(s):")
@@ -165,5 +189,7 @@ if failures:
         print(f"  - {f}")
     sys.exit(1)
 
-print(f"✔ v{version} — {len(skills)} skills, {len(MANIFESTS)} manifests in lockstep")
-print(f"  skills: {', '.join(s.name for s in skills)}")
+launchers = [s.name for s in skills if s not in courses]
+print(f"✔ v{version} — {len(courses)} courses, {len(MANIFESTS)} manifests in lockstep")
+print(f"  courses: {', '.join(s.name for s in courses)}")
+print(f"  launcher: {', '.join(launchers) or 'none'}")
