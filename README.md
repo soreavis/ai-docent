@@ -10,7 +10,7 @@ Eight multi-session tutor courses that take you from beginner to genuine power u
 Installs into whichever agent you already use: Claude Code, Codex, Cursor, Gemini CLI, Copilot, Grok, and anything else that reads the [Agent Skills](https://agentskills.io) standard.
 
 > [!IMPORTANT]
-> **This is an independent, community-maintained project.** It is **not affiliated with, endorsed by, or supported by** Anthropic, OpenAI, Google, GitHub/Microsoft, xAI, Cursor, or any other vendor whose tools it installs into or teaches. Claude, Codex, Gemini, Copilot, Grok, and Cursor are trademarks of their respective owners, used here only to say what this project works with. Use of this software is entirely at your own risk.
+> **An independent project, built and maintained by one person.** Not affiliated with, endorsed by, or sponsored by any of the vendors whose tools it installs into or teaches. Product names and trademarks belong to their respective owners, used here only to describe compatibility. Use at your own risk.
 
 ## The courses
 
