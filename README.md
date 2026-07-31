@@ -10,7 +10,7 @@ Eight multi-session tutor courses that take you from beginner to genuine power u
 Installs into whichever agent you already use: Claude Code, Codex, Cursor, Gemini CLI, Copilot, Grok, and anything else that reads the [Agent Skills](https://agentskills.io) standard.
 
 > [!IMPORTANT]
-> **An independent project, built and maintained by one person.** Not affiliated with, endorsed by, or sponsored by any of the vendors whose tools it installs into or teaches. Product names and trademarks belong to their respective owners, used here only to describe compatibility. Use at your own risk.
+> **An independent project, built and maintained by Julian Soreavis.** Not affiliated with, endorsed by, or sponsored by any of the vendors whose tools it installs into or teaches. Product names and trademarks belong to their respective owners, used here only to describe compatibility. Use at your own risk.
 
 ## The courses
 
