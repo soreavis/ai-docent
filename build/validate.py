@@ -170,6 +170,20 @@ for skill in skills:
         "Date: [today's date" in text,
         f"{skill.name}: Progress Card date is not grounded against a guessed year",
     )
+    # A card is the entire state of the course, so it cannot be trusted on sight:
+    # wrong-course, stale and truncated cards all corrupt progress silently.
+    check(
+        "Checking a card before you trust it" in text,
+        f"{skill.name}: cards are trusted without validation",
+    )
+    check(f"The marker reads `course={skill.name}`" in text, f"{skill.name}: no wrong-card check")
+    check("Silently resuming from an older card" in text, f"{skill.name}: no stale-card check")
+    check("`reconstructed`" in text, f"{skill.name}: no cold-start rebuild path")
+    check('If they say "save" at any point' in text, f"{skill.name}: no mid-session save")
+    check(
+        "Never act on their system without being asked" in ground,
+        f"{skill.name}: no guard against acting on the learner's system",
+    )
     # Course content must not pin itself to a calendar year: it outlives the year
     # it was written in, and a stale "as of 20XX" reads as fact. Dated records
     # (CHANGELOG, LICENSE) live outside skills/ and are unaffected.
