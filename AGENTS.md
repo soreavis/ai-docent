@@ -14,6 +14,7 @@ skills/<course>/references/     curriculum + tone + game mode; load on demand
 skills/start/                   launcher: routes and sequences the arc
 skills/companion/               revision: drills what the courses seeded
 docs/                           end-user guides
+.claude/CLAUDE.md               imports this file for Claude Code; not at the root, where a plugin ignores it
 version.txt                     single source of truth for the version
 .claude-plugin/  .codex-plugin/  .cursor-plugin/  .grok-plugin/
 .agents/plugins/  gemini-extension.json

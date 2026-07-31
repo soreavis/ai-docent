@@ -55,9 +55,12 @@ Run `/reload-plugins` after edits to pick them up without restarting.
 ## Validating
 
 ```bash
-python3 build/validate.py    # spec, conventions, and version lockstep — the same script CI runs
-claude plugin validate .     # Claude Code manifest check
+python3 build/validate.py                              # spec, conventions, version lockstep — the same script CI runs
+claude plugin validate . --strict                      # the marketplace manifest
+claude plugin validate .claude-plugin/plugin.json --strict   # the plugin AND every skill's frontmatter
 ```
+
+Run all three. `claude plugin validate .` stops at the marketplace manifest and never reaches the skills — pointing it at `plugin.json` is what validates them, and that is how six broken frontmatters went unnoticed.
 
 `build/validate.py` enforces:
 

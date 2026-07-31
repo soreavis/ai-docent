@@ -8,6 +8,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com/) and [Semant
 
 ### Fixed
 
+- `CLAUDE.md` moved to `.claude/CLAUDE.md` and now uses the documented `@AGENTS.md` import rather than a prose link, which only suggested the file. At the repo root it also sat at the plugin root, where installed plugins never load it — `claude plugin validate --strict` flagged it.
 - Frontmatter is now checked for the hazards a YAML parser accepts silently: duplicate keys (only the last survives), tabs in indentation, and a missing opening `---`.
 - **Six of ten skills had frontmatter that did not parse as YAML.** An unquoted `": "` inside the `description` field broke the mapping, and the runtime drops *all* metadata when that happens — those skills would have installed with no name and no description, undiscoverable and uninvocable. Found by `claude plugin validate --strict`; `build/validate.py` missed it because it read the frontmatter with a regex. It now parses the YAML properly, and CI installs PyYAML so the strong check always runs.
 - The guardrail block told every course that `docs.claude.com` is stale. It isn't — it 301s to the current documentation. The rule (cite the canonical domain) stands; the false reason is gone.
