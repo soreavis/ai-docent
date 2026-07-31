@@ -7,23 +7,37 @@ body:
     attributes:
       label: Where did this happen?
       options:
-        - Claude Code (terminal)
-        - Claude Code (IDE)
-        - Claude desktop app
-        - claude.ai (web/mobile)
-        - Cowork
+        - Claude Code
+        - Claude web / desktop / Cowork
+        - ChatGPT
+        - Codex
+        - Cursor
+        - Gemini CLI
+        - Copilot / GitHub CLI
+        - Grok
+        - Another agent (say which below)
     validations: { required: true }
   - type: dropdown
     id: course
     attributes:
       label: Which course?
-      options: [foundations, prompt-craft, reliability, shipping, long-haul, security, mechanics, builder]
+      options:
+        - foundations
+        - prompt-craft
+        - reliability
+        - shipping
+        - long-haul
+        - security
+        - mechanics
+        - builder
+        - start
+        - companion
     validations: { required: true }
   - type: input
     id: version
     attributes:
       label: Plugin version
-      description: "From /plugin, or the version in plugin.json"
+      description: "From your plugin manager, or the `version` in the skill's frontmatter"
     validations: { required: true }
   - type: textarea
     id: steps

@@ -2,6 +2,46 @@
 
 Contributions are welcome. If an AI agent is doing the work, point it at [AGENTS.md](AGENTS.md).
 
+This is maintained by one person, so review is the bottleneck rather than ideas. The sections below say what lands quickly, what needs a conversation first, and what will be declined — so you don't spend an evening on something that was never going to merge.
+
+## What's most useful
+
+**Corrections, above everything else.** A course stating something wrong, stale, or unsupported is a defect, and a stranger who hits one is better placed to catch it than the maintainer who wrote it. Open a [Course Correction](../../issues/new?template=course_correction.yml) issue with a source. These get fixed fastest of anything here.
+
+**New platform lanes.** A runtime that reads Agent Skills and isn't in the README table yet. Small, testable, obviously valuable — see [Adding a platform lane](#adding-a-platform-lane).
+
+**Validator improvements.** `build/validate.py` is where this project's conventions are actually enforced. A new gate that catches a real class of mistake is worth more than a fix for one instance of it.
+
+**Typos, broken links, dead commands.** Straight to a PR, no issue needed.
+
+## What needs an issue first
+
+**A new course.** Nobody should write a 500-line `SKILL.md` speculatively. Open a Feature Request with the gap it fills, evidence that people actually hit it, and a sketch of the four levels. A course that arrives as a surprise pull request will probably be declined however good it is, and that's a bad outcome for both of us.
+
+**A new level, or restructuring an existing course.** Same reasoning, smaller scale.
+
+**Anything touching the guardrails.** The GROUND RULES blocks, the planted-error protocol in `reliability`, the describe-don't-perform protocol in `security`. These look like ordinary prose and are load-bearing.
+
+## What will be declined
+
+- **Rewriting lesson prose for style.** Eight courses in one voice is a feature. Style preferences are not defects.
+- **Changing the tone options** or how a course sounds, without a specific problem it solves.
+- **Adding a figure, price, limit, or model ID** to course text. Those route to live documentation on purpose.
+- **Bulk changes** — a hundred files touched, or a PR that does three unrelated things. Split it.
+
+## Using AI to contribute
+
+Use an agent if you want. This project exists to teach people to do that well, and a policy forbidding it would be both hypocritical and unenforceable.
+
+What matters is the same standard the `shipping` course teaches:
+
+- **You have read every line and can explain any of it.** "The agent did it" is not an answer to a review comment.
+- **It is scoped small enough to review in one sitting.** Generating is cheap and reviewing is expensive, and that cost lands on someone else.
+- **Every product fact is verified against current docs, with the source in the PR.** Not "the model said so."
+- **You disclose it** in the pull request template. Honestly. It changes how a PR is read, not whether it's welcome — and an undisclosed generated PR that turns out to be generated gets closed.
+
+Fully automated pull requests — opened by a bot, or by someone who has not read the diff — will be closed without review.
+
 ## Getting started
 
 ```bash
@@ -35,6 +75,7 @@ claude plugin validate .     # Claude Code manifest check
 - every skill carries the edge-case block, a cold-start rebuild, and a mid-session `save`
 - courses carry `Review seeds` and point at the companion; wizards state core/branch/ceiling counts that match the questions actually written
 - every skill is registered in `release-please-config.json`, so its version bumps with the rest
+- the issue templates offer every skill, so a new one can be reported against
 - **every one of the eight platform manifests, and the README version badge, carries the same version as `version.txt`**
 
 ## Course conventions

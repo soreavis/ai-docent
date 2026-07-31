@@ -1,0 +1,63 @@
+name: Course Correction
+description: A course states something that is wrong, stale, or unsupported
+labels: ["correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is the most valuable report you can file. Every course is built to route
+        changeable facts to live documentation rather than assert them — so a course
+        stating something untrue is a defect in the course, not a bad day for the model.
+
+        A correction needs a source. That is the same standard the courses hold
+        themselves to, and it is what lets a fix land in minutes rather than becoming
+        a debate.
+  - type: dropdown
+    id: skill
+    attributes:
+      label: Which skill?
+      options:
+        - foundations
+        - prompt-craft
+        - reliability
+        - shipping
+        - long-haul
+        - security
+        - mechanics
+        - builder
+        - start (launcher)
+        - companion (revision)
+    validations: { required: true }
+  - type: input
+    id: lesson
+    attributes:
+      label: Where exactly?
+      description: "Lesson number, level, or the file and heading — e.g. `reliability` 2.4, or curriculum.md Level 3"
+    validations: { required: true }
+  - type: textarea
+    id: claimed
+    attributes:
+      label: What did it say?
+      description: "Quote it. Paraphrase loses the thing that needs fixing."
+    validations: { required: true }
+  - type: textarea
+    id: actual
+    attributes:
+      label: What is actually true?
+    validations: { required: true }
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: "A link to official documentation, or the command whose output shows it. If you cannot source it, say so plainly here rather than leaving it blank."
+    validations: { required: true }
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem is it?
+      options:
+        - Stale — was true once, is not now
+        - Wrong — was never true
+        - Unsupported — may be true, but the course asserts it without grounds
+        - Fabricated — invented a URL, figure, feature, or citation
+    validations: { required: true }

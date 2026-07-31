@@ -9,7 +9,8 @@ body:
       options:
         - A new lesson in an existing course
         - A change to an existing lesson
-        - A whole new course
+        - A whole new course (open this before writing one — see CONTRIBUTING.md)
+        - A new platform or install lane
         - Tooling, packaging, or docs
     validations: { required: true }
   - type: textarea

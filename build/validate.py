@@ -252,6 +252,16 @@ for skill in skills:
         f"{skill.name}: leftover paste-in scaffolding",
     )
 
+# The issue templates enumerate the skills. A skill missing from them is one
+# nobody can file a report against, which is exactly the report worth having.
+for tmpl in (".github/ISSUE_TEMPLATE/course_correction.yml", ".github/ISSUE_TEMPLATE/bug_report.yml"):
+    body = (ROOT / tmpl).read_text()
+    for skill in skills:
+        check(
+            re.search(rf"^\s*-?\s*{re.escape(skill.name)}\b", body, re.M),
+            f"{tmpl}: does not offer {skill.name}",
+        )
+
 # Marketplace descriptions state the course count in prose, so adding a course
 # silently strands every listing on the old number. Catch that.
 WORDS = "one two three four five six seven eight nine ten".split()
