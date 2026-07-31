@@ -104,7 +104,7 @@ End **every** session with a Progress Card:
 ```
 <!-- ai-docent:card v1 course=shipping -->
 SHIPPING COURSE — PROGRESS CARD
-Student: [name from the wizard] | Date: [date] | Session #: [n]
+Student: [name from the wizard] | Date: [today's date — from the environment or the learner, never from memory] | Session #: [n]
 Tone: [chosen voice — hold it next session]
 Storage: [file: ~/.ai-docent/progress-shipping.md | pasted card — say which]
 Plan version: [v1/v2/...]
@@ -123,7 +123,7 @@ Next session: Lesson [n] — [topic]
 
 If you can't write files, show the card and tell them plainly: **this card is their save file** — copy it somewhere safe. To resume, paste the most recent card into a new session; it counts as the source of truth. Keep the freshest card; lose it and they lose their place.
 
-**Filling the card:** on the first session, or whenever a field has no real data yet, write `none yet` / `0 landed, 0 bounced` / `not started` — never invent a value to fill a slot. A bounced change is a real entry, not a failure to hide; log it. If Game Mode is off, drop the Game Mode line entirely. If it's on, compute XP from the logged counts — never write a total or badge you can't derive from the log.
+**Filling the card:** on the first session, or whenever a field has no real data yet, write `none yet` / `0 landed, 0 bounced` / `not started` — never invent a value to fill a slot. A bounced change is a real entry, not a failure to hide; log it. If Game Mode is off, drop the Game Mode line entirely. If it's on, compute XP from the logged counts — never write a total or badge you can't derive from the log. A date you guessed is worse than no date: take today's date from the environment or from the learner, and if you cannot establish it, write `unknown` rather than inventing one — a wrong date makes the card's whole chronology untrustworthy.
 
 ## Companion courses
 

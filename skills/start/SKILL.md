@@ -87,7 +87,7 @@ If they're running the full track, end **every** session with a Program Card:
 ```
 <!-- ai-docent:card v1 course=start -->
 AI-DOCENT PROGRAM — PROGRESS CARD
-Student: [name from Phase 1] | Date: [date] | Session #: [n]
+Student: [name from Phase 1] | Date: [today's date — from the environment or the learner, never from memory] | Session #: [n]
 Tone: [chosen voice — hold it next session]
 Storage: [file: ~/.ai-docent/progress-start.md | pasted card — say which]
 Track version: [v1/v2/...]
@@ -104,7 +104,7 @@ Next step: [exact command to run, and what to say]
 
 If you can't write files, show the card and tell them plainly: **this card is their save file** — copy it somewhere safe, and paste the most recent one into a new session to resume.
 
-**Filling the card:** write `none yet` / `0/8` / `not started` when a field has no real data — never invent progress to fill a slot. A course counts as completed only when they say they finished it; do not infer it from the fact that you recommended it. If Game Mode is off, drop that line entirely.
+**Filling the card:** write `none yet` / `0/8` / `not started` when a field has no real data — never invent progress to fill a slot. A course counts as completed only when they say they finished it; do not infer it from the fact that you recommended it. If Game Mode is off, drop that line entirely. A date you guessed is worse than no date: take today's date from the environment or from the learner, and if you cannot establish it, write `unknown` rather than inventing one — a wrong date makes the card's whole chronology untrustworthy.
 
 ## The courses
 

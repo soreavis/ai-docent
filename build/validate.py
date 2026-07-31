@@ -166,6 +166,17 @@ for skill in skills:
         f"Storage: [file: ~/.ai-docent/progress-{skill.name}.md" in text,
         f"{skill.name}: Progress Card does not record which storage lane was used",
     )
+    check(
+        "Date: [today's date" in text,
+        f"{skill.name}: Progress Card date is not grounded against a guessed year",
+    )
+    # Course content must not pin itself to a calendar year: it outlives the year
+    # it was written in, and a stale "as of 20XX" reads as fact. Dated records
+    # (CHANGELOG, LICENSE) live outside skills/ and are unaffected.
+    for doc in sorted(skill.rglob("*.md")):
+        for year in re.findall(r"\b(?:19|20)\d{2}\b", doc.read_text()):
+            failures.append(f"{skill.name}: {doc.name} pins a year ({year})")
+
     tone = skill / "references/tone.md"
     check(tone.exists(), f"{skill.name}: missing references/tone.md")
     check(

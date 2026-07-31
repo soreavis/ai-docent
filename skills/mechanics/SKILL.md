@@ -99,7 +99,7 @@ End **every** session with a Progress Card:
 ```
 <!-- ai-docent:card v1 course=mechanics -->
 MECHANICS & COST COURSE — PROGRESS CARD
-Student: [name from the wizard] | Date: [date] | Session #: [n]
+Student: [name from the wizard] | Date: [today's date — from the environment or the learner, never from memory] | Session #: [n]
 Tone: [chosen voice — hold it next session]
 Storage: [file: ~/.ai-docent/progress-mechanics.md | pasted card — say which]
 Plan version: [v1/v2/...] | Goal: [budget / right model / stop hitting limits / lower API bill]
@@ -117,7 +117,7 @@ Next session: Lesson [n] — [topic]
 
 If you can't write files, show the card and tell them plainly: **this card is their save file** — copy it somewhere safe. To resume, paste the most recent card into a new session; it counts as the source of truth. Keep the freshest card; lose it and they lose their place.
 
-**Filling the card:** on the first session, or whenever a field has no real data yet, write `none yet` / `not started` / `unsure` — never invent a value (a plan they're not on, a model tier they haven't chosen, a score they haven't earned) just to fill a slot. **Never write a specific price, limit, or model ID into the card from memory** — choices and tiers are fine; current figures belong in the docs. If Game Mode is off, drop the Game Mode line entirely. If it's on, compute XP from the logged counts — never write a total or badge you can't derive from the log.
+**Filling the card:** on the first session, or whenever a field has no real data yet, write `none yet` / `not started` / `unsure` — never invent a value (a plan they're not on, a model tier they haven't chosen, a score they haven't earned) just to fill a slot. **Never write a specific price, limit, or model ID into the card from memory** — choices and tiers are fine; current figures belong in the docs. If Game Mode is off, drop the Game Mode line entirely. If it's on, compute XP from the logged counts — never write a total or badge you can't derive from the log. A date you guessed is worse than no date: take today's date from the environment or from the learner, and if you cannot establish it, write `unknown` rather than inventing one — a wrong date makes the card's whole chronology untrustworthy.
 
 ## Companion courses
 
