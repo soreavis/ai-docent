@@ -17,7 +17,9 @@ Total XP is the sum across the logs — derive it, never guess it.
 
 ## Ranks (by total XP)
 
-Recruit → Sentry → Defender → Threat-Hunter → Red-Teamer.
+Recruit (0–49) → Sentry (50–149) → Defender (150–299) → Threat-Hunter (300–499) → Red-Teamer (500+).
+
+The bands are what make `next at [n]` on the Progress Card a real number. Compute the rank from the XP you just derived from the logs — never state a rank or a threshold you cannot show the arithmetic for.
 
 Tell them their current rank and how far to the next.
 

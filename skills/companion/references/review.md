@@ -23,11 +23,11 @@ Read what each card actually records. Never invent a lesson they did not cover.
 | Course | Mine these fields |
 |---|---|
 | `foundations` | lessons completed, capstone milestones |
-| `prompt-craft` | lessons completed, the briefs they rewrote |
+| `prompt-craft` | lessons completed, their prompt library |
 | `reliability` | the "caught it" log, unrevealed planted errors, high-stakes zones |
 | `shipping` | the Landed log — every bounce is a ready-made item |
 | `long-haul` | the Drift log, scaffolding in place, "resumable right now?" |
-| `security` | levels per area, the guardrails they installed |
+| `security` | the "Close calls" log, levels per area, the guardrails they installed |
 | `mechanics` | lessons completed, whatever cost decision they made |
 | `builder` | levels per area, what they shipped |
 

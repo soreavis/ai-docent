@@ -28,7 +28,7 @@ On a chat surface with no filesystem, paste the cards for the courses you want c
 
 Each course writes a `Review seeds` line onto its card at the end of a lesson: one or two situations, caught while the coach was watching you work. The companion drills those first, because a seed written in the moment beats anything reconstructed from a lesson title afterwards.
 
-Seeds keep only the newest five per course, so older cards have fewer than the lessons they list. The companion fills the gaps from the rest of the card — the "caught it" log in `reliability`, the Landed log in `shipping`, the Drift log in `long-haul`. Six to twelve items per course is the target. A queue too big to face is a queue nobody opens.
+Seeds keep only the newest five per course, so older cards have fewer than the lessons they list. The companion fills the gaps from the rest of the card — the "caught it" log in `reliability`, the Landed log in `shipping`, the Drift log in `long-haul`, the "close calls" log in `security`. Six to twelve items per course is the target. A queue too big to face is a queue nobody opens.
 
 Items are situations, not definitions:
 

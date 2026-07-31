@@ -16,7 +16,7 @@ This is maintained by one person, so review is the bottleneck rather than ideas.
 
 ## What needs an issue first
 
-**A new course.** Nobody should write a 500-line `SKILL.md` speculatively. Open a Feature Request with the gap it fills, evidence that people actually hit it, and a sketch of the four levels. A course that arrives as a surprise pull request will probably be declined however good it is, and that's a bad outcome for both of us.
+**A new course.** Nobody should write a 500-line `SKILL.md` speculatively. Open a Feature Request with the gap it fills, evidence that people actually hit it, and a sketch of its levels. A course that arrives as a surprise pull request will probably be declined however good it is, and that's a bad outcome for both of us.
 
 **A new level, or restructuring an existing course.** Same reasoning, smaller scale.
 
@@ -67,7 +67,7 @@ claude plugin validate .     # Claude Code manifest check
 - every `references/` link resolves
 - the name-first wizard question, `disable-model-invocation: true`, a file-based progress card, and the Game Mode scoring-honesty rule are all present
 - no `docs.claude.com` citations and no leftover paste-in scaffolding
-- the six anti-hallucination guardrails are present **inside** each skill's GROUND RULES block: the tool guard, the uncertainty rule, the never-construct-a-URL rule, enumerated doc domains, the never-state-an-unlooked-up-figure rule, and the rule that tone never overrides any of them
+- the seven anti-hallucination guardrails are present **inside** each skill's GROUND RULES block: the tool guard, the uncertainty rule, the never-construct-a-URL rule, enumerated doc domains, the never-state-an-unlooked-up-figure rule, the never-act-on-their-system rule, and the rule that tone never overrides any of them
 - every skill offers a tone in its wizard, carries `references/tone.md` with the delivery-not-content floor, and records the choice on its Progress Card
 - prose counts match reality — a manifest or the README claiming "eight courses" fails if the course count changes (skills carrying a `role:` are support skills and are excluded: `start`, `companion`)
 - no file under `skills/` pins a calendar year, and every Progress Card grounds its date rather than guessing
@@ -76,6 +76,7 @@ claude plugin validate .     # Claude Code manifest check
 - courses carry `Review seeds` and point at the companion; wizards state core/branch/ceiling counts that match the questions actually written
 - every skill is registered in `release-please-config.json`, so its version bumps with the rest
 - the issue templates offer every skill, so a new one can be reported against
+- every skill guards against acting on the learner's system unasked, and every rank ladder carries the XP bands that make the Progress Card's `next at` derivable
 - **every one of the eight platform manifests, and the README version badge, carries the same version as `version.txt`**
 
 ## Course conventions
@@ -83,7 +84,7 @@ claude plugin validate .     # Claude Code manifest check
 These are deliberate. Keep them.
 
 - **No hardcoded prices, usage limits, or model IDs.** Route every changeable number to live docs. A well-formed but stale figure is a hallucination.
-- **Doc domains:** `code.claude.com/docs`, `platform.claude.com/docs`, `support.claude.com`, `claude.com/pricing`. Never `docs.claude.com`.
+- **Doc domains:** `code.claude.com/docs`, `platform.claude.com/docs`, `support.claude.com`, `claude.com/pricing`. Never `docs.claude.com` — it redirects to the canonical domain; cite that.
 - **Game Mode scoring stays honest.** XP is recomputed from logged events, never carried as a remembered total.
 - **`reliability` must keep its planted-error protocol** — every deliberately planted fabrication is tracked and revealed before the session ends.
 - **`security` must keep its describe-don't-perform protocol** — attacks are shown as inert, fenced, labeled text and neutralized before the exercise closes. Never executed.

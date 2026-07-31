@@ -39,7 +39,7 @@ A rough guide to the eight, in arc order:
 
 Four parts. How long it takes depends on your answers, and the wizard asks how long you want sessions to run.
 
-**The wizard.** Eleven to thirteen questions depending on the course, one at a time, and it reacts to your answers rather than marching through a form. It asks your name first. Somewhere in there it asks how you want to be taught, and whether you want the gamified version. Answer honestly, particularly about your current level. Overstating it produces a plan that skips what you actually need.
+**The wizard.** Six core questions, plus whichever branch questions apply to your answers — usually nine or ten in total, one at a time, and it reacts to your answers rather than marching through a form. It asks your name first. Somewhere in there it asks how you want to be taught, and whether you want the gamified version. Answer honestly, particularly about your current level. Overstating it produces a plan that skips what you actually need.
 
 **The plan.** It reads the full curriculum, then builds a version for you: courses reordered, lessons merged or cut, weighted toward whatever is hurting. You get it as a numbered list before anything starts. Change it. That's the point of showing it to you.
 

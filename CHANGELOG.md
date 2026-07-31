@@ -6,6 +6,15 @@ This project follows [Keep a Changelog](https://keepachangelog.com/) and [Semant
 
 ## [Unreleased]
 
+### Fixed
+
+- The guardrail block told every course that `docs.claude.com` is stale. It isn't — it 301s to the current documentation. The rule (cite the canonical domain) stands; the false reason is gone.
+- Two invented statistics removed: `shipping` claimed a technique "prevents half of all review round-trips", and `mechanics` asserted "most learners finish in 5–8 sessions" and instructed the tutor to say so — a population figure this project cannot have.
+- Every course rank ladder now carries XP bands. The Progress Card asks for `next at [n]`, and without bands that number was underivable, so it was invented and then persisted to the save file each session.
+- `mechanics` had no retro, yet instructed the tutor to mention the companion "at the ~5-session retro". Both the retro and a gate for it now exist.
+- The enumerated-doc-domains guardrail was checked against the whole file rather than the GROUND RULES block, so `SECURITY.md`'s claim that relocating a guardrail is caught was false for that one rule.
+- Corrected counts: seven guardrails not six (`AGENTS.md`, `CONTRIBUTING.md`, `SECURITY.md`), two support skills not three (`docs/README.md`), eight branch questions not seven (`long-haul`), skill files 15–20 KB not 12–15 KB (`README.md`).
+
 ### Added
 
 - `start`, a launcher skill: it asks what's going wrong, recommends one course, and can run all eight in order as a single tracked program. It teaches nothing itself and carries `role: launcher`, so it is excluded from the course count.
@@ -21,7 +30,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com/) and [Semant
 - `companion`, a support skill that keeps learned material from fading: it builds a review queue from every course card it can read, drills what's due on a widening 1-day/3-day/1-week/3-week ladder, spots which habits have gone quiet across courses, and has a five-minute mode. It never teaches new material — a drill that exposes a gap routes to the course that owns it.
 - Cards are now validated on read instead of trusted on sight: the course checks the marker's `course=`, refuses to resume from another course's card, names missing fields rather than inferring them, and asks which to use when a file is further along than a pasted card.
 - A cold-start rebuild path — three questions reconstruct a card instead of restarting onboarding — plus a mid-session `save` on request, so an interrupted session doesn't lose everything.
-- Every skill now guards against acting on the learner's system unasked. All five are gated by `build/validate.py`.
+- Every skill now guards against acting on the learner's system unasked. All of them are gated by `build/validate.py`.
 - Course content is now year-free and gated: `build/validate.py` fails if any file under `skills/` pins a calendar year, and Progress Cards take the date from the environment or the learner rather than from the model's memory.
 - Progress Cards now carry `<!-- ai-docent:card v1 course=… -->` markers, a `Storage:` line recording which lane saved them, and an instruction to print them fenced so chat surfaces offer one-click copy. All three are gated.
 

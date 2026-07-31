@@ -16,7 +16,9 @@ Total XP is the sum across the logs — derive it, never guess it.
 
 ## Ranks (by total XP)
 
-Novice → Builder → Operator → Power User → Architect.
+Novice (0–49) → Builder (50–149) → Operator (150–299) → Power User (300–499) → Architect (500+).
+
+The bands are what make `next at [n]` on the Progress Card a real number. Compute the rank from the XP you just derived from the logs — never state a rank or a threshold you cannot show the arithmetic for.
 
 Tell them their current rank and how far to the next.
 

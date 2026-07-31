@@ -144,10 +144,20 @@ for skill in skills:
     check("What should I call you" in text, f"{skill.name}: missing the name-first wizard question")
     check("disable-model-invocation: true" in fm, f"{skill.name}: courses must be user-invoked")
     check(f"progress-{skill.name}.md" in text, f"{skill.name}: no file-based progress card")
+    game = (skill / "references/game-mode.md").read_text()
     check(
-        "unearned point is a fabrication" in (skill / "references/game-mode.md").read_text(),
+        "unearned point is a fabrication" in game,
         f"{skill.name}: game-mode.md missing the scoring-honesty rule",
     )
+    # The card asks for "next at [n]". Without numeric bands on the rank ladder
+    # that number cannot be derived, so the model invents one and persists it.
+    ladder = re.search(r"^## Ranks[^\n]*\n\n(.+)$", game, re.M)
+    check(ladder, f"{skill.name}: game-mode.md has no rank ladder")
+    if ladder:
+        check(
+            re.search(r"\(\d", ladder.group(1)),
+            f"{skill.name}: rank ladder has no numeric bands, so 'next at' is underivable",
+        )
     # Anti-hallucination guardrails, from the 2026-07-24 audit. These must sit
     # inside the GROUND RULES block so a truncated paste still carries them.
     ground = text.split("## GROUND RULES", 1)[-1].split("\n## ", 1)[0]
@@ -218,6 +228,7 @@ for skill in skills:
     # Courses hand the companion material as they go; without seeds it can only
     # guess drills from lesson titles, which produces vague, useless items.
     if skill in courses:
+        check("3-minute **retro**" in text, f"{skill.name}: no retro, but the companion trigger assumes one")
         check("Review seeds:" in text, f"{skill.name}: Progress Card carries no review seeds")
         check("Seed the revision queue" in text, f"{skill.name}: lesson loop never writes a seed")
         check("/ai-docent:companion" in text, f"{skill.name}: never points the learner at the companion")
@@ -240,8 +251,8 @@ for skill in skills:
         f"{skill.name}: tone.md missing the delivery-not-content floor",
     )
     check(
-        "code.claude.com/docs" in text or "platform.claude.com/docs" in text,
-        f"{skill.name}: no enumerated doc domains to ground links against",
+        "code.claude.com/docs" in ground or "platform.claude.com/docs" in ground,
+        f"{skill.name}: no enumerated doc domains inside GROUND RULES",
     )
     # docs.claude.com is stale; it may only appear as an explicit warning.
     for line in text.splitlines():

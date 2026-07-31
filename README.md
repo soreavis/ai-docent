@@ -120,7 +120,7 @@ If your runtime takes individual skill folders rather than a plugin — or you'r
 > [!NOTE]
 > **The zip path has no auto-update.** Re-download and re-upload when a new version ships. Prefer a marketplace lane if your runtime has one.
 
-On a tool with no skill support at all — Perplexity Spaces, a plain chat window — paste a course's `SKILL.md` in as the standing instruction and keep its `references/` files to hand. Every course is written to survive this: with no filesystem, the Progress Card becomes your save file, and pasting the most recent one back resumes the course. Check the tool's instruction-length limit first, though — the courses run 12–15 KB each, and a silently truncated course is worse than none.
+On a tool with no skill support at all — Perplexity Spaces, a plain chat window — paste a course's `SKILL.md` in as the standing instruction and keep its `references/` files to hand. Every course is written to survive this: with no filesystem, the Progress Card becomes your save file, and pasting the most recent one back resumes the course. Check the tool's instruction-length limit first, though — the courses run roughly 15–20 KB each, and a silently truncated course is worse than none.
 
 ## Where your progress is saved
 
@@ -133,7 +133,7 @@ Each course writes a Progress Card at the end of every session.
 
 Cards are checked rather than trusted. A card from another course won't be resumed from, missing fields are named instead of filled in, and if a file is further along than something you pasted, you're asked which to use rather than quietly losing the newer one. If nothing survives at all, three questions rebuild it — you don't get sent back through onboarding. Say **save** at any point to get the card mid-session.
 
-Chat surfaces have no filesystem that persists between conversations, so there the card is your save file: paste the most recent one into a new session to pick up where you left off. A pasted card always outranks everything else.
+Chat surfaces have no filesystem that persists between conversations, so there the card is your save file: paste the most recent one into a new session to pick up where you left off. A pasted card outranks the file and the chat history — after the course has checked it.
 
 ## Structure
 
