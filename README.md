@@ -1,3 +1,5 @@
+![A robed guide holding a lantern points out a route across a vast twilight valley to a child standing beside them, with a line of glowing waypoints tracing the path toward the horizon.](docs/assets/hero.jpg)
+
 # ai-docent
 
 [![CI](https://github.com/soreavis/ai-docent/actions/workflows/ci.yml/badge.svg)](https://github.com/soreavis/ai-docent/actions/workflows/ci.yml)
