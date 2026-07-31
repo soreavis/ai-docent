@@ -7,7 +7,7 @@
 
 Eight multi-session tutor courses that take you from beginner to genuine power user of AI agents — an onboarding wizard, a personalized plan, hands-on exercises on your own real work, boss fights as level gates, a coaching voice you choose, and progress that survives across sessions.
 
-Installs into whichever agent you already use: Claude Code, Codex, Cursor, Gemini CLI, Copilot, Grok, and anything else that reads the [Agent Skills](https://agentskills.io) standard.
+Installs into whichever agent you already use: Claude Code, ChatGPT, Codex, Cursor, Gemini CLI, Copilot, Grok, and anything else that reads the [Agent Skills](https://agentskills.io) standard.
 
 > [!IMPORTANT]
 > **An independent project, built and maintained by Julian Soreavis.** Not affiliated with, endorsed by, or sponsored by any of the vendors whose tools it installs into or teaches. Product names and trademarks belong to their respective owners, used here only to describe compatibility. Use at your own risk.
