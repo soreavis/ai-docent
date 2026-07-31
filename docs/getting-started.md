@@ -68,4 +68,12 @@ That's the shape. It works from your proposal, not a sample one.
 
 Open the same course again and say "continue". It reads the card, gives you a one-line recap, asks a couple of questions about the last lesson, then moves on.
 
-If you're in a plain chat window with no file access, paste your most recent card first. A pasted card overrides everything else, including anything the course thinks it remembers.
+If you're in a plain chat window with no file access, paste your most recent card first. A pasted card overrides the file and the chat history — but it gets checked before it's trusted, so a card from a different course won't be resumed from and missing fields get named rather than invented.
+
+## After the first course
+
+Two skills exist that aren't courses.
+
+`/ai-docent:start` picks a course for you if you don't know where to begin, and can run all eight in order as one tracked program.
+
+`/ai-docent:companion` drills what you've already covered so it doesn't fade. Each course writes a `Review seeds` line onto its card at the end of a lesson, and the companion works from those. It's worth opening once you've finished a course or two — before that there's nothing to revise, and it will tell you so.

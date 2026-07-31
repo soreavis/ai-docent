@@ -131,17 +131,22 @@ Each course writes a Progress Card at the end of every session.
 | Any agent with file access | `~/.ai-docent/progress-<course>.md`, written automatically |
 | Plain chat, no filesystem | shown in the conversation — copy it somewhere safe |
 
+Cards are checked rather than trusted. A card from another course won't be resumed from, missing fields are named instead of filled in, and if a file is further along than something you pasted, you're asked which to use rather than quietly losing the newer one. If nothing survives at all, three questions rebuild it — you don't get sent back through onboarding. Say **save** at any point to get the card mid-session.
+
 Chat surfaces have no filesystem that persists between conversations, so there the card is your save file: paste the most recent one into a new session to pick up where you left off. A pasted card always outranks everything else.
 
 ## Structure
 
 ```
 ai-docent/
-├── skills/<course>/
+├── skills/<course>/                # the eight courses
 │   ├── SKILL.md                    # the operating manual, loads on activation
 │   └── references/
 │       ├── curriculum.md           # loaded when building the lesson plan
+│       ├── tone.md                 # the voices, and what no voice may change
 │       └── game-mode.md            # loaded only if Game Mode is on
+├── skills/start/                   # launcher — routes, sequences the full arc
+├── skills/companion/               # revision — drills what the courses seeded
 ├── docs/                           # how to use the courses
 ├── version.txt                     # single source of truth for the version
 ├── .claude-plugin/                 # plugin.json + marketplace.json

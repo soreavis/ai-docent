@@ -40,6 +40,18 @@ Skill zips have no update mechanism at all. Re-download and re-upload.
 
 XP is recomputed from the logged events each session rather than carried forward, so a number can change if the log did. What shouldn't happen is points appearing for work you didn't do. If a badge or a streak shows up that you can't account for, say so, and it should recalculate from the log rather than defend the total.
 
+## The companion has nothing to drill
+
+It only works from cards. If you haven't finished any course, there's nothing to build a queue from and it will say so rather than inventing drills — open `/ai-docent:start` instead.
+
+If you have done a course but it still comes up empty, it couldn't read the cards. On a filesystem check `~/.ai-docent/`; in a chat window, paste the cards for the courses you want covered.
+
+"Nothing is due" is a normal answer, not a fault. Items sit at 1 day, 3 days, 1 week, then 3 weeks apart. Ask for a retro or the items retiring soonest instead.
+
+## It asked me something it should already know
+
+Name, tone and game-mode setting are read off your newest card, and the companion asks only for your revision cadence. If you're being asked again, the card it found didn't carry those fields — usually a hand-edited card, or one from a session that ended before the card was written.
+
 ## A course said something that isn't true
 
 Tell it. The courses are built to correct themselves and note it rather than argue, and `reliability` treats catching this as the skill being taught.

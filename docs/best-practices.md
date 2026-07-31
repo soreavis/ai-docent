@@ -52,6 +52,12 @@ Two reasonable deviations. Skip `foundations` if you already use an agent daily,
 
 If you catch the course in a genuine mistake, say so. It's supposed to correct itself and log it, not defend the claim.
 
+## Revise, or it goes
+
+Finishing a lesson isn't learning it. Nothing in a course brings material back after the session ends, which is what `/ai-docent:companion` is for — it drills the situations each course flagged while you were working on them.
+
+The catch: there's no scheduler, so nothing will chase you. Ten minutes a week beats an hour a month, and the ladder only widens if you actually show up.
+
 ## Finishing one course is a result
 
 The full arc is long. One course, done properly, on real work, changes how you operate. Stopping there is a legitimate ending rather than a dropout, and the launcher will tell you the same thing.

@@ -10,7 +10,10 @@ The courses run in any agent. The curriculum currently uses Claude as its worked
 
 ```
 skills/<course>/SKILL.md        the course; loads in full when invoked
-skills/<course>/references/     curriculum + game mode; load on demand
+skills/<course>/references/     curriculum + tone + game mode; load on demand
+skills/start/                   launcher: routes and sequences the arc
+skills/companion/               revision: drills what the courses seeded
+docs/                           end-user guides
 version.txt                     single source of truth for the version
 .claude-plugin/  .codex-plugin/  .cursor-plugin/  .grok-plugin/
 .agents/plugins/  gemini-extension.json
@@ -35,6 +38,9 @@ version.txt                     single source of truth for the version
 - **No personal, employer, or client names** anywhere in the courses.
 - **Six guardrails must live inside the GROUND RULES block of every skill** — the tool guard, the uncertainty rule, the never-construct-a-URL rule, enumerated doc domains, the never-state-an-unlooked-up-figure rule, and the rule that tone never changes what is true. They sit there rather than lower down so a truncated paste still carries them. `build/validate.py` fails the build if any is missing; see the 2026-07-24 hallucination audit for why each exists.
 - **Tone is delivery, never content.** Every skill offers the learner a voice and carries `references/tone.md`. The voice may change register, warmth and length; it may never change a fact, a hedge, or whether something got verified. If you add a voice, it inherits that floor — and the Progress Card must keep carrying the choice, or it silently resets each session.
+- **Courses seed, the companion drills.** Every course writes a `Review seeds` line at the recap — a situation, not a definition — and points at `/ai-docent:companion` at the retro and on completion, never after every lesson. If you add a course, it inherits both or the companion has nothing to work from.
+- **Every skill handles the card edge cases.** Several cards pasted at once, an unknown card version, a lesson the curriculum lacks, a future date, a disputed judgement, skipping ahead, two courses in one conversation. All are gated; none may be answered by guessing.
+- **Wizard counts are checked against reality.** Each wizard states its core questions, how many branch questions exist and a hard ceiling, and `validate.py` recounts them. Add a branch question and you update the number in the same commit.
 - **Never ask what a card already answers.** Name, tone and Game Mode are all recorded, and a skill that re-asks them reads as not having looked. Inherit from the newest card, state in one line what you inherited so a wrong guess is cheap to correct, then ask only what genuinely isn't written down. This matters most in `companion`, which by definition never runs before a course.
 - **Support skills are not courses.** Any skill carrying a `role:` in its metadata is excluded from the course count by `validate.py`, so prose saying "eight courses" stays true. There are two: `start` (`role: launcher`) routes people and sequences the full track, and `companion` (`role: companion`) drills material back from the other cards. Neither teaches new material — if you find yourself writing a lesson into one, it belongs in a course.
 

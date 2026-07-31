@@ -32,6 +32,9 @@ claude plugin validate .     # Claude Code manifest check
 - prose counts match reality — a manifest or the README claiming "eight courses" fails if the course count changes (skills carrying a `role:` are support skills and are excluded: `start`, `companion`)
 - no file under `skills/` pins a calendar year, and every Progress Card grounds its date rather than guessing
 - cards are validated on read: wrong-course, stale and truncated cards are all caught rather than trusted
+- every skill carries the edge-case block, a cold-start rebuild, and a mid-session `save`
+- courses carry `Review seeds` and point at the companion; wizards state core/branch/ceiling counts that match the questions actually written
+- every skill is registered in `release-please-config.json`, so its version bumps with the rest
 - **every one of the eight platform manifests, and the README version badge, carries the same version as `version.txt`**
 
 ## Course conventions
