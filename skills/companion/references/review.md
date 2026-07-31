@@ -14,6 +14,10 @@ Draw the situation from their own work when a card records one — a real bounce
 
 ## Where items come from
 
+**Start with the `Review seeds` line.** Every course card carries one: one or two situations the course itself flagged at the end of a lesson, written by the coach who watched them do it. These are the best items you will get, because they came from the moment rather than from a lesson title. Take them first, verbatim where they're already well-phrased.
+
+Seeds only hold the newest five per course, so an older card has fewer than the lessons it lists. That's expected — fall back to the fields below for anything the seeds don't cover, and never manufacture a seed that isn't there.
+
 Read what each card actually records. Never invent a lesson they did not cover.
 
 | Course | Mine these fields |

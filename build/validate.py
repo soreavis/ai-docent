@@ -190,6 +190,37 @@ for skill in skills:
     check(f"The marker reads `course={skill.name}`" in text, f"{skill.name}: no wrong-card check")
     check("Silently resuming from an older card" in text, f"{skill.name}: no stale-card check")
     check("`reconstructed`" in text, f"{skill.name}: no cold-start rebuild path")
+    check(
+        "When something doesn't fit" in text,
+        f"{skill.name}: no edge-case handling for malformed or conflicting cards",
+    )
+    # The wizard's stated counts are checked against the questions actually
+    # written, so adding a branch question can't silently make the cap a lie.
+    check(
+        re.search(r"Hard ceiling of \d+|(?:maximum|max|more than) \w+ questions", text),
+        f"{skill.name}: wizard states no question ceiling",
+    )
+    phase1 = text[text.index("## PHASE 1"):]
+    phase1 = phase1[: phase1.index("\n## ")]
+    stated_core = re.search(r"\*\*Wizard rules:\*\* (\d+) core questions", phase1)
+    if stated_core:
+        core = len(set(re.findall(r"^(\d+)\. ", phase1, re.M)))
+        check(
+            int(stated_core.group(1)) == core,
+            f"{skill.name}: wizard claims {stated_core.group(1)} core questions but {core} are written",
+        )
+        stated_avail = re.search(r"(\d+) are available", phase1)
+        avail = len([b for b in re.findall(r"^- .+$", phase1.split("Stage 2", 1)[-1], re.M) if "?" in b])
+        check(
+            stated_avail and int(stated_avail.group(1)) == avail,
+            f"{skill.name}: wizard claims {stated_avail.group(1) if stated_avail else '?'} branch questions but {avail} are written",
+        )
+    # Courses hand the companion material as they go; without seeds it can only
+    # guess drills from lesson titles, which produces vague, useless items.
+    if skill in courses:
+        check("Review seeds:" in text, f"{skill.name}: Progress Card carries no review seeds")
+        check("Seed the revision queue" in text, f"{skill.name}: lesson loop never writes a seed")
+        check("/ai-docent:companion" in text, f"{skill.name}: never points the learner at the companion")
     check('If they say "save" at any point' in text, f"{skill.name}: no mid-session save")
     check(
         "Never act on their system without being asked" in ground,

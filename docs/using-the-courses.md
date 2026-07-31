@@ -44,7 +44,11 @@ You can also say **save** at any point to get the card mid-session, which is wor
 
 ## Keeping it after the course ends
 
-`/ai-docent:companion` is a separate skill that revises rather than teaches. It reads the cards from every course you've done, builds a queue of things you should still be able to *do*, and drills what's due on a widening schedule — a day, three days, a week, three weeks, then retired once you've held it twice.
+`/ai-docent:companion` is a separate skill that revises rather than teaches. It drills what's due on a widening schedule — a day, three days, a week, three weeks, then retired once you've held it twice.
+
+It isn't guessing what to ask you. Each course writes a `Review seeds` line onto its card at the end of a lesson: one or two situations, caught while the coach was watching you work. The companion drills those first and fills gaps from the rest of the card. Courses mention it twice — at the five-session retro and when you finish — and not after every lesson, because early on there's nothing worth drilling.
+
+It also doesn't re-interview you. Your name, tone and game-mode setting come off the newest card; the only thing it asks is how often you want to revise.
 
 It also does what no single course can: read across all your cards at once and say which habit has gone quiet. And it has a five-minute mode for days you have nothing else.
 
