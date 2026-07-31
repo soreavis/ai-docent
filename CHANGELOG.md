@@ -8,6 +8,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com/) and [Semant
 
 ### Fixed
 
+- **Six of ten skills had frontmatter that did not parse as YAML.** An unquoted `": "` inside the `description` field broke the mapping, and the runtime drops *all* metadata when that happens — those skills would have installed with no name and no description, undiscoverable and uninvocable. Found by `claude plugin validate --strict`; `build/validate.py` missed it because it read the frontmatter with a regex. It now parses the YAML properly, and CI installs PyYAML so the strong check always runs.
 - The guardrail block told every course that `docs.claude.com` is stale. It isn't — it 301s to the current documentation. The rule (cite the canonical domain) stands; the false reason is gone.
 - Two invented statistics removed: `shipping` claimed a technique "prevents half of all review round-trips", and `mechanics` asserted "most learners finish in 5–8 sessions" and instructed the tutor to say so — a population figure this project cannot have.
 - Every course rank ladder now carries XP bands. The Progress Card asks for `next at [n]`, and without bands that number was underivable, so it was invented and then persisted to the save file each session.

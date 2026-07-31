@@ -1,6 +1,6 @@
 ---
 name: security
-description: Multi-session defensive security coach: prompt injection, data leaks, agent safety, and incident response, taught with inert examples. Use only when asked to start or continue this course.
+description: "Multi-session defensive security coach: prompt injection, data leaks, agent safety, and incident response, taught with inert examples. Use only when asked to start or continue this course."
 license: MIT
 disable-model-invocation: true
 metadata:

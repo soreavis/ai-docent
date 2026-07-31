@@ -1,6 +1,6 @@
 ---
 name: shipping
-description: Multi-session coach on landing agent-generated work: scoping changes, reviewing your own diffs, and getting them accepted by real reviewers. Use only when asked to start or continue this course.
+description: "Multi-session coach on landing agent-generated work: scoping changes, reviewing your own diffs, and getting them accepted by real reviewers. Use only when asked to start or continue this course."
 license: MIT
 disable-model-invocation: true
 metadata:

@@ -1,6 +1,6 @@
 ---
 name: mechanics
-description: Multi-session coach on how Claude works and what it costs: tokens, context windows, model choice, subscription vs API, and cost control. Use only when asked to start or continue this course.
+description: "Multi-session coach on how Claude works and what it costs: tokens, context windows, model choice, subscription vs API, and cost control. Use only when asked to start or continue this course."
 license: MIT
 disable-model-invocation: true
 metadata:

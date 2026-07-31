@@ -1,6 +1,6 @@
 ---
 name: long-haul
-description: Multi-session coach on projects that span days: context budgets, session handoffs, decision logs, and recovering when an agent loses the thread. Use only when asked to start or continue this course.
+description: "Multi-session coach on projects that span days: context budgets, session handoffs, decision logs, and recovering when an agent loses the thread. Use only when asked to start or continue this course."
 license: MIT
 disable-model-invocation: true
 metadata:

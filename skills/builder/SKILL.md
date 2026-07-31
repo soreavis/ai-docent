@@ -1,6 +1,6 @@
 ---
 name: builder
-description: Multi-session coach for building with Claude: the API, structured output, tool use, agents, MCP servers, and evals. Use only when asked to start or continue this course.
+description: "Multi-session coach for building with Claude: the API, structured output, tool use, agents, MCP servers, and evals. Use only when asked to start or continue this course."
 license: MIT
 disable-model-invocation: true
 metadata:

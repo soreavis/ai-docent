@@ -13,6 +13,11 @@ import pathlib
 import re
 import sys
 
+try:
+    import yaml
+except ImportError:  # CI installs it; local runs fall back to the targeted check below
+    yaml = None
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SKILLS = ROOT / "skills"
 NAME_RE = re.compile(r"[a-z0-9]+(-[a-z0-9]+)*")
@@ -109,6 +114,19 @@ for skill in skills:
         failures.append(f"{skill.name}: SKILL.md has no YAML frontmatter")
         continue
     fm = text.split("---")[1]
+    # Regex-reading the frontmatter is how an unquoted ": " in six descriptions
+    # went unnoticed: the runtime drops ALL metadata when the YAML fails, so the
+    # skill installs nameless and undiscoverable. Parse it properly.
+    if yaml is not None:
+        try:
+            yaml.safe_load(fm)
+        except Exception as exc:
+            failures.append(f"{skill.name}: frontmatter is not valid YAML — {str(exc).splitlines()[0]}")
+    else:
+        raw = re.search(r"^description: (.+)$", fm, re.M)
+        if raw and ": " in raw.group(1) and not raw.group(1).strip().startswith(('"', "'")):
+            failures.append(f"{skill.name}: description contains ': ' and is unquoted — breaks YAML")
+
     if not re.search(r"^  role: ", fm, re.M):
         courses.append(skill)
 
@@ -122,7 +140,7 @@ for skill in skills:
         check(NAME_RE.fullmatch(value), f"{skill.name}: name '{value}' breaks the charset rule")
         check(len(value) <= 64, f"{skill.name}: name longer than 64 chars")
     if desc:
-        n = len(desc.group(1).strip())
+        n = len(desc.group(1).strip().strip('"'))
         check(n <= DESC_MAX, f"{skill.name}: description {n} chars, max {DESC_MAX}")
 
     skill_version = re.search(r"^  version: (.+)$", fm, re.M)

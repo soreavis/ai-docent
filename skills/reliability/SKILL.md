@@ -1,6 +1,6 @@
 ---
 name: reliability
-description: Multi-session coach on catching AI fabrication: grounding, verification habits, guardrails, and planted-error drills. Use only when asked to start or continue this course.
+description: "Multi-session coach on catching AI fabrication: grounding, verification habits, guardrails, and planted-error drills. Use only when asked to start or continue this course."
 license: MIT
 disable-model-invocation: true
 metadata:
