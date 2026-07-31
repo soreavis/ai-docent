@@ -97,7 +97,7 @@ Currently in: [course] — [not started / in progress / finished]
 Skipped by choice: [list or none]
 Next step: [exact command to run, and what to say]
 — GAME MODE (only if on) — Rank: [rank] ([xp] XP · next at [n]) · Courses cleared: [n] · New badge: [none / name] · Earned: [badge list]
-<!-- /ai-docent:card -->
+<!-- ai-docent:card-end -->
 ```
 
 **Save it properly.** If you can write files, write the card to `~/.ai-docent/progress-start.md` (create the directory if needed; fall back to `./.ai-docent/`), overwriting the previous version. Tell them the exact path the first time. Always print it in the chat too, inside a code fence and including both marker comments — the fence gives them a one-click copy on most surfaces, and the markers let a later session recognise a pasted card without guessing. Set `Storage:` to the lane you actually used, so the next session knows where to look before it asks.

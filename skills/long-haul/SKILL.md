@@ -118,7 +118,7 @@ Resumable right now? [yes / no — what's missing]
 Working on: [...]
 Next session: Lesson [n] — [topic]
 — GAME MODE (only if on) — Rank: [rank] ([xp] XP · next at [n]) · Streak: [n] sessions · New badge: [none / name] · Earned: [badge list]
-<!-- /ai-docent:card -->
+<!-- ai-docent:card-end -->
 ```
 
 **Save it properly.** If you can write files, write the card to `~/.ai-docent/progress-long-haul.md` (create the directory if needed; fall back to `./.ai-docent/`), overwriting the previous version. Tell them the exact path the first time. Always print it in the chat too, inside a code fence and including both marker comments — the fence gives them a one-click copy on most surfaces, and the markers let a later session recognise a pasted card without guessing. Set `Storage:` to the lane you actually used, so the next session knows where to look before it asks.

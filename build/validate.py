@@ -64,11 +64,11 @@ for rel, path in MANIFESTS.items():
         continue
     check(found == version, f"{rel}: version {found} != version.txt {version}")
 
-# The README badge is the version most people actually read, so it is held to
-# the same lockstep as the manifests.
-# The badge uses shields' static/v1 query form, not /badge/version-X-color:
-# in the path form the trailing colour reads as a semver prerelease tag, and
-# release-please rewrites "0.1.0-blue" to "0.1.1", producing a broken badge.
+# The README badge is the version most people actually read, so it is held to the
+# same lockstep as the manifests. It uses shields' static/v1 query form rather
+# than /badge/version-X-colour: in the path form the trailing colour parses as a
+# semver prerelease, so release-please rewrote "0.1.0-blue" to "0.1.1" and
+# produced a badge that rendered "404: badge not found".
 badge_line = next(
     (l for l in (ROOT / "README.md").read_text().splitlines() if "label=version" in l), ""
 )
@@ -161,7 +161,7 @@ for skill in skills:
         f"<!-- ai-docent:card v1 course={skill.name} -->" in text,
         f"{skill.name}: Progress Card missing its opening marker",
     )
-    check("<!-- /ai-docent:card -->" in text, f"{skill.name}: Progress Card missing its closing marker")
+    check("<!-- ai-docent:card-end -->" in text, f"{skill.name}: Progress Card missing its closing marker")
     check(
         f"Storage: [file: ~/.ai-docent/progress-{skill.name}.md" in text,
         f"{skill.name}: Progress Card does not record which storage lane was used",
