@@ -12,7 +12,7 @@
         "type": "local",
         "path": "."
       },
-      "description": "Six multi-session tutor courses that take you from beginner to genuine power user of AI agents, with an onboarding wizard, a personalized plan, and progress saved between sessions.",
+      "description": "Eight multi-session tutor courses that take you from beginner to genuine power user of AI agents, with an onboarding wizard, a personalized plan, and progress saved between sessions.",
       "version": "0.1.0",
       "category": "learning",
       "homepage": "https://github.com/soreavis/ai-docent",

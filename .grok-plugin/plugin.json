@@ -1,7 +1,7 @@
 {
   "name": "ai-docent",
   "version": "0.1.0",
-  "description": "Six multi-session tutor courses that take you from beginner to genuine power user of AI agents: foundations, prompt craft, reliability, security, cost mechanics, and building. Each runs an onboarding wizard, builds a personalized plan, and saves your progress between sessions.",
+  "description": "Eight multi-session tutor courses that take you from beginner to genuine power user of AI agents: foundations, prompt craft, reliability, shipping, long-haul projects, security, cost mechanics, and building. Each runs an onboarding wizard, builds a personalized plan, and saves your progress between sessions.",
   "author": {
     "name": "Julian Soreavis",
     "url": "https://github.com/soreavis"

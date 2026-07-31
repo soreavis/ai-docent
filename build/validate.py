@@ -150,6 +150,15 @@ for skill in skills:
         f"{skill.name}: leftover paste-in scaffolding",
     )
 
+# Marketplace descriptions state the course count in prose, so adding a course
+# silently strands every listing on the old number. Catch that.
+WORDS = "one two three four five six seven eight nine ten".split()
+for rel in [*MANIFESTS, "README.md"]:
+    text = (ROOT / rel).read_text()
+    for n, word in enumerate(WORDS, 1):
+        if n != len(skills) and re.search(rf"\b{word}\b[^.]{{0,40}}\bcourses\b", text, re.I):
+            failures.append(f"{rel}: claims '{word} courses' but there are {len(skills)}")
+
 if failures:
     print(f"✘ {len(failures)} failure(s):")
     for f in failures:
