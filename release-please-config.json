@@ -45,6 +45,14 @@
           "path": "skills/long-haul/SKILL.md"
         },
         {
+          "type": "generic",
+          "path": "skills/start/SKILL.md"
+        },
+        {
+          "type": "generic",
+          "path": "skills/companion/SKILL.md"
+        },
+        {
           "type": "json",
           "path": ".claude-plugin/plugin.json",
           "jsonpath": "$.version"

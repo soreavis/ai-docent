@@ -29,7 +29,9 @@ claude plugin validate .     # Claude Code manifest check
 - no `docs.claude.com` citations and no leftover paste-in scaffolding
 - the six anti-hallucination guardrails are present **inside** each skill's GROUND RULES block: the tool guard, the uncertainty rule, the never-construct-a-URL rule, enumerated doc domains, the never-state-an-unlooked-up-figure rule, and the rule that tone never overrides any of them
 - every skill offers a tone in its wizard, carries `references/tone.md` with the delivery-not-content floor, and records the choice on its Progress Card
-- prose counts match reality — a manifest or the README claiming "eight courses" fails if the course count changes (`start` carries `role: launcher` and is excluded)
+- prose counts match reality — a manifest or the README claiming "eight courses" fails if the course count changes (skills carrying a `role:` are support skills and are excluded: `start`, `companion`)
+- no file under `skills/` pins a calendar year, and every Progress Card grounds its date rather than guessing
+- cards are validated on read: wrong-course, stale and truncated cards are all caught rather than trusted
 - **every one of the eight platform manifests, and the README version badge, carries the same version as `version.txt`**
 
 ## Course conventions
@@ -54,7 +56,7 @@ These are deliberate. Keep them.
 
 ## Releasing
 
-**Never edit a version by hand.** `version.txt` is the source of truth, and Release Please rewrites it plus all eight platform manifests and all eight SKILL.md frontmatter blocks together. Editing one alone breaks lockstep and CI fails.
+**Never edit a version by hand.** `version.txt` is the source of truth, and Release Please rewrites it plus all eight platform manifests, the README badge, and every SKILL.md frontmatter block together. Editing one alone breaks lockstep and CI fails.
 
 The flow:
 

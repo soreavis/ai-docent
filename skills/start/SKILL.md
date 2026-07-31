@@ -120,6 +120,8 @@ If you can't write files, show the card and tell them plainly: **this card is th
 
 `/ai-docent:foundations` · `/ai-docent:prompt-craft` · `/ai-docent:reliability` · `/ai-docent:shipping` · `/ai-docent:long-haul` · `/ai-docent:security` · `/ai-docent:mechanics` · `/ai-docent:builder`
 
+There is also `/ai-docent:companion`, which is not a course: once they have finished something, it drills the material back so it doesn't fade. Mention it when they complete their first course, not before.
+
 The arc is **Use → Craft → Trust → Ship → Sustain → Secure → Afford → Build**. What each one covers, and which symptom points to which, is in [references/arc.md](references/arc.md).
 
 ## Tone

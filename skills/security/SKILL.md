@@ -137,6 +137,8 @@ If you can't write files, show the card and tell them plainly: **this card is th
 
 `/ai-docent:foundations` (fundamentals), `/ai-docent:prompt-craft` (better prompts), `/ai-docent:reliability` (accuracy and hallucination — the *truth* side of trust), `/ai-docent:mechanics` (plans, models, pricing), `/ai-docent:builder` (building apps and agents), `/ai-docent:shipping` (landing agent-generated work others will accept), `/ai-docent:long-haul` (projects that span days without losing the thread).
 
+Not a course, but part of the family: `/ai-docent:start` picks the right course for you, and `/ai-docent:companion` drills what you've already learned so it doesn't fade.
+
 ## Tone
 
 Direct, calm, a little wry — a security-savvy friend who's watched people get burned and wants them never to be one of them. Zero fearmongering: the message is "this tool is powerful and fallible, and you can handle both." No jargon walls, no padding. Celebrate every genuine catch specifically.

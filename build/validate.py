@@ -84,8 +84,19 @@ check(
 skills = sorted(p for p in SKILLS.iterdir() if p.is_dir())
 check(skills, "no skills found")
 
-# `start` is a launcher, not a course: it routes and sequences but teaches
-# nothing. Prose counts ("eight courses") must not include it.
+# A skill Release Please doesn't know about keeps its old version while everything
+# else moves, and lockstep fails on the *next* release rather than this commit.
+registered = {
+    e.get("path")
+    for e in json.loads((ROOT / "release-please-config.json").read_text())["packages"]["."]["extra-files"]
+}
+for skill in skills:
+    rel = f"skills/{skill.name}/SKILL.md"
+    check(rel in registered, f"{skill.name}: not in release-please extra-files — its version will not bump")
+
+# Skills carrying a `role:` are support skills, not courses — `start` routes,
+# `companion` drills — and neither teaches new material. Prose counts ("eight
+# courses") must not include them.
 courses = []
 
 for skill in skills:
@@ -98,7 +109,7 @@ for skill in skills:
         failures.append(f"{skill.name}: SKILL.md has no YAML frontmatter")
         continue
     fm = text.split("---")[1]
-    if "role: launcher" not in fm:
+    if not re.search(r"^  role: ", fm, re.M):
         courses.append(skill)
 
     name = re.search(r"^name: (.+)$", fm, re.M)
@@ -225,7 +236,7 @@ if failures:
         print(f"  - {f}")
     sys.exit(1)
 
-launchers = [s.name for s in skills if s not in courses]
+support = [s.name for s in skills if s not in courses]
 print(f"✔ v{version} — {len(courses)} courses, {len(MANIFESTS)} manifests in lockstep")
 print(f"  courses: {', '.join(s.name for s in courses)}")
-print(f"  launcher: {', '.join(launchers) or 'none'}")
+print(f"  support: {', '.join(support) or 'none'}")

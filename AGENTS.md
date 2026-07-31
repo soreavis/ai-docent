@@ -35,7 +35,7 @@ version.txt                     single source of truth for the version
 - **No personal, employer, or client names** anywhere in the courses.
 - **Six guardrails must live inside the GROUND RULES block of every skill** — the tool guard, the uncertainty rule, the never-construct-a-URL rule, enumerated doc domains, the never-state-an-unlooked-up-figure rule, and the rule that tone never changes what is true. They sit there rather than lower down so a truncated paste still carries them. `build/validate.py` fails the build if any is missing; see the 2026-07-24 hallucination audit for why each exists.
 - **Tone is delivery, never content.** Every skill offers the learner a voice and carries `references/tone.md`. The voice may change register, warmth and length; it may never change a fact, a hedge, or whether something got verified. If you add a voice, it inherits that floor — and the Progress Card must keep carrying the choice, or it silently resets each session.
-- **`start` is a launcher, not a course.** It carries `role: launcher` in its metadata, routes people to courses and sequences the full track, and teaches nothing itself. `validate.py` excludes it from the course count, so prose saying "eight courses" stays true.
+- **Support skills are not courses.** Any skill carrying a `role:` in its metadata is excluded from the course count by `validate.py`, so prose saying "eight courses" stays true. There are two: `start` (`role: launcher`) routes people and sequences the full track, and `companion` (`role: companion`) drills material back from the other cards. Neither teaches new material — if you find yourself writing a lesson into one, it belongs in a course.
 
 ## Cross-references
 

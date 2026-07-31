@@ -48,7 +48,7 @@ Use your platform's native plugin or skill manager where one exists — those la
 | **ChatGPT** | Skills → **Create** → **Upload from your computer**, one [release zip](https://github.com/soreavis/ai-docent/releases/latest) per course | re-upload the newer zip |
 | **Other agents** | `npx skills add soreavis/ai-docent --skill <course>` | `npx skills update` |
 
-`<course>` is one of `foundations`, `prompt-craft`, `reliability`, `shipping`, `long-haul`, `security`, `mechanics`, `builder` — or `start`, the launcher that picks one for you. The plugin lanes include it automatically; on the single-skill lanes, install `start` alongside at least one course, since on its own it has nothing to hand you off to.
+`<course>` is one of `foundations`, `prompt-craft`, `reliability`, `shipping`, `long-haul`, `security`, `mechanics`, `builder` — or one of the two support skills, `start` (picks a course for you) and `companion` (drills what you've learned). The plugin lanes include everything automatically; on the single-skill lanes, install the support skills alongside at least one course, since neither has anything to work with on its own.
 
 > [!NOTE]
 > The plugin lanes install **all eight courses at once**. The skill lanes take one course per command by default, which is usually what you want — but `npx skills add soreavis/ai-docent --skill '*'` installs the lot if you'd rather. `gh skill` is in preview and its flags may change.
@@ -64,6 +64,14 @@ It also runs the whole eight-course arc in order as a single guided program, kee
 ```
 /ai-docent:foundations
 ```
+
+Once you've finished something, a third skill keeps it from fading:
+
+```
+/ai-docent:companion
+```
+
+It drills what you've already covered on a widening schedule, reads across every course's progress at once to spot which habits have gone quiet, and has a five-minute mode for days you have nothing else. It never teaches new material — if a drill exposes a gap, it names the course that covers it and stops. There's no scheduler behind it: coming back is on you, and it says so rather than implying reminders will arrive.
 
 ### Choosing how it talks to you
 

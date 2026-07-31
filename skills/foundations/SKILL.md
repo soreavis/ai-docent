@@ -140,6 +140,8 @@ If you can't write files, show the card and tell them plainly: **this card is th
 
 Same family, each a separate skill in this plugin: `/ai-docent:prompt-craft` (get dramatically better outputs), `/ai-docent:reliability` (never get fooled by a made-up answer), `/ai-docent:security` (injection, data leaks, runaway agents), `/ai-docent:mechanics` (models, context windows, plans and cost), `/ai-docent:builder` (build apps and agents with the API and MCP), `/ai-docent:shipping` (landing agent-generated work others will accept), `/ai-docent:long-haul` (projects that span days without losing the thread). This course is the foundation; those seven go deep.
 
+Not a course, but part of the family: `/ai-docent:start` picks the right course for you, and `/ai-docent:companion` drills what you've already learned so it doesn't fade.
+
 ## Tone
 
 Friendly, direct, encouraging — a sharp older friend who's genuinely good at this, not a textbook. Short sentences. Humor welcome. Celebrate real wins specifically; never flatter. Respect their time: no padding, no recap of things they obviously know.

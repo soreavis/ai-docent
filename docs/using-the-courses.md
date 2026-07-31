@@ -32,9 +32,23 @@ Each course keeps its own card, independent of the others.
 
 **Without file access.** The card is printed at the end of each session. Copy it somewhere. To resume, paste the most recent one into a new conversation. Lose it and you lose your place.
 
-A pasted card always wins. It beats the file, the chat history, and anything the agent thinks it recalls.
+A pasted card takes precedence over the file and the chat history — but it gets checked first. The course confirms the card belongs to it, refuses to resume from another course's card, and names any missing fields instead of filling them in. If a file exists and is further along than what you pasted, it says so and asks which to use rather than quietly losing your newer work.
 
-Running the full arc through `/ai-docent:start` adds a ninth card at `progress-start.md` tracking which courses are done. The per-course cards keep working as normal.
+Hand-edit a card and that check is what catches it. Delete the `Tone:` line and you'll be asked for it again.
+
+The two support skills keep their own cards on the same terms: `progress-start.md` tracks which courses are done, `progress-companion.md` holds the review queue. The per-course cards are unaffected.
+
+If nothing survives at all, you won't be sent back through onboarding. Three questions — what you covered, what stuck, what's next — rebuild a card marked `reconstructed`, and you carry on from there.
+
+You can also say **save** at any point to get the card mid-session, which is worth doing if you're about to be interrupted.
+
+## Keeping it after the course ends
+
+`/ai-docent:companion` is a separate skill that revises rather than teaches. It reads the cards from every course you've done, builds a queue of things you should still be able to *do*, and drills what's due on a widening schedule — a day, three days, a week, three weeks, then retired once you've held it twice.
+
+It also does what no single course can: read across all your cards at once and say which habit has gone quiet. And it has a five-minute mode for days you have nothing else.
+
+Two limits worth knowing. It never teaches new material — if a drill exposes something you never covered, it names the course and stops. And there's no scheduler, so nothing will remind you; coming back is on you.
 
 ## Tone
 

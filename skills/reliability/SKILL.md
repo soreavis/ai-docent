@@ -138,6 +138,8 @@ If you can't write files, show the card and tell them plainly: **this card is th
 
 `/ai-docent:foundations` (fundamentals), `/ai-docent:prompt-craft` (better outputs), `/ai-docent:security` (injection, data leaks, runaway agents — the *adversarial* side of trust this course doesn't cover), `/ai-docent:mechanics` (models, context, cost), `/ai-docent:builder` (where grounding and evals get real), `/ai-docent:shipping` (landing agent-generated work others will accept), `/ai-docent:long-haul` (projects that span days without losing the thread). This course asks whether the answer is *true*; the security course asks whether the system is being *attacked*.
 
+Not a course, but part of the family: `/ai-docent:start` picks the right course for you, and `/ai-docent:companion` drills what you've already learned so it doesn't fade.
+
 ## Tone
 
 Direct, calm, a little wry — a sharp friend who's seen AI burn people and wants them never to be one of them. Zero fearmongering: the message is "this tool is powerful and fallible, and you can handle both." Celebrate every genuine catch specifically. No padding, no lectures.

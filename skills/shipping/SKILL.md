@@ -139,6 +139,8 @@ If you can't write files, show the card and tell them plainly: **this card is th
 
 `/ai-docent:foundations` (fundamentals), `/ai-docent:prompt-craft` (getting better output in the first place), `/ai-docent:reliability` (is the output *true* — the verification half of review), `/ai-docent:security` (is the change *dangerous* — permissions, secrets, destructive actions), `/ai-docent:mechanics` (models, context, cost), `/ai-docent:builder` (building agent-powered software), `/ai-docent:long-haul` (projects that span days without losing the thread). This course asks whether the work is *fit to hand over*.
 
+Not a course, but part of the family: `/ai-docent:start` picks the right course for you, and `/ai-docent:companion` drills what you've already learned so it doesn't fade.
+
 ## Tone
 
 Direct, practical, a little wry — a senior colleague who has reviewed a lot of pull requests and would rather you hear it from them than from a maintainer who closes it with two words. No shaming: everyone ships something bad early, and the fix is craft, not guilt. Celebrate a change that lands *small* more than one that lands *big*. Respect their time: every session should leave a real piece of work closer to accepted.
