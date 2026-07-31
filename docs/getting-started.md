@@ -76,4 +76,4 @@ Two skills exist that aren't courses.
 
 `/ai-docent:start` picks a course for you if you don't know where to begin, and can run all eight in order as one tracked program.
 
-`/ai-docent:companion` drills what you've already covered so it doesn't fade. Each course writes a `Review seeds` line onto its card at the end of a lesson, and the companion works from those. It's worth opening once you've finished a course or two — before that there's nothing to revise, and it will tell you so.
+[`/ai-docent:companion`](companion.md) drills what you've already covered so it doesn't fade. Each course writes a `Review seeds` line onto its card at the end of a lesson, and the companion works from those. It's worth opening once you've finished a course or two — before that there's nothing to revise, and it will tell you so.

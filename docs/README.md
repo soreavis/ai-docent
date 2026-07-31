@@ -5,6 +5,7 @@ Short guides for using the courses. Install commands live in the [main README](.
 - [Getting started](getting-started.md) — your first session, end to end
 - [Using the courses](using-the-courses.md) — how sessions work, progress, tone, game mode
 - [Best practices](best-practices.md) — what makes these worth the time
+- [The companion](companion.md) — revising so it doesn't fade
 - [Troubleshooting](troubleshooting.md) — when something behaves oddly
 
 Three of the skills aren't courses: `start` picks a course for you, `companion` revises what you've already learned, and the other eight teach.

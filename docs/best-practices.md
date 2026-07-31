@@ -54,7 +54,7 @@ If you catch the course in a genuine mistake, say so. It's supposed to correct i
 
 ## Revise, or it goes
 
-Finishing a lesson isn't learning it. Nothing in a course brings material back after the session ends, which is what `/ai-docent:companion` is for — it drills the situations each course flagged while you were working on them.
+Finishing a lesson isn't learning it. Nothing in a course brings material back after the session ends, which is what [`/ai-docent:companion`](companion.md) is for — it drills the situations each course flagged while you were working on them.
 
 The catch: there's no scheduler, so nothing will chase you. Ten minutes a week beats an hour a month, and the ladder only widens if you actually show up.
 

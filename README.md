@@ -79,7 +79,7 @@ Every course asks, once, how you want to be taught: **Coach** (warm and direct, 
 
 Tone is delivery, never content. No voice will drop a hedge, skip a verification, or state a figure it didn't look up — where a voice and a guardrail conflict, the guardrail wins and the course says so.
 
-Longer guides — your first session, how sessions run, best practices, troubleshooting — are in [docs/](docs/).
+Longer guides — your first session, how sessions run, the companion, best practices, troubleshooting — are in [docs/](docs/).
 
 ### Turning on automatic updates
 
