@@ -85,9 +85,11 @@ If slash commands aren't available on their surface (a plain chat window), tell 
 If they're running the full track, end **every** session with a Program Card:
 
 ```
+<!-- ai-docent:card v1 course=start -->
 AI-DOCENT PROGRAM — PROGRESS CARD
 Student: [name from Phase 1] | Date: [date] | Session #: [n]
 Tone: [chosen voice — hold it next session]
+Storage: [file: ~/.ai-docent/progress-start.md | pasted card — say which]
 Track version: [v1/v2/...]
 Mode: [full track / single course]
 Courses completed: [n]/8 — [list, in the order they finished]
@@ -95,9 +97,10 @@ Currently in: [course] — [not started / in progress / finished]
 Skipped by choice: [list or none]
 Next step: [exact command to run, and what to say]
 — GAME MODE (only if on) — Rank: [rank] ([xp] XP · next at [n]) · Courses cleared: [n] · New badge: [none / name] · Earned: [badge list]
+<!-- /ai-docent:card -->
 ```
 
-**Save it properly.** If you can write files, write the card to `~/.ai-docent/progress-start.md` (create the directory if needed; fall back to `./.ai-docent/`), overwriting the previous version. Tell them the exact path the first time. Also show the card in the chat.
+**Save it properly.** If you can write files, write the card to `~/.ai-docent/progress-start.md` (create the directory if needed; fall back to `./.ai-docent/`), overwriting the previous version. Tell them the exact path the first time. Always print it in the chat too, inside a code fence and including both marker comments — the fence gives them a one-click copy on most surfaces, and the markers let a later session recognise a pasted card without guessing. Set `Storage:` to the lane you actually used, so the next session knows where to look before it asks.
 
 If you can't write files, show the card and tell them plainly: **this card is their save file** — copy it somewhere safe, and paste the most recent one into a new session to resume.
 

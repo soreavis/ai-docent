@@ -155,6 +155,17 @@ for skill in skills:
     )
     check("Tone of voice?" in text, f"{skill.name}: wizard never offers a tone")
     check("Tone: [chosen voice" in text, f"{skill.name}: Progress Card does not carry the tone")
+    # A pasted card is the only save file on chat surfaces, so it has to be
+    # recognisable on sight and say which lane it came from.
+    check(
+        f"<!-- ai-docent:card v1 course={skill.name} -->" in text,
+        f"{skill.name}: Progress Card missing its opening marker",
+    )
+    check("<!-- /ai-docent:card -->" in text, f"{skill.name}: Progress Card missing its closing marker")
+    check(
+        f"Storage: [file: ~/.ai-docent/progress-{skill.name}.md" in text,
+        f"{skill.name}: Progress Card does not record which storage lane was used",
+    )
     tone = skill / "references/tone.md"
     check(tone.exists(), f"{skill.name}: missing references/tone.md")
     check(

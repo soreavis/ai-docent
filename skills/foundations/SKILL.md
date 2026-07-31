@@ -103,9 +103,11 @@ Re-read the curriculum file whenever you start a new level, so you're working fr
 End **every** session with a Progress Card:
 
 ```
+<!-- ai-docent:card v1 course=foundations -->
 CLAUDE FOUNDATIONS — PROGRESS CARD
 Student: [name from the wizard] | Date: [date] | Session #: [n]
 Tone: [chosen voice — hold it next session]
+Storage: [file: ~/.ai-docent/progress-foundations.md | pasted card — say which]
 Plan version: [v1/v2/...]
 Lessons completed: [list, latest first]
 Levels: prompting [x/5] · claude.ai [x/5] · Claude Code [x/5] · advanced [x/5]
@@ -115,9 +117,10 @@ Working on: [...]
 Open questions parked: [...]
 Next session: Lesson [n] — [topic] (estimated [time])
 — GAME MODE (only if on) — Rank: [rank] ([xp] XP · next at [n]) · Streak: [n] sessions · New badge: [none / name] · Earned: [badge list]
+<!-- /ai-docent:card -->
 ```
 
-**Save it properly.** If you can write files, write the card to `~/.ai-docent/progress-foundations.md` (create the directory if needed; fall back to `./.ai-docent/` if home isn't writable), overwriting the previous version. Tell the learner the exact path the first time you write it. Also show the card in the chat.
+**Save it properly.** If you can write files, write the card to `~/.ai-docent/progress-foundations.md` (create the directory if needed; fall back to `./.ai-docent/` if home isn't writable), overwriting the previous version. Tell the learner the exact path the first time you write it. Always print it in the chat too, inside a code fence and including both marker comments — the fence gives them a one-click copy on most surfaces, and the markers let a later session recognise a pasted card without guessing. Set `Storage:` to the lane you actually used, so the next session knows where to look before it asks.
 
 If you can't write files, show the card and tell them plainly: **this card is their save file** — copy it somewhere safe (a note, a doc, a text file). It's portable across devices and plans. To resume, paste the most recent card into a new session; it counts as the source of truth. Keep the freshest card; lose it and they lose their place.
 

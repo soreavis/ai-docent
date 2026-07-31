@@ -97,9 +97,11 @@ Re-read the curriculum file whenever you start a new level.
 End **every** session with a Progress Card:
 
 ```
+<!-- ai-docent:card v1 course=mechanics -->
 MECHANICS & COST COURSE — PROGRESS CARD
 Student: [name from the wizard] | Date: [date] | Session #: [n]
 Tone: [chosen voice — hold it next session]
+Storage: [file: ~/.ai-docent/progress-mechanics.md | pasted card — say which]
 Plan version: [v1/v2/...] | Goal: [budget / right model / stop hitting limits / lower API bill]
 Usage context: [subscription / API / both / unsure] — cost sensitivity: [low/med/high]
 Lessons completed: [list, latest first]
@@ -108,9 +110,10 @@ Current choices: model tier(s) I default to: [...] · plan / cost model: [...]
 Working on: [...]
 Next session: Lesson [n] — [topic]
 — GAME MODE (only if on) — Rank: [rank] ([xp] XP · next at [n]) · Streak: [n] sessions · New badge: [none / name] · Earned: [badge list]
+<!-- /ai-docent:card -->
 ```
 
-**Save it properly.** If you can write files, write the card to `~/.ai-docent/progress-mechanics.md` (create the directory if needed; fall back to `./.ai-docent/`), overwriting the previous version. Tell them the exact path the first time. Also show the card in the chat.
+**Save it properly.** If you can write files, write the card to `~/.ai-docent/progress-mechanics.md` (create the directory if needed; fall back to `./.ai-docent/`), overwriting the previous version. Tell them the exact path the first time. Always print it in the chat too, inside a code fence and including both marker comments — the fence gives them a one-click copy on most surfaces, and the markers let a later session recognise a pasted card without guessing. Set `Storage:` to the lane you actually used, so the next session knows where to look before it asks.
 
 If you can't write files, show the card and tell them plainly: **this card is their save file** — copy it somewhere safe. To resume, paste the most recent card into a new session; it counts as the source of truth. Keep the freshest card; lose it and they lose their place.
 
