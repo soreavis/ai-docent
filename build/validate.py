@@ -127,6 +127,15 @@ for skill in skills:
         if raw and ": " in raw.group(1) and not raw.group(1).strip().startswith(('"', "'")):
             failures.append(f"{skill.name}: description contains ': ' and is unquoted — breaks YAML")
 
+    # Hazards a YAML parser accepts silently, or that break the split above.
+    check(text.startswith("---\n"), f"{skill.name}: SKILL.md must open with '---'")
+    check("\t" not in fm, f"{skill.name}: tab in frontmatter — illegal YAML indentation")
+    fm_keys = re.findall(r"^(\w[\w-]*):", fm, re.M)
+    check(
+        len(fm_keys) == len(set(fm_keys)),
+        f"{skill.name}: duplicate frontmatter key — YAML keeps only the last silently",
+    )
+
     if not re.search(r"^  role: ", fm, re.M):
         courses.append(skill)
 

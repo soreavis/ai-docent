@@ -61,6 +61,7 @@ claude plugin validate .     # Claude Code manifest check
 
 `build/validate.py` enforces:
 
+- **frontmatter parses as YAML** — an unquoted `": "` in a description silently drops every field at runtime; also no tabs, no duplicate keys, and the file opens with `---`
 - folder name matches the SKILL.md `name`, lowercase-kebab, ≤64 chars
 - `description` ≤200 characters (the claude.ai upload cap, stricter than the open spec's 1024)
 - SKILL.md under 500 lines, with detail in `references/`
