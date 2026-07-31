@@ -40,17 +40,18 @@ Use your platform's native plugin or skill manager where one exists — those la
 |---|---|---|
 | **Claude Code** | `/plugin marketplace add soreavis/ai-docent` then `/plugin install ai-docent@ai-docent` | `/plugin marketplace update ai-docent`, or enable marketplace auto-update |
 | **Codex** | `codex plugin marketplace add soreavis/ai-docent` then `codex plugin add ai-docent@ai-docent` | `codex plugin marketplace upgrade` |
-| **Cursor** | `npx skills add soreavis/ai-docent --skill <course>` | re-run the installer |
+| **Cursor** | `npx skills add soreavis/ai-docent --skill <course> -a cursor` | `npx skills update` |
 | **Gemini CLI** | `gemini extensions install https://github.com/soreavis/ai-docent` | `gemini extensions update ai-docent` |
 | **Copilot / GitHub CLI** | `gh skill install soreavis/ai-docent <course>` | `gh skill update <course>` |
 | **Grok** | `grok plugin marketplace add soreavis/ai-docent` then `grok plugin install soreavis/ai-docent --trust` | `grok plugin update ai-docent` |
 | **Claude web / Desktop / Cowork** | Customize → Plugins → **+** → Add marketplace → `https://github.com/soreavis/ai-docent` | automatic on marketplace sync |
+| **ChatGPT** | Skills → **Create** → **Upload from your computer**, one [release zip](https://github.com/soreavis/ai-docent/releases/latest) per course | re-upload the newer zip |
 | **Other agents** | `npx skills add soreavis/ai-docent --skill <course>` | `npx skills update` |
 
 `<course>` is one of `foundations`, `prompt-craft`, `reliability`, `shipping`, `long-haul`, `security`, `mechanics`, `builder`.
 
 > [!NOTE]
-> The plugin lanes install **all eight courses at once**. The single-skill lanes (`gh skill`, `npx skills`) install **one course per command** — run it once per course you want, which is usually what you want anyway.
+> The plugin lanes install **all eight courses at once**. The skill lanes take one course per command by default, which is usually what you want — but `npx skills add soreavis/ai-docent --skill '*'` installs the lot if you'd rather. `gh skill` is in preview and its flags may change.
 
 Once installed, start a course:
 
@@ -96,6 +97,8 @@ If your runtime takes individual skill folders rather than a plugin — or you'r
 
 > [!NOTE]
 > **The zip path has no auto-update.** Re-download and re-upload when a new version ships. Prefer a marketplace lane if your runtime has one.
+
+On a tool with no skill support at all — Perplexity Spaces, a plain chat window — paste a course's `SKILL.md` in as the standing instruction and keep its `references/` files to hand. Every course is written to survive this: with no filesystem, the Progress Card becomes your save file, and pasting the most recent one back resumes the course. Check the tool's instruction-length limit first, though — the courses run 12–15 KB each, and a silently truncated course is worse than none.
 
 ## Where your progress is saved
 
