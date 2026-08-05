@@ -307,10 +307,12 @@ for skill in skills:
         "code.claude.com/docs" in ground or "platform.claude.com/docs" in ground,
         f"{skill.name}: no enumerated doc domains inside GROUND RULES",
     )
-    # docs.claude.com is stale; it may only appear as an explicit warning.
+    # docs.claude.com is not dead — it 301s to code.claude.com/docs. Citing it
+    # still costs the learner a redirect and ages badly, so it may appear only
+    # as an explicit warning, never as a citation.
     for line in text.splitlines():
-        if "docs.claude.com" in line and not re.search(r"never|stale", line, re.I):
-            failures.append(f"{skill.name}: cites the stale docs.claude.com domain")
+        if "docs.claude.com" in line and not re.search(r"never|redirect", line, re.I):
+            failures.append(f"{skill.name}: cites docs.claude.com instead of the domain it redirects to")
     check(
         "copy everything below" not in text and "don't paste this part" not in text,
         f"{skill.name}: leftover paste-in scaffolding",
