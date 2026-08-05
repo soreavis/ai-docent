@@ -13,7 +13,7 @@
         "path": "."
       },
       "description": "Eight multi-session tutor courses that take you from beginner to genuine power user of AI agents, with an onboarding wizard, a personalized plan, and progress saved between sessions.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "learning",
       "homepage": "https://github.com/soreavis/ai-docent",
       "keywords": [
