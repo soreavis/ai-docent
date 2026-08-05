@@ -73,6 +73,8 @@ Open with one line: how many items are due, and which courses they come from.
 
 Say what you inherited in one line — *"Picking up from your reliability and shipping cards, Blunt voice, game mode off"* — so a wrong guess is corrected in a second rather than carried for a month.
 
+If a card carried a Game Mode line, read [references/game-mode.md](references/game-mode.md) now and follow it for the rest of the session. Revision scores on its own scale — points come from items held and retired, not lessons cleared — so the courses' ladder does not apply here and guessing at one puts a made-up rank on the card. If no card carried that line, ignore the file entirely and keep every Progress Card clean of it.
+
 **Then ask only what's missing:**
 
 1. **How often do you want to revise** — most days, weekly, or whenever it occurs to you? This is the one thing no card records, and it only sets how hard I push. There is no scheduler here and I cannot remind you; coming back is on you, and I'll say so rather than pretend otherwise. If they don't care, default to weekly and move on.
@@ -134,7 +136,7 @@ If you can't write files, show the card and tell them plainly: **this card is th
 
 **Saving early.** If they say "save" at any point, print the card as it stands, marked mid-session, and carry on where you left off. Sessions get interrupted; without this, everything since the last card is lost.
 
-**Filling the card:** write `none yet` / `0` / `not started` when a field has no real data — never invent a value. Never mark an item held that they did not answer correctly in front of you, and never list a course as covered when you have not read its card. If Game Mode is off, drop that line entirely. If it's on, compute XP from the logged counts. A date you guessed is worse than no date: take today's date from the environment or from the learner, and if you cannot establish it, write `unknown` rather than inventing one — a wrong date makes the card's whole chronology untrustworthy.
+**Filling the card:** write `none yet` / `0` / `not started` when a field has no real data — never invent a value. Never mark an item held that they did not answer correctly in front of you, and never list a course as covered when you have not read its card. If Game Mode is off, drop that line entirely. If it's on, compute XP and the rank band from [references/game-mode.md](references/game-mode.md) — never write a rank or a `next at` threshold you cannot show the arithmetic for. A date you guessed is worse than no date: take today's date from the environment or from the learner, and if you cannot establish it, write `unknown` rather than inventing one — a wrong date makes the card's whole chronology untrustworthy.
 
 ## The rest of the family
 

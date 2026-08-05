@@ -177,8 +177,21 @@ for skill in skills:
 
     check(text.count("\n") < 500, f"{skill.name}: SKILL.md over 500 lines")
 
+    linked = set()
     for ref in re.findall(r"\]\((references/[^)]+)\)", text):
         check((skill / ref).exists(), f"{skill.name}: broken reference {ref}")
+        linked.add(ref.split("/")[-1].split("#")[0])
+
+    # The other direction. A reference file nothing loads is not merely dead
+    # weight: companion shipped a game-mode.md defining its own XP events and
+    # rank ladder, no line of its SKILL.md ever read it, and the Progress Card
+    # still demanded "next at [n]" — so the model had to invent a rank, or
+    # borrow the courses' ladder, which scores something else entirely.
+    for ref in sorted((skill / "references").glob("*.md")):
+        check(
+            ref.name in linked,
+            f"{skill.name}: references/{ref.name} is never loaded by SKILL.md",
+        )
 
     # Conventions shared by every course in this family.
     check("What should I call you" in text, f"{skill.name}: missing the name-first wizard question")
@@ -312,6 +325,22 @@ for tmpl in (".github/ISSUE_TEMPLATE/course_correction.yml", ".github/ISSUE_TEMP
             re.search(rf"^\s*-?\s*{re.escape(skill.name)}\b", body, re.M),
             f"{tmpl}: does not offer {skill.name}",
         )
+
+# The README's level column is the only place the shape of each course is
+# advertised, and nothing about adding a LEVEL heading to a curriculum forces
+# the table to move with it.
+readme = (ROOT / "README.md").read_text()
+for name, claim in re.findall(r"^\| `([a-z-]+)` \| ([0-9]+(?:–[0-9]+)?) \|", readme, re.M):
+    curriculum = SKILLS / name / "references/curriculum.md"
+    if not curriculum.exists():
+        failures.append(f"README.md: table row `{name}` has no curriculum.md")
+        continue
+    levels = sorted({int(n) for n in re.findall(r"^##\s*LEVEL\s+(\d+)", curriculum.read_text(), re.M | re.I)})
+    if not levels:
+        failures.append(f"{name}: curriculum.md has no '## LEVEL n' headings")
+        continue
+    expected = f"{levels[0]}–{levels[-1]}" if levels[0] == 0 else str(levels[-1])
+    check(claim == expected, f"README.md: `{name}` shows levels {claim}, curriculum has {expected}")
 
 # Marketplace descriptions state the course count in prose, so adding a course
 # silently strands every listing on the old number. Catch that.
