@@ -64,10 +64,19 @@ for rel, path in MANIFESTS.items():
         continue
     try:
         found = dig(data, path)
-    except (KeyError, IndexError):
+    except (KeyError, IndexError, TypeError):
         failures.append(f"{rel}: no version at {'.'.join(map(str, path))}")
         continue
     check(found == version, f"{rel}: version {found} != version.txt {version}")
+
+# The Claude marketplace carries an optional container version in metadata.version
+# that release-please does not manage; the other two marketplaces omit it. If it
+# ever reappears here it must still match the lockstep, or it drifts silently.
+mkt_meta_version = json.loads((ROOT / ".claude-plugin/marketplace.json").read_text()).get("metadata", {}).get("version")
+check(
+    mkt_meta_version in (None, version),
+    f".claude-plugin/marketplace.json: metadata.version {mkt_meta_version} != version.txt {version}",
+)
 
 # The README badge is the version most people actually read, so it is held to the
 # same lockstep as the manifests. It uses shields' static/v1 query form rather
@@ -113,7 +122,11 @@ for skill in skills:
     if not text.startswith("---"):
         failures.append(f"{skill.name}: SKILL.md has no YAML frontmatter")
         continue
-    fm = text.split("---")[1]
+    parts = text.split("---", 2)
+    if len(parts) < 3:
+        failures.append(f"{skill.name}: SKILL.md frontmatter has no closing '---'")
+        continue
+    fm = parts[1]
     # Regex-reading the frontmatter is how an unquoted ": " in six descriptions
     # went unnoticed: the runtime drops ALL metadata when the YAML fails, so the
     # skill installs nameless and undiscoverable. Parse it properly.

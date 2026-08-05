@@ -6,8 +6,7 @@
     "url": "https://github.com/soreavis"
   },
   "metadata": {
-    "description": "Marketplace for the ai-docent tutor courses",
-    "version": "1.0.0"
+    "description": "Marketplace for the ai-docent tutor courses"
   },
   "plugins": [
     {
