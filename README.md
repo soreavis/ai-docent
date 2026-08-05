@@ -105,7 +105,9 @@ Add this to a project's `.claude/settings.json` and everyone who trusts the fold
       "source": { "source": "github", "repo": "soreavis/ai-docent" }
     }
   },
-  "enabledPlugins": ["ai-docent@ai-docent"]
+  "enabledPlugins": {
+    "ai-docent@ai-docent": true
+  }
 }
 ```
 
