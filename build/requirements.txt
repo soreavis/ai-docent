@@ -1,0 +1,5 @@
+# The validator parses SKILL.md frontmatter with a real YAML parser rather than
+# a regex — that distinction is why six broken frontmatters were caught. Pinned
+# and kept here so Dependabot can see it; a version pinned inline in a workflow
+# is a version nothing ever bumps.
+pyyaml==6.0.3

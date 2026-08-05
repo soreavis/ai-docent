@@ -132,6 +132,11 @@ CASES = [
         "courses",
     ),
     (
+        "dependency pinned inline in a workflow",
+        lambda r: edit(r, ".github/workflows/ci.yml", "-r build/requirements.txt", "pyyaml==6.0.3"),
+        "pins a dependency inline",
+    ),
+    (
         "issue template missing a skill",
         lambda r: edit(r, ".github/ISSUE_TEMPLATE/course_correction.yml", "companion", "compangion"),
         "does not offer companion",

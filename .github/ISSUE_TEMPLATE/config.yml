@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/soreavis/ai-docent/security/policy
+    about: Report privately instead of opening an issue. Never post a working exploit here.
+  - name: Before you open an issue
+    url: https://github.com/soreavis/ai-docent/blob/main/CONTRIBUTING.md
+    about: What lands fast, what needs an issue first, and what will be declined.

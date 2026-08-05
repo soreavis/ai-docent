@@ -318,6 +318,15 @@ for skill in skills:
         f"{skill.name}: leftover paste-in scaffolding",
     )
 
+# The validator's dependency belongs in build/requirements.txt, where Dependabot
+# can see it. Pinned inline in a workflow it was invisible to Dependabot and
+# duplicated across two files, free to drift apart.
+check((ROOT / "build/requirements.txt").exists(), "build/requirements.txt is missing")
+for wf in sorted((ROOT / ".github/workflows").glob("*.yml")):
+    for line in wf.read_text().splitlines():
+        if "pip install" in line and "-r " not in line:
+            failures.append(f"{wf.name}: pins a dependency inline — install from build/requirements.txt instead")
+
 # The issue templates enumerate the skills. A skill missing from them is one
 # nobody can file a report against, which is exactly the report worth having.
 for tmpl in (".github/ISSUE_TEMPLATE/course_correction.yml", ".github/ISSUE_TEMPLATE/bug_report.yml"):
