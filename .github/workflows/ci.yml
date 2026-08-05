@@ -18,6 +18,9 @@ jobs:
         with: { python-version: '3.x' }
       - run: pip install --quiet pyyaml==6.0.3
       - run: python3 build/validate.py
+      # Prove the gates still fire. A gate that silently stopped checking looks
+      # exactly like a repo with nothing wrong in it.
+      - run: python3 build/test_validate.py
 
   shellcheck:
     name: Shellcheck

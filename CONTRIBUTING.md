@@ -10,7 +10,7 @@ This is maintained by one person, so review is the bottleneck rather than ideas.
 
 **New platform lanes.** A runtime that reads Agent Skills and isn't in the README table yet. Small, testable, obviously valuable — see [Adding a platform lane](#adding-a-platform-lane).
 
-**Validator improvements.** `build/validate.py` is where this project's conventions are actually enforced. A new gate that catches a real class of mistake is worth more than a fix for one instance of it.
+**Validator improvements.** `build/validate.py` is where this project's conventions are actually enforced. A new gate that catches a real class of mistake is worth more than a fix for one instance of it. Ship it with a case in `build/test_validate.py` that breaks the thing and watches the gate fail — an unproven gate is indistinguishable from a clean repo.
 
 **Typos, broken links, dead commands.** Straight to a PR, no issue needed.
 
@@ -56,11 +56,12 @@ Run `/reload-plugins` after edits to pick them up without restarting.
 
 ```bash
 python3 build/validate.py                              # spec, conventions, version lockstep — the same script CI runs
+python3 build/test_validate.py                         # proves each gate still fires on the defect it was written for
 claude plugin validate . --strict                      # the marketplace manifest
 claude plugin validate .claude-plugin/plugin.json --strict   # the plugin AND every skill's frontmatter
 ```
 
-Run all three. `claude plugin validate .` stops at the marketplace manifest and never reaches the skills — pointing it at `plugin.json` is what validates them, and that is how six broken frontmatters went unnoticed.
+Run all four. `claude plugin validate .` stops at the marketplace manifest and never reaches the skills — pointing it at `plugin.json` is what validates them, and that is how six broken frontmatters went unnoticed.
 
 `build/validate.py` enforces:
 

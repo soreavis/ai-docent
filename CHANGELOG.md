@@ -8,6 +8,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com/) and [Semant
 
 ### Fixed
 
+- **The validator had 75 assertions and nothing testing any of them.** `build/test_validate.py` now copies the repo, breaks one thing, and asserts the gate fires with the message that names it — 13 cases, run in CI. Writing it immediately caught two mistakes in its own fixtures, one of which (a link replaced once where the file mentions it twice) would have made a passing test prove nothing.
 - **`companion` never loaded its own `game-mode.md`.** The file exists and is written for revision — XP for items held and retired, a ladder counted by items retired rather than by lessons cleared — but no line of the skill ever read it, while the Progress Card still asked for `Rank: [rank] ([xp] XP · next at [n])`. With the bands unreachable the only options were to invent a rank or borrow the courses' ladder, which counts something else; either way the made-up number persisted to the save file. `build/validate.py` now checks the reference contract in both directions, so a file nothing loads fails the build.
 - The README's level column is recounted against the `## LEVEL n` headings in each curriculum. Nothing previously held the two together, so adding a level would have quietly left the table wrong.
 - The **lethal trifecta** is now credited to Simon Willison where `security` teaches it. Teaching a coined framing without attribution is the habit this project spends a whole course arguing against.
