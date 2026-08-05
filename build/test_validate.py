@@ -103,7 +103,7 @@ CASES = [
     ("rank ladder without numeric bands", strip_rank_bands, "no numeric bands"),
     (
         "README badge out of lockstep",
-        lambda r: edit(r, "README.md", "message=0.1.0", "message=0.2.0"),
+        lambda r: edit(r, "README.md", f"message={(r / 'version.txt').read_text().strip()}", "message=9.9.9"),
         "README",
     ),
     (
