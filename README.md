@@ -75,13 +75,18 @@ Once you've finished something, a third skill keeps it from fading:
 
 It drills what you've already covered on a widening schedule, reads across every course's progress at once to spot which habits have gone quiet, and has a five-minute mode for days you have nothing else. It never teaches new material — if a drill exposes a gap, it names the course that covers it and stops. There's no scheduler behind it: coming back is on you, and it says so rather than implying reminders will arrive.
 
+> [!IMPORTANT]
+> **New to this and not sure what to actually type?** Read **[Example prompts](docs/example-prompts.md)** first — a page of copyable starting points, no course required.
+>
+> It covers the four parts most beginner prompts leave out, how to make the model interview you when the task is still fuzzy in your own head, prompts for everyday work, and the two questions that tell you whether an answer can be trusted at all.
+
 ### Choosing how it talks to you
 
 Every course asks, once, how you want to be taught: **Coach** (warm and direct, the default), **Blunt** (terse, no praise), **Socratic** (mostly questions), **Peer** (casual colleague), **Patient** (no assumed background), **Formal** (professional and structured) — or describe your own. The choice is recorded on your Progress Card, so it survives between sessions, and you can change it any time by saying so.
 
 Tone is delivery, never content. No voice will drop a hedge, skip a verification, or state a figure it didn't look up — where a voice and a guardrail conflict, the guardrail wins and the course says so.
 
-Longer guides — your first session, how sessions run, the companion, best practices, troubleshooting — are in [docs/](docs/).
+Longer guides — your first session, example prompts, how sessions run, the companion, best practices, troubleshooting — are in [docs/](docs/).
 
 ### Turning on automatic updates
 
