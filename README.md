@@ -162,7 +162,7 @@ ai-docent/
     └── zip.sh                      # builds the standalone skill zips
 ```
 
-One skill tree, eight thin manifests. Release Please rewrites the version in every one of them from `version.txt`, and CI fails if any drift apart.
+One skill tree, eight thin manifests — one per platform. Every one of them takes its version from `version.txt`, they are all rewritten together when a release is cut, and CI fails if any drift apart.
 
 ## Contributing
 

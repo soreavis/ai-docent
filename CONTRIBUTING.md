@@ -102,7 +102,7 @@ These are deliberate. Keep them.
 2. Create a branch (`fix/description` or `feat/description`)
 3. Make your changes
 4. Ensure `python3 build/validate.py` passes
-5. Open a pull request with a [Conventional Commits](https://www.conventionalcommits.org/) title — `feat:`, `fix:`, `docs:`, `chore:`. Release Please reads these to decide the next version.
+5. Open a pull request with a [Conventional Commits](https://www.conventionalcommits.org/) title — `feat:`, `fix:`, `docs:`, `chore:`. [Release Please](https://github.com/googleapis/release-please), the tool that cuts releases here, reads these to decide the next version.
 
 ## Releasing
 

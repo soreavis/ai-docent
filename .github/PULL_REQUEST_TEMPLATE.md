@@ -12,7 +12,7 @@
 - [ ] Course conventions in [CONTRIBUTING.md](../CONTRIBUTING.md#course-conventions) respected — no hardcoded prices, limits or model IDs, no `docs.claude.com`, no calendar years under `skills/`, protocols intact
 - [ ] Any product fact added or changed is verified against current official docs, and the source is in this PR
 - [ ] `CHANGELOG.md` updated under `## [Unreleased]`
-- [ ] I did **not** hand-edit a version — Release Please owns `version.txt` and every file that mirrors it
+- [ ] I did **not** hand-edit a version — [Release Please](https://github.com/googleapis/release-please) owns `version.txt` and every file that mirrors it
 
 ## AI assistance
 
