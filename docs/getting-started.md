@@ -50,16 +50,17 @@ Four parts. How long it takes depends on your answers, and the wizard asks how l
 ## An example exchange
 
 ```
-You:  /ai-docent:prompt-craft
-It:   What should I call you?
-You:  Mira
-It:   Good to meet you, Mira. What do you mostly use an agent for?
-You:  Mostly writing. Client proposals, some analysis.
-It:   Do you have a recent one that came back weaker than you wanted?
-You:  Yes, a proposal I rewrote three times.
-It:   That's our material for the whole course, then. Paste it when
-      you're ready and we'll look at what you asked for versus what
-      you got.
+You:        /ai-docent:prompt-craft
+ai-docent:  What should I call you?
+You:        Mira
+ai-docent:  Good to meet you, Mira. What do you mostly use an agent for?
+You:        Mostly writing. Client proposals, some analysis.
+ai-docent:  Do you have a recent one that came back weaker than you
+            wanted?
+You:        Yes, a proposal I rewrote three times.
+ai-docent:  That's our material for the whole course, then. Paste it
+            when you're ready and we'll look at what you asked for
+            versus what you got.
 ```
 
 That's the shape. It works from your proposal, not a sample one.

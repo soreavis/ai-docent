@@ -33,11 +33,13 @@ Seeds keep only the newest five per course, so older cards have fewer than the l
 Items are situations, not definitions:
 
 ```
-It:   Fourteen files changed and the tests pass. What do you look at first?
-You:  Whether the tests actually cover the change.
-It:   Good, but that's second. First is what the change does that nobody
-      asked for — the tests can't tell you about the scope creep. Moving
-      this one up a rung anyway; you got the harder half.
+ai-docent:  Fourteen files changed and the tests pass. What do you
+            look at first?
+You:        Whether the tests actually cover the change.
+ai-docent:  Good, but that's second. First is what the change does that
+            nobody asked for — the tests can't tell you about the scope
+            creep. Moving this one up a rung anyway; you got the harder
+            half.
 ```
 
 ## The schedule

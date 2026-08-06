@@ -100,6 +100,58 @@ each step before giving me the next one.
 
 Useful early on, because a wall of ten steps is where beginners lose the thread.
 
+**Learning something properly**
+
+```
+I've just read about <topic>. Ask me five questions to find out
+whether I actually understood it, one at a time. Don't tell me the
+answers until I've tried.
+```
+
+```
+I'll explain <topic> back to you in my own words. Tell me what I got
+wrong or left out, and don't be generous about it.
+```
+
+Explaining something back is the fastest way to find the hole in your own understanding. This is the one place where being marked harshly is the point.
+
+**Email and messages**
+
+```
+Draft a reply to this. I want to say <what you actually mean>, but
+without <what you want to avoid — sounding annoyed, over-promising,
+being blunt with a client>. Keep it short.
+```
+
+```
+Is this message clear about what I'm asking for, and what happens
+next? Point at the sentence that does each. If one is missing,
+say so.
+```
+
+The second one catches the most common failure in a work message — being polite and complete but never actually stating the ask.
+
+**Meetings and messy notes**
+
+```
+Here are my raw notes. Pull out: decisions made, things someone
+committed to doing, and open questions nobody answered. Leave
+anything that fits none of those in a fourth list rather than
+dropping it.
+```
+
+That last clause matters. Without it you get a tidy summary and no way to tell what was quietly discarded.
+
+**Planning before doing**
+
+```
+Don't start yet. First give me a plan for <task> — the steps, in
+order, and where you think it's most likely to go wrong. I'll tell
+you when to begin.
+```
+
+Worth the extra step whenever the task takes more than one move, because a wrong plan is much cheaper to fix than wrong work.
+
 ## Prompts that make the answer checkable
 
 An answer that sounds right and an answer that is right look identical. These are worth building into your habits early — and they're what [`reliability`](../README.md#the-courses) is about in full:
@@ -136,6 +188,79 @@ doesn't follow from them, say so instead of filling the gap.
 
 Say what to keep as well as what to change. Only saying what's wrong tends to lose the parts that were working.
 
+A few more, for the failures you'll hit most:
+
+```
+That's too long. Same content, half the words, nothing important cut.
+```
+
+```
+You've changed my meaning in the third paragraph. Put it back to what
+I said and only fix the grammar.
+```
+
+```
+Stop expanding it. I want it shorter each time, not longer.
+```
+
+## Saying what "good" looks like
+
+The model can't tell whether it succeeded unless you say what success is. Two short additions do most of the work:
+
+```
+You're reviewing this as <the person who'll actually receive it —
+a hiring manager, a sceptical client, a tired reader on a phone>.
+It's good if <what would make it work>. Tell me whether it clears
+that bar, then fix it so it does.
+```
+
+Naming the reader changes the whole answer more than any amount of extra instruction about tone.
+
+## Controlling the shape of the answer
+
+Say the format outright rather than hoping:
+
+```
+Answer as a table with one row per option and columns for cost,
+effort, and main risk. No preamble.
+```
+
+```
+Give me three options, one line each. No explanation unless I ask.
+```
+
+"No preamble" and "no explanation unless I ask" are worth remembering. A lot of the bulk in an answer is throat-clearing you never wanted.
+
+## Stopping it from guessing
+
+Better said up front than corrected afterwards:
+
+```
+If you don't know something here, say "I don't know" rather than
+giving me your best guess. A gap I can see is more useful than a
+confident answer I have to check.
+```
+
+```
+Use only what I've given you below. Don't add facts from elsewhere,
+and if something's missing, tell me what's missing instead of
+filling it in.
+```
+
+The second one is the single most useful constraint when working from your own document, because filling a gap plausibly is exactly what you won't notice.
+
+## Turning something that worked into a reusable prompt
+
+When an exchange goes well, don't lose it:
+
+```
+That worked. Write me a reusable prompt that would get that result
+in one go next time, with <the parts that change> marked as blanks
+I fill in.
+```
+
+Do this two or three times and you have a small personal set of prompts for the things you do every week — which is where the real time saving is, rather than in any individual clever prompt.
+
 ## Two habits worth skipping
 
 **Politeness padding.** "Please could you kindly help me with" costs you nothing but adds nothing. Be direct; it isn't rude.
@@ -144,6 +269,8 @@ Say what to keep as well as what to change. Only saying what's wrong tends to lo
 
 ## Where this goes next
 
-Everything here is Level 1 material. [`prompt-craft`](../README.md#the-courses) covers the rest: shaping output format, giving the model a role and a success criterion, breaking hard tasks into steps, and building a reusable set of prompts for the things you do repeatedly.
+Everything here is a starting point, and mostly Level 1 material. [`prompt-craft`](../README.md#the-courses) covers the same ground properly and keeps going: teaching by example rather than instruction, breaking hard tasks into steps, getting the model to critique its own draft, deciding what the model sees at all rather than only how you word it, working out whether one prompt is genuinely better than another instead of assuming, and promoting the ones that win into standing instructions so you stop retyping them.
+
+If you only keep four things from this page: fill in the parts you left out, make it interview you when the task is fuzzy, say what "good" looks like, and ask what would make the answer wrong.
 
 If your prompts are fine and the answers still aren't, the problem is probably somewhere else — [Getting started](getting-started.md) has a table for picking the right course.
