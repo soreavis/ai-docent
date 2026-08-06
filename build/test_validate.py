@@ -132,6 +132,11 @@ CASES = [
         "courses",
     ),
     (
+        "a guide missing from the docs index",
+        lambda r: (r / "docs/orphan.md").write_text("# Orphan\n"),
+        "not listed in docs/README.md",
+    ),
+    (
         "dependency pinned inline in a workflow",
         lambda r: edit(r, ".github/workflows/ci.yml", "-r build/requirements.txt", "pyyaml==6.0.3"),
         "pins a dependency inline",

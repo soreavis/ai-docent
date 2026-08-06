@@ -327,6 +327,14 @@ for wf in sorted((ROOT / ".github/workflows").glob("*.yml")):
         if "pip install" in line and "-r " not in line:
             failures.append(f"{wf.name}: pins a dependency inline — install from build/requirements.txt instead")
 
+# docs/README.md is the only way into docs/. A guide missing from it is a guide
+# nobody reaches — the same failure as a reference file no SKILL.md loads.
+docs_index = (ROOT / "docs/README.md").read_text()
+linked_docs = set(re.findall(r"\]\(([\w-]+\.md)\)", docs_index))
+for doc in sorted((ROOT / "docs").glob("*.md")):
+    if doc.name != "README.md":
+        check(doc.name in linked_docs, f"docs/{doc.name} is not listed in docs/README.md")
+
 # The issue templates enumerate the skills. A skill missing from them is one
 # nobody can file a report against, which is exactly the report worth having.
 for tmpl in (".github/ISSUE_TEMPLATE/course_correction.yml", ".github/ISSUE_TEMPLATE/bug_report.yml"):

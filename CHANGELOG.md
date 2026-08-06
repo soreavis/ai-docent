@@ -38,6 +38,10 @@ This project follows [Keep a Changelog](https://keepachangelog.com/) and [Semant
 
 ## [Unreleased]
 
+### Added
+
+- `docs/example-prompts.md` — copyable starting points for people who have just started: the four parts most beginner prompts leave out, the ask-me-questions-first opener, everyday prompts by task, the ones that make an answer checkable, and how to steer a bad answer instead of restarting. It teaches nothing `prompt-craft` doesn't cover in full; it exists so day one doesn't require a course. Listed in `docs/README.md`, and a gate now fails the build if any guide is missing from that index.
+
 ### Fixed
 
 - **The validator had 75 assertions and nothing testing any of them.** `build/test_validate.py` now copies the repo, breaks one thing, and asserts the gate fires with the message that names it — 13 cases, run in CI. Writing it immediately caught two mistakes in its own fixtures, one of which (a link replaced once where the file mentions it twice) would have made a passing test prove nothing.
