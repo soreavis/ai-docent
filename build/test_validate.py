@@ -132,6 +132,11 @@ CASES = [
         "courses",
     ),
     (
+        "one skill's tone.md forked from the rest",
+        lambda r: append(r, "skills/security/references/tone.md", "\n- **Swashbuckler** — piratical.\n"),
+        "tone.md has drifted in: security",
+    ),
+    (
         "a guide missing from the docs index",
         lambda r: (r / "docs/orphan.md").write_text("# Orphan\n"),
         "not listed in docs/README.md",

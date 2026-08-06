@@ -327,6 +327,22 @@ for wf in sorted((ROOT / ".github/workflows").glob("*.yml")):
         if "pip install" in line and "-r " not in line:
             failures.append(f"{wf.name}: pins a dependency inline — install from build/requirements.txt instead")
 
+# tone.md is the one reference file that is deliberately identical everywhere:
+# it is the floor a chosen voice may never lower. Ten copies with nothing
+# holding them together means editing one forks the other nine silently, and
+# the voice menu a learner sees would depend on which course they opened.
+by_content = {}
+for skill in skills:
+    tone_file = skill / "references/tone.md"
+    if tone_file.exists():
+        by_content.setdefault(tone_file.read_bytes(), []).append(skill.name)
+if len(by_content) > 1:
+    shared = max(by_content.values(), key=len)
+    drifted = sorted(n for group in by_content.values() if group is not shared for n in group)
+    failures.append(
+        f"references/tone.md has drifted in: {', '.join(drifted)} — every skill carries the identical floor"
+    )
+
 # docs/README.md is the only way into docs/. A guide missing from it is a guide
 # nobody reaches — the same failure as a reference file no SKILL.md loads.
 docs_index = (ROOT / "docs/README.md").read_text()
