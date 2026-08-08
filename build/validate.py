@@ -402,13 +402,14 @@ SECRET_SHAPES = [
      r"[\"'][A-Za-z0-9/+_.\-]{16,}[\"']", "assigned credential literal"),
 ]
 
-# The maintainer address is published deliberately — CODE_OF_CONDUCT and
-# SECURITY both have to point somewhere a stranger can write to. Any *other*
-# address in the tree arrived by accident, which is the case worth catching.
+# This repo publishes no contact address at all. Conduct reports route through
+# GitHub's report-abuse form and security reports through private advisories,
+# so both private channels exist without an inbox to scrape. Any address that
+# appears here now arrived by accident — which is exactly what to catch, since
+# a published address cannot be unpublished once it has been crawled.
 EMAIL_RE = re.compile(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}")
 EMAIL_OK = re.compile(
-    r"julian\.soreavis@gmail\.com|git@github\.com"
-    r"|[^@]+@example\.(com|org)|[^@]+@users\.noreply\.github\.com"
+    r"git@github\.com|[^@]+@example\.(com|org)|[^@]+@users\.noreply\.github\.com"
 )
 
 HYGIENE_SKIP = {".git", "dist", "__pycache__", "node_modules"}
