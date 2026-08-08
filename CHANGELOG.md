@@ -4,6 +4,13 @@ All notable changes to this project are documented here.
 
 This project follows [Keep a Changelog](https://keepachangelog.com/) and [Semantic Versioning](https://semver.org/). Releases are managed by [Release Please](https://github.com/googleapis/release-please) from Conventional Commits — see [CONTRIBUTING.md](CONTRIBUTING.md#releasing).
 
+## [0.2.1](https://github.com/soreavis/ai-docent/compare/v0.2.0...v0.2.1) (2026-08-08)
+
+
+### Bug Fixes
+
+* hold the ten copies of tone.md identical ([e3e250a](https://github.com/soreavis/ai-docent/commit/e3e250ad8a3266397ddc1abf161604cb2533960a))
+
 ## [0.2.0](https://github.com/soreavis/ai-docent/compare/v0.1.0...v0.2.0) (2026-08-05)
 
 
