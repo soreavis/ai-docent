@@ -45,9 +45,10 @@ Fully automated pull requests — opened by a bot, or by someone who has not rea
 ## Getting started
 
 ```bash
+# Clone and load it — the repo root is the plugin
 git clone git@github.com:soreavis/ai-docent.git
 cd ai-docent
-claude --plugin-dir .        # the repo root is the plugin
+claude --plugin-dir .
 ```
 
 Run `/reload-plugins` after edits to pick them up without restarting.
@@ -55,10 +56,17 @@ Run `/reload-plugins` after edits to pick them up without restarting.
 ## Validating
 
 ```bash
-python3 build/validate.py                              # spec, conventions, version lockstep — the same script CI runs
-python3 build/test_validate.py                         # proves each gate still fires on the defect it was written for
-claude plugin validate . --strict                      # the marketplace manifest
-claude plugin validate .claude-plugin/plugin.json --strict   # the plugin AND every skill's frontmatter
+# Spec, conventions and version lockstep — the same script CI runs
+python3 build/validate.py
+
+# Proves each gate still fires on the defect it was written for
+python3 build/test_validate.py
+
+# The marketplace manifest
+claude plugin validate . --strict
+
+# The plugin AND every skill's frontmatter
+claude plugin validate .claude-plugin/plugin.json --strict
 ```
 
 Run all four. `claude plugin validate .` stops at the marketplace manifest and never reaches the skills — pointing it at `plugin.json` is what validates them, and that is how six broken frontmatters went unnoticed.
