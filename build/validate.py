@@ -386,6 +386,51 @@ for rel in [*MANIFESTS, "README.md"]:
         if n != len(courses) and re.search(rf"\b{word}\b[^.]{{0,40}}\bcourses\b", text, re.I):
             failures.append(f"{rel}: claims '{word} courses' but there are {len(courses)}")
 
+# A wrong version ships and gets fixed next release. A committed credential is
+# burned the moment it is pushed, and a scraped address stays scraped — neither
+# is undone by a later commit, so they are worth a gate that runs before the
+# push. GitHub scans provider tokens on public repos for free, but the generic
+# shapes below (private keys, credentialed URLs, auth headers, assigned
+# literals) need an organization-owned repo on Team or higher with Secret
+# Protection. This one is user-owned, so that scanning will never apply to it.
+SECRET_SHAPES = [
+    (r"-----BEGIN [A-Z ]*PRIVATE KEY-----", "private key block"),
+    (r"[a-z][a-z0-9+.\-]*://[^/\s:@]+:[^/\s:@]+@", "credentialed connection string"),
+    (r"(?i)authorization\s*:\s*(bearer|basic)\s+[A-Za-z0-9._~+/=\-]{16,}",
+     "auth header carrying a credential"),
+    (r"(?i)\b(api[_-]?key|secret|token|password|passwd|credential)s?\b\W{0,3}[:=]\s*"
+     r"[\"'][A-Za-z0-9/+_.\-]{16,}[\"']", "assigned credential literal"),
+]
+
+# The maintainer address is published deliberately — CODE_OF_CONDUCT and
+# SECURITY both have to point somewhere a stranger can write to. Any *other*
+# address in the tree arrived by accident, which is the case worth catching.
+EMAIL_RE = re.compile(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}")
+EMAIL_OK = re.compile(
+    r"julian\.soreavis@gmail\.com|git@github\.com"
+    r"|[^@]+@example\.(com|org)|[^@]+@users\.noreply\.github\.com"
+)
+
+HYGIENE_SKIP = {".git", "dist", "__pycache__", "node_modules"}
+HYGIENE_SUFFIXES = {".md", ".json", ".yml", ".yaml", ".sh", ".txt", ".py"}
+for f in sorted(ROOT.rglob("*")):
+    # validate.py holds the patterns and test_validate.py holds the probes that
+    # must match them; scanning either would make this gate fail on itself.
+    if not f.is_file() or HYGIENE_SKIP & set(f.parts):
+        continue
+    if f.suffix not in HYGIENE_SUFFIXES or f.name in ("validate.py", "test_validate.py"):
+        continue
+    rel = f.relative_to(ROOT)
+    for i, line in enumerate(f.read_text(errors="ignore").splitlines(), 1):
+        if "/Users/" in line:
+            failures.append(f"{rel}:{i}: user-specific absolute path — write ~/ instead")
+        for pattern, what in SECRET_SHAPES:
+            if re.search(pattern, line):
+                failures.append(f"{rel}:{i}: {what} — never commit a live credential")
+        for m in EMAIL_RE.finditer(line):
+            if not EMAIL_OK.fullmatch(m.group(0)):
+                failures.append(f"{rel}:{i}: unexpected email {m.group(0)}")
+
 if failures:
     print(f"✘ {len(failures)} failure(s):")
     for f in failures:

@@ -151,6 +151,36 @@ CASES = [
         lambda r: edit(r, ".github/ISSUE_TEMPLATE/course_correction.yml", "companion", "compangion"),
         "does not offer companion",
     ),
+    (
+        "private key committed",
+        lambda r: append(r, "docs/troubleshooting.md", "\n-----BEGIN RSA PRIVATE KEY-----\n"),
+        "private key block",
+    ),
+    (
+        "connection string carrying credentials",
+        lambda r: append(r, "docs/troubleshooting.md", "\npostgres://admin:hunter2islong@db:5432/app\n"),
+        "credentialed connection string",
+    ),
+    (
+        "auth header carrying a credential",
+        lambda r: append(r, "docs/troubleshooting.md", "\nAuthorization: Bearer abcdef0123456789ghijkl\n"),
+        "auth header carrying a credential",
+    ),
+    (
+        "credential assigned to a literal",
+        lambda r: append(r, "docs/troubleshooting.md", '\napi_key = "AKIAIOSFODNN7EXAMPLEKEY"\n'),
+        "assigned credential literal",
+    ),
+    (
+        "an address that is not the maintainer's",
+        lambda r: append(r, "docs/troubleshooting.md", "\nMail someone@some-employer.invalid instead.\n"),
+        "unexpected email",
+    ),
+    (
+        "a path with a real username in it",
+        lambda r: append(r, "docs/troubleshooting.md", "\nRun it from /Users/ada/code/ai-docent.\n"),
+        "user-specific absolute path",
+    ),
 ]
 
 
