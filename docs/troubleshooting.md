@@ -2,7 +2,7 @@
 
 ## The command does nothing
 
-Courses don't start themselves. In Claude Code they carry a flag that blocks automatic invocation outright; elsewhere they simply describe themselves as needing an explicit request. Either way you have to ask for one by name.
+Courses don't start themselves. In Claude Code they carry a flag that blocks automatic invocation outright; elsewhere each course describes itself as needing an explicit request. Either way you have to ask for one by name.
 
 Check the skill is installed and enabled. On plugin lanes that's the plugin manager for your runtime; on zip uploads it's a per-skill toggle. If you installed through a marketplace and nothing appears, the marketplace may have synced without the plugin being enabled.
 
