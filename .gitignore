@@ -6,3 +6,7 @@ dist/
 
 # OS
 .DS_Store
+
+# Local Python env for running build/validate.py
+.venv/
+venv/
