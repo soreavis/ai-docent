@@ -4,7 +4,8 @@
 
 | Version | Supported |
 |---------|-----------|
-| 0.1.x   | Yes       |
+| 0.2.1 <!-- x-release-please-version --> (latest) | Yes |
+| Older   | No — update through your install lane |
 
 ## Reporting a Vulnerability
 
@@ -23,7 +24,7 @@ You will receive a response within 72 hours. Please allow time to assess and pat
 
 ## Scope
 
-This repository contains Markdown instruction files, eight platform manifests, and two build scripts. It ships no runtime code and requests no credentials.
+This repository contains Markdown instruction files, eight platform manifests, and the three build scripts under `build/`. It ships no runtime code and requests no credentials.
 
 The findings most relevant here are:
 

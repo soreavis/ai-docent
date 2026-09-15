@@ -36,7 +36,7 @@ This Code of Conduct applies within all community spaces, and also applies when 
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported privately through [GitHub's report abuse form](https://github.com/contact/report-abuse). This project's community spaces are its issues, pull requests, and discussions, so that form covers them — see [reporting abuse or spam](https://docs.github.com/en/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported privately through [GitHub's report abuse form](https://github.com/contact/report-abuse). This project's community spaces are its issues and pull requests, so that form covers them — see [reporting abuse or spam](https://docs.github.com/en/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).
 
 Reports through that form go to GitHub Support, who can act at the account level. The maintainer acts on anything within this repository. All complaints will be reviewed and investigated promptly and fairly, and the privacy and security of the reporter will be respected.
 

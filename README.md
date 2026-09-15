@@ -137,7 +137,7 @@ Each course writes a Progress Card at the end of every session.
 
 | Surface | Where it goes |
 |---|---|
-| Any agent with file access | `~/.ai-docent/progress-<course>.md`, written automatically |
+| Any agent with file access | `~/.ai-docent/progress-<course>.md`, written automatically — or `./.ai-docent/` in the project if home isn't writable |
 | Plain chat, no filesystem | shown in the conversation — copy it somewhere safe |
 
 Cards are checked rather than trusted. A card from another course won't be resumed from, missing fields are named instead of filled in, and if a file is further along than something you pasted, you're asked which to use rather than quietly losing the newer one. If nothing survives at all, three questions rebuild it — you don't get sent back through onboarding. Say **save** at any point to get the card mid-session.
@@ -158,16 +158,18 @@ ai-docent/
 ├── skills/companion/               # revision — drills what the courses seeded
 ├── docs/                           # how to use the courses
 ├── version.txt                     # single source of truth for the version
-├── .claude-plugin/                 # plugin.json + marketplace.json
-├── .codex-plugin/ .cursor-plugin/ .grok-plugin/
+├── .claude-plugin/ .grok-plugin/   # plugin.json + marketplace.json each
+├── .codex-plugin/ .cursor-plugin/  # plugin.json
 ├── .agents/plugins/marketplace.json
 ├── gemini-extension.json
 └── build/
     ├── validate.py                 # spec, conventions, version lockstep — CI runs it
+    ├── test_validate.py            # proves every validator gate still fires
+    ├── requirements.txt            # the validator's one pinned dependency
     └── zip.sh                      # builds the standalone skill zips
 ```
 
-One skill tree, eight thin manifests — one per platform. Every one of them takes its version from `version.txt`, they are all rewritten together when a release is cut, and CI fails if any drift apart.
+One skill tree, eight thin manifests across six platform lanes. Every one of them takes its version from `version.txt`, they are all rewritten together when a release is cut, and CI fails if any drift apart.
 
 ## Contributing
 
