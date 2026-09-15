@@ -53,7 +53,7 @@ Use your platform's native plugin or skill manager where one exists — those la
 `<course>` is one of `foundations`, `prompt-craft`, `reliability`, `shipping`, `long-haul`, `security`, `mechanics`, `builder` — or one of the two support skills, `start` (picks a course for you) and `companion` (drills what you've learned). The plugin lanes include everything automatically; on the single-skill lanes, install the support skills alongside at least one course, since neither has anything to work with on its own.
 
 > [!NOTE]
-> The plugin lanes install **all eight courses at once**. The skill lanes take one course per command by default, which is usually what you want — but `npx skills add soreavis/ai-docent --skill '*'` installs the lot if you'd rather. `gh skill` is in preview and its flags may change.
+> The plugin lanes install **all eight courses at once**. The skill lanes take one course per command by default, which is usually what you want — but `npx skills add soreavis/ai-docent --skill '*'` installs the lot if you'd rather. `gh skill` is in preview and its flags may change. `gemini extensions install` stops at a confirmation prompt; pass `--consent` when scripting it.
 
 Once installed, if you're not sure where to begin, start here — it asks what's actually going wrong and points you at one course:
 

@@ -412,7 +412,7 @@ EMAIL_OK = re.compile(
     r"git@github\.com|[^@]+@example\.(com|org)|[^@]+@users\.noreply\.github\.com"
 )
 
-HYGIENE_SKIP = {".git", "dist", "__pycache__", "node_modules"}
+HYGIENE_SKIP = {".git", "dist", "__pycache__", "node_modules", ".venv", "venv"}
 HYGIENE_SUFFIXES = {".md", ".json", ".yml", ".yaml", ".sh", ".txt", ".py"}
 for f in sorted(ROOT.rglob("*")):
     # validate.py holds the patterns and test_validate.py holds the probes that
