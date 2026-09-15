@@ -4,6 +4,14 @@ All notable changes to this project are documented here.
 
 This project follows [Keep a Changelog](https://keepachangelog.com/) and [Semantic Versioning](https://semver.org/). Releases are managed by [Release Please](https://github.com/googleapis/release-please) from Conventional Commits — see [CONTRIBUTING.md](CONTRIBUTING.md#releasing).
 
+## [0.2.2](https://github.com/soreavis/ai-docent/compare/v0.2.1...v0.2.2) (2026-09-15)
+
+
+### Bug Fixes
+
+* correct stale versions, counts and dead links across the docs ([42689d2](https://github.com/soreavis/ai-docent/commit/42689d2cd8d224d1b396ae5390884f07820709c3))
+* skip local venvs in the hygiene scan and document gemini --consent ([c5d65b9](https://github.com/soreavis/ai-docent/commit/c5d65b9233f5fd3a406e9993977dad134ab740a2))
+
 ## [0.2.1](https://github.com/soreavis/ai-docent/compare/v0.2.0...v0.2.1) (2026-08-08)
 
 
