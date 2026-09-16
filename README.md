@@ -21,8 +21,8 @@ The arc: **Use → Craft → Trust → Ship → Sustain → Secure → Afford �
 | Course | Levels | What it teaches |
 |---|---|---|
 | `foundations` | 0–4 | beginner → power user, built around a capstone project |
-| `prompt-craft` | 4 | getting dramatically better outputs |
-| `reliability` | 4 | guardrails against hallucination and fabrication |
+| `prompt-craft` | 4 | getting dramatically better outputs — worked examples, not just instructions |
+| `reliability` | 4 | guardrails against hallucination and fabrication, second opinions briefed to refute |
 | `shipping` | 4 | scoping, reviewing and landing agent-generated work |
 | `long-haul` | 4 | projects that span days: context, handoffs, recovery |
 | `security` | 4 | prompt injection, data leaks, runaway agents |
@@ -78,7 +78,7 @@ It drills what you've already covered on a widening schedule, reads across every
 > [!IMPORTANT]
 > **New to this and not sure what to actually type?** Read **[Example prompts](docs/example-prompts.md)** first — a page of copyable starting points, no course required.
 >
-> It covers the four parts most beginner prompts leave out, how to make the model interview you when the task is still fuzzy in your own head, prompts for everyday work, and the two questions that tell you whether an answer can be trusted at all.
+> It covers the four parts most beginner prompts leave out, how to make the model interview you when the task is still fuzzy in your own head, prompts for everyday work, how to show it a worked example instead of describing what you want, the two questions that tell you whether an answer can be trusted at all, and how to have a fresh chat try to refute it.
 
 ### Choosing how it talks to you
 

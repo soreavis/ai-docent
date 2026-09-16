@@ -172,6 +172,25 @@ What would make this answer wrong?
 
 The last one is the highest-value question on this page. It's also the one nobody asks.
 
+All three ask the same model to doubt itself, which it does half-heartedly. When the answer matters, hand it to a fresh chat whose only job is to knock it down:
+
+```
+Your job is to refute this, not to review it. Find the strongest
+reason it is wrong. Point at the exact sentence, say what's wrong
+with it, and say what evidence would settle the question. If you
+can't find one, say "I could not refute it" — not "this looks right".
+```
+
+Paste only the answer, never the conversation that produced it — a chat that wrote something will defend it. For a single claim rather than a whole answer, the same shape works:
+
+```
+Someone claims: <the claim>. Try to refute it. Quote what you're
+relying on, and if you'd have to look something up to be sure, say
+what and don't guess.
+```
+
+Three things to know before you trust the result. "I could not refute it" means the answer survived one attempt, not that it's right. A refutation that doesn't point at a sentence and give a reason is noise — ignore it. And check the refutation itself before acting on it, because the refuter can invent a flaw as easily as the author invented a fact. When the stakes are high, run it two or three times in separate chats and compare: one grounded refutation outweighs any number of "could not refute".
+
 ## Fixing a bad answer
 
 The instinct is to start a new chat. Steering the existing answer is usually faster:
@@ -215,6 +234,38 @@ that bar, then fix it so it does.
 ```
 
 Naming the reader changes the whole answer more than any amount of extra instruction about tone.
+
+## Showing it an example
+
+An example does more than a paragraph of description, and it's the thing beginners most often leave out. For style or format, one finished sample is enough:
+
+```
+Here's one I wrote that I like: <paste>. Make three more in the same
+style, on <topics>. Match the length and the tone; don't reuse the
+content.
+```
+
+When the task has steps or a judgement inside it, show one *worked* example — the input, how you got from it to the output, and the output — so it copies the method rather than the look:
+
+```
+Here's one done the way I want, including how I got there.
+
+Input: <what you started from>
+Steps: <the two or three moves you made, in order>
+Output: <the result>
+
+Now do the same for: <new input>. Show the steps the same way.
+```
+
+When the failure is easier to show than to describe, put a bad one next to the good one:
+
+```
+Good: <paste>
+Bad: <paste> — bad because <the reason>.
+Make five more like the good one.
+```
+
+Examples pull harder than instructions, so check what yours accidentally teaches. If your one example is long, has three bullets and is about sales, you'll get long, three-bullet answers about sales. Vary the part that should vary across two or three examples, and include the awkward case, not only the easy one.
 
 ## Controlling the shape of the answer
 
@@ -271,6 +322,6 @@ Do this two or three times and you have a small personal set of prompts for the 
 
 Everything here is a starting point, and mostly Level 1 material. [`prompt-craft`](../README.md#the-courses) covers the same ground properly and keeps going: teaching by example rather than instruction, breaking hard tasks into steps, getting the model to critique its own draft, deciding what the model sees at all rather than only how you word it, working out whether one prompt is genuinely better than another instead of assuming, and promoting the ones that win into standing instructions so you stop retyping them.
 
-If you only keep four things from this page: fill in the parts you left out, make it interview you when the task is fuzzy, say what "good" looks like, and ask what would make the answer wrong.
+If you only keep four things from this page: fill in the parts you left out, make it interview you when the task is fuzzy, say what "good" looks like, and ask what would make the answer wrong — then, when it matters, have a fresh chat try to refute it.
 
 If your prompts are fine and the answers still aren't, the problem is probably somewhere else — [Getting started](getting-started.md) has a table for picking the right course.
