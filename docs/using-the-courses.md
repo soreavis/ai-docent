@@ -67,6 +67,10 @@ Change it whenever you like, including halfway through a session. The choice is 
 
 One thing the voice cannot do is change what's true. A blunt voice is not more certain than a warm one, and no voice gets to skip a verification or drop a hedge to sound decisive. Where the voice and the accuracy rules conflict, the rules win and the course tells you that's what happened.
 
+## Language
+
+A course replies in the language you write in, from the first message, and follows you if you switch. Commands, product names, file paths and the card's field labels stay as they are, so a card written in one language still resumes in another. No guardrail relaxes in translation: a course that would say "I'd need to check" in English says it in your language too.
+
 ## Game mode
 
 Off by default. Turn it on in the wizard and you get XP, ranks, a streak, and badges.

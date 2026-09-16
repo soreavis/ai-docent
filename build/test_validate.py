@@ -112,6 +112,16 @@ CASES = [
         "curriculum has 6",
     ),
     (
+        "never-narrate-the-unseen rule removed",
+        lambda r: edit(r, "skills/security/SKILL.md", "Never invent what you did not read or run", "Never invent what you did not read"),
+        "no never-narrate-the-unseen rule",
+    ),
+    (
+        "learner-language rule removed",
+        lambda r: edit(r, "skills/mechanics/SKILL.md", "Teach in the learner's language", "Teach in English"),
+        "no learner-language rule",
+    ),
+    (
         "guardrail moved out of GROUND RULES",
         lambda r: edit(r, "skills/builder/SKILL.md", "No search tool", "No lookup tool"),
         "no tool guard in GROUND RULES",

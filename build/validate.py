@@ -227,6 +227,19 @@ for skill in skills:
         "Tone never changes what is true" in ground,
         f"{skill.name}: tone must not be allowed to override the guardrails",
     )
+    # Two later additions, same placement rule: a truncated paste must still carry
+    # them. The first closes the gap between "never state a figure" and the
+    # broader habit of narrating files, outputs and sessions never seen; the
+    # second keeps every guardrail in force when the learner writes in another
+    # language, which is where a hedge is most likely to be dropped in translation.
+    check(
+        "Never invent what you did not read or run" in ground,
+        f"{skill.name}: no never-narrate-the-unseen rule in GROUND RULES",
+    )
+    check(
+        "Teach in the learner's language" in ground,
+        f"{skill.name}: no learner-language rule in GROUND RULES",
+    )
     check("Tone of voice?" in text, f"{skill.name}: wizard never offers a tone")
     check("Tone: [chosen voice" in text, f"{skill.name}: Progress Card does not carry the tone")
     # A pasted card is the only save file on chat surfaces, so it has to be
