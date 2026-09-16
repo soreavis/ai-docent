@@ -4,6 +4,21 @@ All notable changes to this project are documented here.
 
 This project follows [Keep a Changelog](https://keepachangelog.com/) and [Semantic Versioning](https://semver.org/). Releases are managed by [Release Please](https://github.com/googleapis/release-please) from Conventional Commits — see [CONTRIBUTING.md](CONTRIBUTING.md#releasing).
 
+## [0.5.0](https://github.com/soreavis/ai-docent/compare/v0.4.0...v0.5.0) (2026-09-16)
+
+
+### Features
+
+* browser agents at the trust boundary, and keeping your own skills ([6eaee97](https://github.com/soreavis/ai-docent/commit/6eaee97f1b33f117442ecc3fe55b041a3cd1e066))
+* check the premise before acting, in shipping 2.6 ([ccc0992](https://github.com/soreavis/ai-docent/commit/ccc0992500c5b393d3f255b513d827b40b9d541e))
+* **foundations:** tour a project you didn't write, learn with it, and handle messy documents ([8c232e6](https://github.com/soreavis/ai-docent/commit/8c232e61705cd3bb375b10ff32c093f331321bd4))
+* **shipping:** licences under house rules, and explaining review time upward ([6f7aaef](https://github.com/soreavis/ai-docent/commit/6f7aaef9c75d73912e3254815721c72f9c8d0e1a))
+
+
+### Bug Fixes
+
+* apply the refutation panel's residual findings ([f164e2d](https://github.com/soreavis/ai-docent/commit/f164e2d8e2e7ca3a597a85564a891a41d4d4ea3d))
+
 ## [0.4.0](https://github.com/soreavis/ai-docent/compare/v0.3.0...v0.4.0) (2026-09-16)
 
 
