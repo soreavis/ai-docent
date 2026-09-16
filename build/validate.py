@@ -359,6 +359,27 @@ if len(by_content) > 1:
         f"references/tone.md has drifted in: {', '.join(drifted)} — every skill carries the identical floor"
     )
 
+# The validator proves the files are well-formed; the eval suite proves the
+# skills behave. A skill with no case is a skill nothing has ever watched refuse
+# to fabricate. Every skill's slash command must appear in at least one prompt.
+prompts = "\n".join(p.read_text() for p in (ROOT / "evals").rglob("prompt.md"))
+for skill in skills:
+    check(f"/ai-docent:{skill.name}" in prompts, f"{skill.name}: no eval case invokes it — nothing checks it behaves")
+
+# A cheat-sheet is the course with the practice removed, so it is the easiest
+# place for an invented habit to hide. Every sheet must exist, be indexed, and
+# cite only lesson numbers its curriculum actually has.
+sheet_index = (ROOT / "docs/README.md").read_text()
+for skill in courses:
+    sheet = ROOT / f"docs/cheatsheets/{skill.name}.md"
+    if not sheet.exists():
+        failures.append(f"{skill.name}: no docs/cheatsheets/{skill.name}.md")
+        continue
+    check(f"cheatsheets/{skill.name}.md" in sheet_index, f"{skill.name}: cheat-sheet not listed in docs/README.md")
+    lessons = set(re.findall(r"^- \*\*(\d+\.\d+)", (skill / "references/curriculum.md").read_text(), re.M))
+    for ref in re.findall(r"\((\d+\.\d+)\)", sheet.read_text()):
+        check(ref in lessons, f"{skill.name}: cheat-sheet cites lesson {ref}, which the curriculum does not have")
+
 # docs/README.md is the only way into docs/. A guide missing from it is a guide
 # nobody reaches — the same failure as a reference file no SKILL.md loads.
 docs_index = (ROOT / "docs/README.md").read_text()
