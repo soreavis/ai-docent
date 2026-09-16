@@ -14,7 +14,7 @@ Select, reorder, rename, merge, cut to fit their project, language, and experien
 
 ## LEVEL 2 — Structured & reliable outputs
 
-- **2.1 Structured output (JSON).** Getting Claude to return structured data, and defining the shape you want. Exercise: extract named fields from freeform text as JSON.
+- **2.1 Structured output (JSON).** Getting Claude to return structured data, and defining the shape you want. The API-only lever the chat courses can't teach: *prefilling* the assistant turn — sending the first characters of the reply yourself (an opening `{`, a heading, the start of a list) so the model continues in that shape and skips the preamble. Check the docs for which models and modes support it before relying on it. Exercise: extract named fields from freeform text as JSON, once by instruction and once with a prefilled opening brace; compare how often each parses.
 - **2.2 System prompts that hold.** Designing system prompts that produce consistent behavior across calls (cross-reference `/ai-docent:prompt-craft` for the craft side). Exercise: a system prompt that reliably shapes the output.
 - **2.3 Validate everything the model returns.** Raw model output is never trusted downstream — parse it, validate it against a schema (e.g. Pydantic / zod), and handle the case where it's malformed. Exercise: add schema validation before any output is used.
 - **2.4 Prompt caching.** What it is, when it cuts latency and cost, and how to structure a prompt so repeated context hits the cache. (Verify the current mechanism in the docs; route any price figures to `/ai-docent:mechanics` — never quote a number from memory.) Exercise: restructure a repeated-context call to benefit from caching.
