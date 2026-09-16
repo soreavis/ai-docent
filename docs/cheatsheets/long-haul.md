@@ -16,8 +16,8 @@ Run a project that spans days or weeks with an agent, without the thread being l
 ## Habits
 
 - Assume the agent re-reads rather than remembers; put back what it needs each turn. (1.1)
-- When the project holds two contradictory decisions, date them both before picking one. (1.2)
-- End the session at a good boundary: a fresh session with good notes beats a long session with a full window. (1.3)
+- When the project holds two contradictory decisions, date them both. (1.2)
+- End the session at a good boundary: a fresh session with good notes beats a long session with a full window almost every time. (1.3)
 - Put anything the project cannot lose in a file you own, not in a feature that might remember it. (1.4)
 - Write one brief for a reader with zero context, because in two weeks that reader is you. (2.1)
 - Log every non-obvious decision in one line: the why, the date, and what you rejected. (2.2)
@@ -33,7 +33,7 @@ Run a project that spans days or weeks with an agent, without the thread being l
 ## Before you close the session
 
 - Could you resume this cold in a brand-new session, using only what exists outside the chat?
-- Could a fresh session — or a stranger — state the goal, the current state, and the next step from the written artifacts alone?
+- Could a fresh session — or a willing human — state the goal, the current state, and the next step from the written artifacts alone?
 - Could every session of this week be picked up cold under the scaffolding you built?
 - Are the things marked done actually done? Audit five against real state. (4.3)
 - Is there a line in the Drift log for the last thing lost, redone or contradicted, and what would have caught it?
@@ -46,9 +46,8 @@ Run a project that spans days or weeks with an agent, without the thread being l
 - Never let a session be unrecoverable; there is always a state you can return to.
 - Never trust a stale note. Stale notes are worse than none, because they're trusted.
 - Never quote a context-window size, memory limit or retention figure from memory. Look it up.
-- Never rewrite project history — no rebase, force-push, squash, deleted branch or reorganised files — unless you meant to, in that session.
+- Never rewrite project history — no rebase, force-push, squash, deleted branch or reorganised files — unless you explicitly asked for it in that session.
 - Never practise this on a toy. A course about long work cannot be taught on one.
 
----
 
-This is the keepable version of what /ai-docent:long-haul builds with you on your own work. The course is the practice; this is the reminder.
+The keepable version of what /ai-docent:long-haul builds with you on your own work.

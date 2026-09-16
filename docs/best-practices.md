@@ -1,6 +1,6 @@
 # Best practices
 
-Most of these come down to the same thing: the courses adapt to what you give them, so what you give them decides what you get.
+Most of these come down to the same thing: the courses adapt to what you give them.
 
 ## Bring real work
 
@@ -12,11 +12,11 @@ If you don't have a real project yet, `foundations` will build one with you. Tha
 
 The wizard asks where you're starting. Rounding up produces a plan that skips the gap you actually have, and you find out four lessons later.
 
-Nobody sees your answer. There's no reason to inflate it — and if you claim a level, the course checks it with three questions before it builds on the claim.
+Nobody sees your answer. There's no reason to inflate it — and if you say you're past the basics, the course checks it with three questions before it builds on the claim.
 
 ## One lesson, then stop
 
-Sessions are sized so the work sticks. Two or three lessons in one sitting feels productive and retains poorly, because the practice never gets spaced.
+Sessions are sized so the work sticks. Two or three lessons in one sitting feels productive, and the practice never gets spaced.
 
 The exception is a session where you're clearly ahead. Say so and it compresses.
 
@@ -28,7 +28,7 @@ Same with boredom. If a lesson is beneath you, say it. That's what the retro is 
 
 ## Don't skip the review
 
-Step six of every lesson: one thing you did well, one to fix, your version and a stronger one side by side. It's the step people cut when they're short on time, and it's the step that does the teaching.
+Step six of every lesson: one thing you did well, one to fix, your version and a stronger one side by side. It's the step people cut when they're short on time, and the one the courses never cut.
 
 If you're short on time, cut the challenge instead. The courses do the same thing when they're compressing.
 
@@ -42,13 +42,13 @@ Copy it somewhere boring and reliable. A note file, a pinned message. Then paste
 
 The arc runs Use, Craft, Trust, Ship, Sustain, Secure, Afford, Build. It's ordered that way because each one leans on the last.
 
-Two reasonable deviations. Skip `foundations` if you already use an agent daily, which is the most common correct adjustment. And pull whichever course addresses this week's actual pain to the front, then rejoin the order. Momentum matters more than tidiness.
+Two reasonable deviations. Skip `foundations` if you already use an agent daily, which is the most common correct adjustment. And pull whichever course addresses this week's actual pain to the front, then rejoin the order.
 
-`builder` is optional unless you write software that calls a model. Eight courses is not a checklist.
+`builder` is optional unless you write software that calls a model.
 
 ## Let it be wrong in front of you
 
-`reliability` plants deliberate errors and tells you afterwards. `security` shows attacks as inert text and neutralises them before the exercise closes. Both are more uncomfortable than reading about the technique, and both work better.
+`reliability` plants deliberate errors and tells you afterwards. `security` shows attacks as inert text and neutralises them before the exercise closes. Both are more uncomfortable than reading about the technique, and both are the point.
 
 If you catch the course in a genuine mistake, say so. It's supposed to correct itself and log it, not defend the claim.
 
@@ -60,7 +60,7 @@ Several courses hand your work to a second, fresh session. Brief that session to
 
 Finishing a lesson isn't learning it. Nothing in a course brings material back after the session ends, which is what [`/ai-docent:companion`](companion.md) is for — it drills the situations each course flagged while you were working on them.
 
-The catch: there's no scheduler, so nothing will chase you. Ten minutes a week beats an hour a month, and the ladder only widens if you actually show up.
+The catch: there's no scheduler, so nothing will chase you. The ladder widens only if you come back regularly, so it's built for short and regular rather than long and rare.
 
 ## Keep the skills you had
 

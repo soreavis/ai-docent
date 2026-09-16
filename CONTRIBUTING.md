@@ -55,6 +55,14 @@ Run `/reload-plugins` after edits to pick them up without restarting.
 
 ## Validating
 
+Two layers. `build/validate.py` proves the files are well-formed; the eval suite under `evals/` checks the skills behave — that a course asks your name first, refuses a price or model ID from memory, refuses to resume from another course's card, names the gaps in an incomplete card instead of filling them, keeps its hedge under a blunt tone, describes no file it did not read, and replies in the learner's language. Run it locally with Claude Code:
+
+```bash
+claude plugin eval . --trust-plugin --ablation none --no-publish
+```
+
+Each case runs twice; with `--ablation none` as above, a case passes only if every grader passes on every run. Cases open with the slash command, which loads the skill directly rather than through the Skill tool, so there is no with/without baseline to compare. It costs real tokens and needs your own login, which is why CI runs the validator and not the evals. Every skill must be the opening command of at least one case, and the validator fails if one is not.
+
 ```bash
 # Spec, conventions and version lockstep — the same script CI runs
 python3 build/validate.py
@@ -80,11 +88,19 @@ Run all four. `claude plugin validate .` stops at the marketplace manifest and n
 - every `references/` link resolves
 - the name-first wizard question, `disable-model-invocation: true`, a file-based progress card, and the Game Mode scoring-honesty rule are all present
 - no `docs.claude.com` citations and no leftover paste-in scaffolding
-- the nine anti-hallucination guardrails are present **inside** each skill's GROUND RULES block: the tool guard, the uncertainty rule, the never-construct-a-URL rule, enumerated doc domains, the never-state-an-unlooked-up-figure rule, the never-act-on-their-system rule, the never-narrate-what-you-didn't-see rule, the learner's-language rule, and the rule that tone never overrides any of them
+- the nine anti-hallucination guardrails are present **inside** each skill's GROUND RULES block: the tool guard, the uncertainty rule, the never-construct-a-URL rule, enumerated doc domains, the never-state-an-unlooked-up-figure rule, the never-act-on-their-system rule, the never-invent-what-you-did-not-read-or-run rule, the learner's-language rule, and the rule that tone never overrides any of them
 - every skill offers a tone in its wizard, carries `references/tone.md` with the delivery-not-content floor, and records the choice on its Progress Card
 - prose counts match reality — a manifest or the README claiming "eight courses" fails if the course count changes (skills carrying a `role:` are support skills and are excluded: `start`, `companion`)
 - no file under `skills/` pins a calendar year, and every Progress Card grounds its date rather than guessing
 - cards are validated on read: wrong-course, stale and truncated cards are all caught rather than trusted
+- every course wizard runs a placement check before taking a claimed level
+- every course has a cheat-sheet under `docs/cheatsheets/`, listed in `docs/README.md`, citing only lesson numbers its curriculum has
+- every file under `docs/`, at any depth, is linked from `docs/README.md`
+- every skill is the opening command of at least one eval case under `evals/`
+- the README's level column matches the `## LEVEL n` headings in each curriculum
+- the ten copies of `references/tone.md` are identical, and every `references/` file is loaded by its SKILL.md
+- CI installs the validator's dependency from `build/requirements.txt`, never inline
+- no file carries a credential shape, a user-specific absolute path, or an address that is not a placeholder
 - every skill carries the edge-case block, a cold-start rebuild, and a mid-session `save`
 - courses carry `Review seeds` and point at the companion; wizards state core/branch/ceiling counts that match the questions actually written
 - every skill is registered in `release-please-config.json`, so its version bumps with the rest

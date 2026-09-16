@@ -14,7 +14,7 @@ Every lesson has the same seven steps:
 
 One lesson per session by default. If you're moving fast it compresses and says so. If you're struggling it adds repetitions rather than pushing on.
 
-The review is the part people want to skip. It's where most of the value is.
+The review is the part people want to skip. It's the one step the courses never cut.
 
 ## Levels and boss fights
 
@@ -56,7 +56,7 @@ Each course asks once how you want to be taught:
 |---|---|
 | **Coach** | Warm and direct. Names the problem, then helps. The default. |
 | **Blunt** | Verdict first, no praise for showing up, short sentences. |
-| **Socratic** | Mostly questions. Slower, and more effective. |
+| **Socratic** | Mostly questions. Slower. |
 | **Peer** | A colleague at the next desk. Assumes competence. |
 | **Patient** | Defines terms, checks understanding, never implies you should know already. |
 | **Formal** | Structured, no slang, numbered steps. |
@@ -69,7 +69,7 @@ One thing the voice cannot do is change what's true. A blunt voice is not more c
 
 ## Language
 
-A course replies in the language you write in, from the first message, and follows you if you switch. Commands, product names, file paths and the card's field labels stay as they are, so a card written in one language still resumes in another. No guardrail relaxes in translation: a course that would say "I'd need to check" in English says it in your language too.
+A course replies in the language you write in, from the first message, and follows you if you switch. Commands, product names, file paths and the card's markers, labels and recorded values stay as they are, so a card written in one language still resumes in another. No guardrail relaxes in translation: a course that would say "I'd need to check" in English says it in your language too.
 
 ## Game mode
 

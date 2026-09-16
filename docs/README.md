@@ -8,9 +8,9 @@ Short guides for using the courses. Install commands live in the [main README](.
 - [Best practices](best-practices.md) — what makes these worth the time
 - [The companion](companion.md) — revising so it doesn't fade
 - [Troubleshooting](troubleshooting.md) — when something behaves oddly
-- [Sample session](sample-session.md) — a real first session, unedited
+- [Sample session](sample-session.md) — a real first session, verbatim, with a scripted learner
 
-One-page cheat-sheets, one per course, for the habits without the practice: [foundations](cheatsheets/foundations.md) · [prompt-craft](cheatsheets/prompt-craft.md) · [reliability](cheatsheets/reliability.md) · [shipping](cheatsheets/shipping.md) · [long-haul](cheatsheets/long-haul.md) · [security](cheatsheets/security.md) · [mechanics](cheatsheets/mechanics.md) · [builder](cheatsheets/builder.md). Every line on them traces to a lesson, and CI fails if a sheet cites a lesson that doesn't exist.
+One-page cheat-sheets, one per course, for the habits without the practice: [foundations](cheatsheets/foundations.md) · [prompt-craft](cheatsheets/prompt-craft.md) · [reliability](cheatsheets/reliability.md) · [shipping](cheatsheets/shipping.md) · [long-haul](cheatsheets/long-haul.md) · [security](cheatsheets/security.md) · [mechanics](cheatsheets/mechanics.md) · [builder](cheatsheets/builder.md). Every habit on them cites its lesson, and CI fails if a cited lesson doesn't exist.
 
 Two of the ten skills aren't courses: `start` picks a course for you and `companion` revises what you've already learned. The other eight teach.
 

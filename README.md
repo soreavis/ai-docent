@@ -84,7 +84,7 @@ It drills what you've already covered on a widening schedule, reads across every
 
 Every course asks, once, how you want to be taught: **Coach** (warm and direct, the default), **Blunt** (terse, no praise), **Socratic** (mostly questions), **Peer** (casual colleague), **Patient** (no assumed background), **Formal** (professional and structured) — or describe your own. The choice is recorded on your Progress Card, so it survives between sessions, and you can change it any time by saying so.
 
-Every course also replies in the language you write in, and follows you if you switch; only commands, paths and the card's field labels stay put.
+Every course also replies in the language you write in, and follows you if you switch; product names, commands, paths and the card's fixed parts stay as they are.
 
 Tone is delivery, never content. No voice will drop a hedge, skip a verification, or state a figure it didn't look up — where a voice and a guardrail conflict, the guardrail wins and the course says so.
 
@@ -159,13 +159,16 @@ ai-docent/
 ├── skills/start/                   # launcher — routes, sequences the full arc
 ├── skills/companion/               # revision — drills what the courses seeded
 ├── docs/                           # how to use the courses
+│   ├── cheatsheets/                # one page per course, every habit cites its lesson
+│   └── sample-session.md           # a real first session, verbatim
+├── evals/                          # behavioural cases: name first, no figures from memory, no invented records
 ├── version.txt                     # single source of truth for the version
 ├── .claude-plugin/ .grok-plugin/   # plugin.json + marketplace.json each
 ├── .codex-plugin/ .cursor-plugin/  # plugin.json
 ├── .agents/plugins/marketplace.json
 ├── gemini-extension.json
 └── build/
-    ├── validate.py                 # spec, conventions, version lockstep — CI runs it
+    ├── validate.py                 # spec, conventions, version lockstep, cheat-sheet citations, eval coverage — CI runs it
     ├── test_validate.py            # proves every validator gate still fires
     ├── requirements.txt            # the validator's one pinned dependency
     └── zip.sh                      # builds the standalone skill zips

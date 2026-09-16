@@ -21,7 +21,7 @@ import sys
 import tempfile
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
-IGNORE = shutil.ignore_patterns(".git", "dist", "__pycache__", "*.pyc")
+IGNORE = shutil.ignore_patterns(".git", "dist", "__pycache__", "*.pyc", "results")
 
 
 def edit(root, rel, old, new):
@@ -112,14 +112,29 @@ CASES = [
         "curriculum has 6",
     ),
     (
+        "a truncated-card check removed",
+        lambda r: edit(r, "skills/long-haul/SKILL.md", "**Complete?**", "**Whole?**"),
+        "no truncated-card check",
+    ),
+    (
+        "cheat-sheet citing a lesson inside a list of citations",
+        lambda r: edit(r, "docs/cheatsheets/builder.md", "(5.1, 5.3)", "(5.1, 9.9)"),
+        "cites lesson 9.9",
+    ),
+    (
+        "an unlisted file inside docs/cheatsheets",
+        lambda r: (r / "docs/cheatsheets/zzz-notes.md").write_text("# stray\n"),
+        "docs/cheatsheets/zzz-notes.md is not listed",
+    ),
+    (
         "cheat-sheet citing a lesson that does not exist",
         lambda r: edit(r, "docs/cheatsheets/reliability.md", "(2.3)", "(9.9)"),
         "cites lesson 9.9",
     ),
     (
         "a skill with no eval case",
-        lambda r: shutil.rmtree(r / "evals/language-follows-learner"),
-        "no eval case invokes it",
+        lambda r: edit(r, "evals/language-follows-learner/prompt.md", "/ai-docent:prompt-craft", "/ai-docent:promptcraft"),
+        "no eval case opens with /ai-docent:prompt-craft",
     ),
     (
         "placement check dropped from a course wizard",
@@ -129,7 +144,7 @@ CASES = [
     (
         "never-narrate-the-unseen rule removed",
         lambda r: edit(r, "skills/security/SKILL.md", "Never invent what you did not read or run", "Never invent what you did not read"),
-        "no never-narrate-the-unseen rule",
+        "no 'Never invent what you did not read or run' rule",
     ),
     (
         "learner-language rule removed",

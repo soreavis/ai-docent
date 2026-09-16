@@ -29,13 +29,13 @@ Learn how Claude actually works under the hood and how to operate it efficiently
 - Split work across parallel agents only when the subtasks are genuinely independent and time or scope matters. (3.3)
 - Glance at your own meter — usage in the app, spend in the console — and forecast the month from a few days. (3.4)
 
-## Before you trust the number
+## Before you trust it
 
 - Verify every price, usage limit and model ID against the current docs in this session, or mark it unverified and link the source.
 - No search this session means the figures are unverifiable. Teach yourself the framework and defer the numbers.
-- Right-size three real tasks against the axis, then confirm the current model in the docs before committing.
-- Say subscription or API and justify it with the framework before you start pulling levers.
-- Design the cheapest reliable setup end to end with every changeable figure marked "verify at the docs link".
+- Right-size three real tasks against the axis, then confirm the current model in the docs before committing. (Level 1 boss fight)
+- Say subscription or API and justify it with the framework before you start pulling levers. (Level 2 boss fight)
+- Design the cheapest reliable setup end to end with every changeable figure marked "verify at the docs link". (3.5)
 - Check the result is calibrated, not just thrifty: under-powering a hard task is its own waste.
 
 ## Never
@@ -48,6 +48,5 @@ Learn how Claude actually works under the hood and how to operate it efficiently
 - Never minimise spend blindly; match the spend to the job.
 - Never assume a single run is the answer.
 
----
 
-This is the keepable version of what /ai-docent:mechanics builds with you on your own work. The course is the practice; this is the reminder.
+The keepable version of what /ai-docent:mechanics builds with you on your own work.

@@ -48,6 +48,6 @@ Teaches you to use Claude in ways that minimize fabrication, to catch errors whe
 - Never let an agent touch originals without a copy.
 - Never delegate something irreversible that you cannot verify.
 - Never paste passwords, keys, or other people's private data into any AI.
-- Never leave a planted error unrevealed or uncorrected.
+- Never let a spot-the-fake round close without the full answer key — ask for it.
 
-This is the keepable version of what /ai-docent:reliability builds with you on your own work. The course is the practice; this is the reminder.
+The keepable version of what /ai-docent:reliability builds with you on your own work.
