@@ -61,6 +61,18 @@ I read this and didn't follow it: <paste>. Which part is the part
 I'm missing?
 ```
 
+**Understanding code or a project you didn't write**
+
+In an agent that can see the project, not a plain chat:
+
+```
+Give me a tour of this project: what it does, where to start reading,
+and which files matter most for <the part I care about>. Name the
+files so I can open them.
+```
+
+Then open one. A tour is a claim, so check one thing it said against the files.
+
 **Writing and editing**
 
 ```
