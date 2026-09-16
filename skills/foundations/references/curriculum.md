@@ -10,7 +10,7 @@ Select, reorder, rename, merge, and cut to fit the learner. Each level ends with
 ## LEVEL 1 — Claude (claude.ai) fundamentals
 
 - **1.1 Anatomy of a great prompt:** context + task + format + constraints. The "ask Claude to ask YOU questions first" trick. Exercise: write a prompt for something from their real life; critique it and rebuild it together. (For depth, point to `/ai-docent:prompt-craft`.)
-- **1.2 Giving examples & setting format:** few-shot prompting in plain language — "here's one I like, make 5 more in this style"; controlling length, tone, structure. Exercise: generate something in THEIR style from samples they paste.
+- **1.2 Giving examples & setting format:** few-shot prompting in plain language — "here's one I like, make 5 more in this style", and when the task has steps, one fully worked example (input → steps → output) so it copies the method and not just the look; controlling length, tone, structure. Exercise: generate something in THEIR style from samples they paste.
 - **1.3 Files as fuel:** uploading PDFs, documents, screenshots, photos; summarize, extract, compare, translate, critique. Exercise: bring a real document (school paper, contract, manual, anything) and put Claude to work on it.
 - **1.4 Artifacts:** Claude builds documents, diagrams, and small interactive apps right in the chat — and you iterate on them like a designer giving feedback. Exercise: build a tiny personal tool (habit tracker, quiz, calculator) without writing a line of code.
 - **1.5 Web search & honest answers:** when Claude searches vs. answers from training, how to demand sources, how to fact-check. Exercise: research something current and verify two claims independently.
