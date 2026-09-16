@@ -83,12 +83,28 @@ then list anything in it that I'd regret not noticing.
 
 Treat the second half as the point. A summary tells you what's there; the second question is the one that catches what matters.
 
+Two things about long documents. Paste the document first and put your question after it, not before — the model answers best the thing it read last. And for anything long, make it show its working:
+
+```
+<the document>
+
+First pull out the passages that bear on <my question>, word for
+word. Then answer using only those passages.
+```
+
 **Deciding something**
 
 ```
 I'm choosing between <A> and <B> for <purpose>. Give me the strongest
 case for each, then tell me what would have to be true for each one
 to be the wrong choice.
+```
+
+When you haven't got options yet, ask for them before you ask for an answer. The first idea it has is rarely its best one:
+
+```
+Give me three different ways to <do the thing>. Say what each one is
+bad at. Then recommend one and say why.
 ```
 
 **Getting help with a task you'd normally do by hand**
@@ -171,6 +187,8 @@ What would make this answer wrong?
 ```
 
 The last one is the highest-value question on this page. It's also the one nobody asks.
+
+A cheaper check that needs no prompt at all: ask the same question again in a second chat. Where the two answers disagree is where it's guessing.
 
 All three ask the same model to doubt itself, which it does half-heartedly. When the answer matters, hand it to a fresh chat whose only job is to knock it down:
 
@@ -320,7 +338,7 @@ Do this two or three times and you have a small personal set of prompts for the 
 
 ## Where this goes next
 
-Everything here is a starting point, and mostly Level 1 material. [`prompt-craft`](../README.md#the-courses) covers the same ground properly and keeps going: teaching by example rather than instruction, breaking hard tasks into steps, getting the model to critique its own draft, deciding what the model sees at all rather than only how you word it, working out whether one prompt is genuinely better than another instead of assuming, and promoting the ones that win into standing instructions so you stop retyping them.
+Everything here is a starting point, and mostly Level 1 material. [`prompt-craft`](../README.md#the-courses) covers the same ground properly and keeps going: teaching by example rather than instruction, breaking hard tasks into steps, asking for options before an answer, getting the model to critique its own draft, deciding what the model sees at all rather than only how you word it, working out whether one prompt is genuinely better than another instead of assuming, and promoting the ones that win into standing instructions so you stop retyping them.
 
 If you only keep four things from this page: fill in the parts you left out, make it interview you when the task is fuzzy, say what "good" looks like, and ask what would make the answer wrong — then, when it matters, have a fresh chat try to refute it.
 
