@@ -234,7 +234,7 @@ for skill in skills:
     # language, which is where a hedge is most likely to be dropped in translation.
     check(
         "Never invent what you did not read or run" in ground,
-        f"{skill.name}: no never-narrate-the-unseen rule in GROUND RULES",
+        f"{skill.name}: no 'Never invent what you did not read or run' rule in GROUND RULES",
     )
     check(
         "Teach in the learner's language" in ground,
@@ -264,6 +264,7 @@ for skill in skills:
         f"{skill.name}: cards are trusted without validation",
     )
     check(f"The marker reads `course={skill.name}`" in text, f"{skill.name}: no wrong-card check")
+    check("**Complete?**" in text, f"{skill.name}: no truncated-card check")
     check("Silently resuming from an older card" in text, f"{skill.name}: no stale-card check")
     check("`reconstructed`" in text, f"{skill.name}: no cold-start rebuild path")
     check(
@@ -278,6 +279,10 @@ for skill in skills:
     )
     phase1 = text[text.index("## PHASE 1"):]
     phase1 = phase1[: phase1.index("\n## ")]
+    # Self-reported levels round up; a course that takes the number skips the
+    # gap the learner actually has. The check must sit in the wizard itself.
+    if skill in courses:
+        check("**Placement check.**" in phase1, f"{skill.name}: wizard takes a claimed level without a placement check")
     stated_core = re.search(r"\*\*Wizard rules:\*\* (\d+) core questions", phase1)
     if stated_core:
         core = len(set(re.findall(r"^(\d+)\. ", phase1, re.M)))
@@ -296,7 +301,6 @@ for skill in skills:
     if skill in courses:
         # Self-reported levels round up; a course that takes the number skips the
         # gap the learner actually has. Placement must be earned in three questions.
-        check("Placement check" in text, f"{skill.name}: wizard takes a claimed level without a placement check")
         check("3-minute **retro**" in text, f"{skill.name}: no retro, but the companion trigger assumes one")
         check("Review seeds:" in text, f"{skill.name}: Progress Card carries no review seeds")
         check("Seed the revision queue" in text, f"{skill.name}: lesson loop never writes a seed")
@@ -359,34 +363,43 @@ if len(by_content) > 1:
         f"references/tone.md has drifted in: {', '.join(drifted)} — every skill carries the identical floor"
     )
 
-# The validator proves the files are well-formed; the eval suite proves the
+# The validator proves the files are well-formed; the eval suite checks the
 # skills behave. A skill with no case is a skill nothing has ever watched refuse
-# to fabricate. Every skill's slash command must appear in at least one prompt.
-prompts = "\n".join(p.read_text() for p in (ROOT / "evals").rglob("prompt.md"))
+# to fabricate. Every skill must be the opening command of at least one prompt —
+# a mention inside a pasted card or a sentence does not count.
+invoked = set()
+for p in (ROOT / "evals").rglob("prompt.md"):
+    body = p.read_text().split("---", 2)[-1].strip()
+    first = body.split("\n", 1)[0].strip()
+    m = re.fullmatch(r"/ai-docent:([a-z-]+)", first)
+    if m:
+        invoked.add(m.group(1))
 for skill in skills:
-    check(f"/ai-docent:{skill.name}" in prompts, f"{skill.name}: no eval case invokes it — nothing checks it behaves")
+    check(skill.name in invoked, f"{skill.name}: no eval case opens with /ai-docent:{skill.name} — nothing checks it behaves")
 
 # A cheat-sheet is the course with the practice removed, so it is the easiest
 # place for an invented habit to hide. Every sheet must exist, be indexed, and
-# cite only lesson numbers its curriculum actually has.
-sheet_index = (ROOT / "docs/README.md").read_text()
+# cite only lesson numbers its curriculum actually has — in "(2.6)" and
+# "(5.1, 5.3)" form alike.
+docs_index = (ROOT / "docs/README.md").read_text()
 for skill in courses:
     sheet = ROOT / f"docs/cheatsheets/{skill.name}.md"
     if not sheet.exists():
         failures.append(f"{skill.name}: no docs/cheatsheets/{skill.name}.md")
         continue
-    check(f"cheatsheets/{skill.name}.md" in sheet_index, f"{skill.name}: cheat-sheet not listed in docs/README.md")
+    check(f"cheatsheets/{skill.name}.md" in docs_index, f"{skill.name}: cheat-sheet not listed in docs/README.md")
     lessons = set(re.findall(r"^- \*\*(\d+\.\d+)", (skill / "references/curriculum.md").read_text(), re.M))
-    for ref in re.findall(r"\((\d+\.\d+)\)", sheet.read_text()):
-        check(ref in lessons, f"{skill.name}: cheat-sheet cites lesson {ref}, which the curriculum does not have")
+    for group in re.findall(r"\((\d+\.\d+(?:,\s*\d+\.\d+)*)\)", sheet.read_text()):
+        for ref in re.split(r",\s*", group):
+            check(ref in lessons, f"{skill.name}: cheat-sheet cites lesson {ref}, which the curriculum does not have")
 
 # docs/README.md is the only way into docs/. A guide missing from it is a guide
-# nobody reaches — the same failure as a reference file no SKILL.md loads.
-docs_index = (ROOT / "docs/README.md").read_text()
-linked_docs = set(re.findall(r"\]\(([\w-]+\.md)\)", docs_index))
-for doc in sorted((ROOT / "docs").glob("*.md")):
-    if doc.name != "README.md":
-        check(doc.name in linked_docs, f"docs/{doc.name} is not listed in docs/README.md")
+# nobody finds, at any depth.
+linked_docs = set(re.findall(r"\]\(([\w/-]+\.md)\)", docs_index))
+for doc in sorted((ROOT / "docs").rglob("*.md")):
+    rel_doc = doc.relative_to(ROOT / "docs").as_posix()
+    if rel_doc != "README.md":
+        check(rel_doc in linked_docs, f"docs/{rel_doc} is not listed in docs/README.md")
 
 # The issue templates enumerate the skills. A skill missing from them is one
 # nobody can file a report against, which is exactly the report worth having.
@@ -455,6 +468,10 @@ for f in sorted(ROOT.rglob("*")):
     # validate.py holds the patterns and test_validate.py holds the probes that
     # must match them; scanning either would make this gate fail on itself.
     if not f.is_file() or HYGIENE_SKIP & set(f.parts):
+        continue
+    # Eval runs write transcripts and judge output under evals/results/, which is
+    # gitignored and full of tool-call artefacts that look like addresses.
+    if "evals/results/" in f.relative_to(ROOT).as_posix():
         continue
     if f.suffix not in HYGIENE_SUFFIXES or f.name in ("validate.py", "test_validate.py"):
         continue

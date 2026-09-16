@@ -15,8 +15,8 @@ Teaches you to turn what an agent produces into work a real reviewer accepts: sc
 
 ## Habits
 
-- Before handing anything over, ask who reviews it, what it costs them, and how fast it can be undone. (1.3)
 - Estimate the change in reviewer-minutes, not in what it cost you to produce. (1.2)
+- Before handing anything over, ask who reviews it, what it costs them, and how fast it can be undone. (1.3)
 - Make each change do one thing, and name every separate thing it currently does. (2.1)
 - Split a big change into an ordered series, each step independently correct, the risky part last. (2.2)
 - Strip everything from the diff that wasn't asked for. (2.3)
@@ -33,8 +33,8 @@ Teaches you to turn what an agent produces into work a real reviewer accepts: sc
 ## Before you hand it over
 
 - Too long to read in one pass? That's a scoping signal — go back and split it. (3.1)
+- Does every claim in the description match what's actually in the diff? (1.4)
 - What did it delete, and which defaults or permissions got looser? (3.3)
-- Does every claim you're making match what's actually in the diff? (3.2)
 - Run your own pre-handover checklist, short enough that you'll really run it. (3.4)
 - Give a clean session the diff alone, briefed to refute rather than review. (3.6)
 - Does the description say what changed, why, what you left out, and how you verified it? (4.1)
@@ -50,4 +50,4 @@ Teaches you to turn what an agent produces into work a real reviewer accepts: sc
 - Never feed in work you'd need permission to copy.
 - Never read a rejection with no explanation as a verdict; it's data.
 
-This is the keepable version of what /ai-docent:shipping builds with you on your own work. The course is the practice; this is the reminder.
+The keepable version of what /ai-docent:shipping builds with you on your own work.

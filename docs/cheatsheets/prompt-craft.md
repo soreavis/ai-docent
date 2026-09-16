@@ -48,4 +48,4 @@ Takes you from writing one-line requests to engineering prompts that reliably ge
 - Never invent what you did not read or run — a file, an output, or a URL path you haven't seen.
 - Never let a choice of tone drop a hedge or skip a verification.
 
-This is the keepable version of what /ai-docent:prompt-craft builds with you on your own work. The course is the practice; this is the reminder.
+The keepable version of what /ai-docent:prompt-craft builds with you on your own work.

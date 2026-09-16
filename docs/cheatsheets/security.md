@@ -24,10 +24,10 @@ Use Claude without getting manipulated, leaked, or burned: how AI-specific attac
 - Grant connectors and MCP servers the narrowest scopes that work, and review what each can reach before approving. (2.5)
 - Keep a standing config that tells Claude to surface embedded instructions rather than follow them. (2.6)
 - Make it propose before it touches anything, and read the diff — or ask for it in plain language. (3.2)
-- Confirm before anything you can't undo, and check the target exists somewhere else first. (3.3)
+- Confirm before anything you can't undo, and check that its contents exist somewhere else — git history, a backup, a copy — before deleting. (3.3)
 - Commit before a session, and let the agent work on an isolated copy. (3.4)
-- Demand the real output. "Done" is a claim, not evidence. (3.7)
 - Verify a package exists and is the real one before installing it. (3.6)
+- Demand the real output. "Done" is a claim, not evidence. (3.7)
 - Rehearse the drill before you need it: contain, rotate the credential, roll back, assess the blast radius. (4.3)
 
 ## Before you trust it
@@ -47,8 +47,7 @@ Use Claude without getting manipulated, leaked, or burned: how AI-specific attac
 - Never delete a leaked secret and call it handled — rotate it, and assume it's compromised.
 - Never add a connector or MCP server you wouldn't treat like an unknown app.
 - Never perform an attack to see what it does. Describe it, neutralise it, leave nothing live.
-- Never end an exercise with a payload still un-defused.
+- Never let an exercise close with a payload still un-defused — ask for the neutralisation.
 
----
 
-This is the keepable version of what /ai-docent:security builds with you on your own work. The course is the practice; this is the reminder.
+The keepable version of what /ai-docent:security builds with you on your own work.

@@ -16,7 +16,7 @@ Go from your first API call to shipping real software powered by Claude: the Mes
 
 ## Habits
 
-- Keep the key in an environment variable, and put a placeholder in every example. (1.1)
+- Keep the key in an environment variable, and put a placeholder in every example. (1.1, woven)
 - Carry the conversation state yourself; the messages array is yours to manage. (1.5)
 - Wrap the call in real error handling with a retry, and fail gracefully on rate limits and overload. (1.6)
 - Define the shape you want, and check the docs for what supports prefilling before you rely on it. (2.1)
@@ -33,8 +33,10 @@ Go from your first API call to shipping real software powered by Claude: the Mes
 
 ## Before you ship it
 
+- Does the chat loop stream, hold a multi-turn conversation, and handle errors with the key out of the code? (1.7)
 - Does the pipeline fail safe — a clear error, not garbage — when the model returns something unexpected? (2.7)
 - Does the agent complete the real task *and* refuse an instruction injected into a tool result? (3.7)
+- Can an agent use your own MCP server to complete a real task? (4.8)
 - Is there an eval set of real cases with expected outcomes, and does a regression fail a check automatically? (5.1, 5.3)
 - Did the context change move the eval numbers, or did it just feel better? (5.1)
 - Is there a guardrail layer in front of the calls: input and output validation, rate limiting, content safety, secrets at the edges? (5.5)
@@ -51,6 +53,5 @@ Go from your first API call to shipping real software powered by Claude: the Mes
 - Never ship without evals.
 - Never trust a judge's numbers without hand-checking some of its verdicts.
 
----
 
-This is the keepable version of what /ai-docent:builder builds with you on your own work. The course is the practice; this is the reminder.
+The keepable version of what /ai-docent:builder builds with you on your own work.

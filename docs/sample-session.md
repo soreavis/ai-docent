@@ -1,8 +1,8 @@
 # Sample session
 
-A real first session of `foundations`, unedited. It was run headlessly against v0.5.0 of the plugin with Claude Code, one learner message per turn, and the transcript below is exactly what came back. The learner's answers were scripted to play a plausible beginner; nothing on the course's side was touched. Read it to see what a first session feels like before you install anything.
+A real first session of `foundations`, verbatim. It was run headlessly against v0.5.0 of the plugin with Claude Code: the opening turn was captured from the first invocation, and each later turn continued that same conversation with one learner message. The course's side is exactly what came back. The learner's answers were scripted to play a plausible beginner; nothing on the course's side was touched. Read it to see what a first session feels like before you install anything.
 
-Three things worth noticing as you read. The course verifies its own record before trusting it, and says so. It asks one question at a time and skips the ones your answers already covered. And when the learner ignored a question (where the report's numbers come from), it kept the gap open on the card as a parked question rather than filling it in.
+Three things worth noticing as you read. The course looks for a saved record before it starts and says what it found. It asks the core questions one at a time and skips the ones your answers already covered, though it bundled its two follow-ups about the report into one turn. And when the learner ignored a question (where the report's numbers come from), it kept the gap open on the card as a parked question rather than filling it in.
 
 Speaker labels were added; the text is verbatim.
 

@@ -19,7 +19,7 @@ Woven through every session: trust but check, especially numbers, links, and cla
 ## Habits
 
 - Talk to it like a smart colleague, not a search engine. (0.1)
-- Refine the answer you have; don't start a new chat. (0.2)
+- Iterate on the answer you have — follow-ups, "no, more like this" — instead of restarting. (0.2)
 - Carry all four parts: context, task, format, constraints. (1.1)
 - When the ask is fuzzy, have it ask you questions before it answers. (1.1)
 - For a task with steps, show one fully worked example — input, steps, output. (1.2)
@@ -28,7 +28,7 @@ Woven through every session: trust but check, especially numbers, links, and cla
 - Open one file the tour named and check it — a tour is a claim. (2.2)
 - Ask what a command does and what it touches before approving it; classify it safe, reversible, or one-way. (2.3)
 - Make it propose before it acts; reject the first plan and shape a better one. (2.5)
-- Commit before you start; when a session goes sideways, stop it, restore from git, re-scope. (2.6)
+- Commit before you start; when a session goes sideways, stop it, reset the conversation, restore from git, re-scope. (2.6)
 - Put standing preferences and project rules in CLAUDE.md once. (2.7)
 - Sanity-check the numbers in any analysis it hands back. (3.3)
 - When something you learned stops matching what you see, trust the product, check the docs, update your notes. (4.11)
@@ -52,4 +52,4 @@ Woven through every session: trust but check, especially numbers, links, and cla
 - Never use the agent to skip a gap you'll need closed in six months.
 - Never let a choice of tone drop a hedge or skip a verification.
 
-This is the keepable version of what /ai-docent:foundations builds with you on your own work. The course is the practice; this is the reminder.
+The keepable version of what /ai-docent:foundations builds with you on your own work.

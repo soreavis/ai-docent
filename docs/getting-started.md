@@ -39,7 +39,7 @@ A rough guide to the eight, in arc order:
 
 Four parts. How long it takes depends on your answers, and the wizard asks how long you want sessions to run.
 
-**The wizard.** Six core questions, plus whichever branch questions apply to your answers — usually nine or ten in total, one at a time, and it reacts to your answers rather than marching through a form. It asks your name first. Somewhere in there it asks how you want to be taught, and whether you want the gamified version. Answer honestly, particularly about your current level. Overstating it produces a plan that skips what you actually need.
+**The wizard.** Six core questions, plus whichever branch questions apply to your answers — usually nine or ten in total, plus three placement questions if you say you're past the basics, one at a time, and it reacts to your answers rather than marching through a form. It asks your name first. Somewhere in there it asks how you want to be taught, and whether you want the gamified version. Answer honestly, particularly about your current level. Overstating it produces a plan that skips what you actually need.
 
 **Placement.** If you say you're already past the basics, the course doesn't take your word for it: three short questions from the level below the one you want, then it places you on what you answered. A level you didn't sit is recorded as placed, never as passed.
 
@@ -59,16 +59,16 @@ ai-docent:  No saved progress found, so this is a first session.
             [...] First question: what should I call you?
 You:        Dana
 ai-docent:  Good to meet you, Dana. Next: have you used Claude, ChatGPT,
-            or any AI assistant before?
+            or any AI assistant before? [...]
 You:        A few times. ChatGPT mostly, for rewriting emails [...]
 ai-docent:  Rewriting emails and decoding formulas is exactly the kind of
             thing that gets dramatically better once you know how to ask.
-            [...] What's your situation right now?
+            [...] What's your situation right now? [...]
 ```
 
 The full transcript runs through the wizard, the lesson plan, the first lesson and a mid-session save.
 
-That's the shape. It works from your proposal, not a sample one.
+That's the shape. It works from your own material, not a sample.
 
 ## The second session
 
