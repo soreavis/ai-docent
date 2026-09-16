@@ -12,7 +12,7 @@ If you don't have a real project yet, `foundations` will build one with you. Tha
 
 The wizard asks where you're starting. Rounding up produces a plan that skips the gap you actually have, and you find out four lessons later.
 
-Nobody sees your answer. There's no reason to inflate it.
+Nobody sees your answer. There's no reason to inflate it — and if you claim a level, the course checks it with three questions before it builds on the claim.
 
 ## One lesson, then stop
 

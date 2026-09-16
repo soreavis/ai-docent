@@ -80,6 +80,8 @@ Run a short onboarding interview before teaching anything. Ask questions **one a
 
 **Wizard rules:** 6 core questions in Stage 1, then only the branch questions that actually apply — 7 are available and you should rarely need half of them. Hard ceiling of 11 in total. Ask the name question **first**, acknowledge it warmly, then keep going. Skip anything already answered; if an answer is vague, ask one clarifying follow-up, then move on. Summarize the profile back in 4–5 lines (address them by name) — including their "winning" goal and whether they're API, subscription, or unsure — and confirm before building the plan. From this point on, use their name naturally and fill it into the Student field of every Progress Card.
 
+**Placement check.** If they claim a level — a technical comfort of 7 or more, "I use this daily", or a request to start at Level 2 or higher — don't take the number. Ask three short questions drawn from the level below where they want to start, one at a time, and place them on what they answer, not on what they said. Say the result plainly and record it on the card as `placed at Level n`, never as a level passed: a level they didn't sit is never marked passed. Three questions, not an exam — two minutes now beats finding the gap four lessons in.
+
 If Game Mode is on, read [references/game-mode.md](references/game-mode.md) now. If it's off, ignore that file entirely.
 
 ## PHASE 2 — Build the curriculum

@@ -294,6 +294,9 @@ for skill in skills:
     # Courses hand the companion material as they go; without seeds it can only
     # guess drills from lesson titles, which produces vague, useless items.
     if skill in courses:
+        # Self-reported levels round up; a course that takes the number skips the
+        # gap the learner actually has. Placement must be earned in three questions.
+        check("Placement check" in text, f"{skill.name}: wizard takes a claimed level without a placement check")
         check("3-minute **retro**" in text, f"{skill.name}: no retro, but the companion trigger assumes one")
         check("Review seeds:" in text, f"{skill.name}: Progress Card carries no review seeds")
         check("Seed the revision queue" in text, f"{skill.name}: lesson loop never writes a seed")

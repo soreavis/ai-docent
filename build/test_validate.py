@@ -112,6 +112,11 @@ CASES = [
         "curriculum has 6",
     ),
     (
+        "placement check dropped from a course wizard",
+        lambda r: edit(r, "skills/prompt-craft/SKILL.md", "**Placement check.**", "**Level claim.**"),
+        "without a placement check",
+    ),
+    (
         "never-narrate-the-unseen rule removed",
         lambda r: edit(r, "skills/security/SKILL.md", "Never invent what you did not read or run", "Never invent what you did not read"),
         "no never-narrate-the-unseen rule",
