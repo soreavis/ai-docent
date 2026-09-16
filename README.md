@@ -84,6 +84,8 @@ It drills what you've already covered on a widening schedule, reads across every
 
 Every course asks, once, how you want to be taught: **Coach** (warm and direct, the default), **Blunt** (terse, no praise), **Socratic** (mostly questions), **Peer** (casual colleague), **Patient** (no assumed background), **Formal** (professional and structured) — or describe your own. The choice is recorded on your Progress Card, so it survives between sessions, and you can change it any time by saying so.
 
+Every course also replies in the language you write in, and follows you if you switch; only commands, paths and the card's field labels stay put.
+
 Tone is delivery, never content. No voice will drop a hedge, skip a verification, or state a figure it didn't look up — where a voice and a guardrail conflict, the guardrail wins and the course says so.
 
 Longer guides — your first session, example prompts, how sessions run, the companion, best practices, troubleshooting — are in [docs/](docs/).

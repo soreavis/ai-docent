@@ -80,7 +80,7 @@ Run all four. `claude plugin validate .` stops at the marketplace manifest and n
 - every `references/` link resolves
 - the name-first wizard question, `disable-model-invocation: true`, a file-based progress card, and the Game Mode scoring-honesty rule are all present
 - no `docs.claude.com` citations and no leftover paste-in scaffolding
-- the seven anti-hallucination guardrails are present **inside** each skill's GROUND RULES block: the tool guard, the uncertainty rule, the never-construct-a-URL rule, enumerated doc domains, the never-state-an-unlooked-up-figure rule, the never-act-on-their-system rule, and the rule that tone never overrides any of them
+- the nine anti-hallucination guardrails are present **inside** each skill's GROUND RULES block: the tool guard, the uncertainty rule, the never-construct-a-URL rule, enumerated doc domains, the never-state-an-unlooked-up-figure rule, the never-act-on-their-system rule, the never-narrate-what-you-didn't-see rule, the learner's-language rule, and the rule that tone never overrides any of them
 - every skill offers a tone in its wizard, carries `references/tone.md` with the delivery-not-content floor, and records the choice on its Progress Card
 - prose counts match reality — a manifest or the README claiming "eight courses" fails if the course count changes (skills carrying a `role:` are support skills and are excluded: `start`, `companion`)
 - no file under `skills/` pins a calendar year, and every Progress Card grounds its date rather than guessing
