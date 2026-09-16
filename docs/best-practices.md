@@ -64,7 +64,7 @@ The catch: there's no scheduler, so nothing will chase you. Ten minutes a week b
 
 ## Keep the skills you had
 
-Do one thing by hand now and then, on purpose, and explain an answer back before you accept it. `reliability` covers why: a skill you stop exercising decays, and you find out when the tool is wrong.
+Do one thing by hand now and then, on purpose, and explain an answer back before you accept it. `foundations` carries it as a standing rule: close knowledge gaps with the agent, don't skip them.
 
 ## Finishing one course is a result
 
