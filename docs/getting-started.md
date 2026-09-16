@@ -51,19 +51,22 @@ Four parts. How long it takes depends on your answers, and the wizard asks how l
 
 ## An example exchange
 
+The short version of a real first session, from the [sample session](sample-session.md):
+
 ```
-You:        /ai-docent:prompt-craft
-ai-docent:  What should I call you?
-You:        Mira
-ai-docent:  Good to meet you, Mira. What do you mostly use an agent for?
-You:        Mostly writing. Client proposals, some analysis.
-ai-docent:  Do you have a recent one that came back weaker than you
-            wanted?
-You:        Yes, a proposal I rewrote three times.
-ai-docent:  That's our material for the whole course, then. Paste it
-            when you're ready and we'll look at what you asked for
-            versus what you got.
+You:        /ai-docent:foundations
+ai-docent:  No saved progress found, so this is a first session.
+            [...] First question: what should I call you?
+You:        Dana
+ai-docent:  Good to meet you, Dana. Next: have you used Claude, ChatGPT,
+            or any AI assistant before?
+You:        A few times. ChatGPT mostly, for rewriting emails [...]
+ai-docent:  Rewriting emails and decoding formulas is exactly the kind of
+            thing that gets dramatically better once you know how to ask.
+            [...] What's your situation right now?
 ```
+
+The full transcript runs through the wizard, the lesson plan, the first lesson and a mid-session save.
 
 That's the shape. It works from your proposal, not a sample one.
 
