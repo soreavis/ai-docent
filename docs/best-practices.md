@@ -62,6 +62,10 @@ Finishing a lesson isn't learning it. Nothing in a course brings material back a
 
 The catch: there's no scheduler, so nothing will chase you. Ten minutes a week beats an hour a month, and the ladder only widens if you actually show up.
 
+## Keep the skills you had
+
+Do one thing by hand now and then, on purpose, and explain an answer back before you accept it. `reliability` covers why: a skill you stop exercising decays, and you find out when the tool is wrong.
+
 ## Finishing one course is a result
 
 The full arc is long. One course, done properly, on real work, changes how you operate. Stopping there is a legitimate ending rather than a dropout, and the launcher will tell you the same thing.
