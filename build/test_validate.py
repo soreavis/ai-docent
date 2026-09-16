@@ -112,6 +112,16 @@ CASES = [
         "curriculum has 6",
     ),
     (
+        "cheat-sheet citing a lesson that does not exist",
+        lambda r: edit(r, "docs/cheatsheets/reliability.md", "(2.3)", "(9.9)"),
+        "cites lesson 9.9",
+    ),
+    (
+        "a skill with no eval case",
+        lambda r: shutil.rmtree(r / "evals/language-follows-learner"),
+        "no eval case invokes it",
+    ),
+    (
         "placement check dropped from a course wizard",
         lambda r: edit(r, "skills/prompt-craft/SKILL.md", "**Placement check.**", "**Level claim.**"),
         "without a placement check",
