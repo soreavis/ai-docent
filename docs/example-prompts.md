@@ -168,6 +168,14 @@ you when to begin.
 
 Worth the extra step whenever the task takes more than one move, because a wrong plan is much cheaper to fix than wrong work.
 
+Before the plan, check the premise. Half the time the thing you're asking for already exists, or the problem isn't where you think it is:
+
+```
+Before you change anything: tell me what's already there for <this>,
+whether any of it already does what I'm asking, and what would break
+if you added it. Then wait.
+```
+
 ## Prompts that make the answer checkable
 
 An answer that sounds right and an answer that is right look identical. These are worth building into your habits early — and they're what [`reliability`](../README.md#the-courses) is about in full:
