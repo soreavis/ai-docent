@@ -6,7 +6,7 @@ disable-model-invocation: true
 metadata:
   course: ai-docent
   # x-release-please-start-version
-  version: 0.2.2
+  version: 0.3.0
   # x-release-please-end
 ---
 

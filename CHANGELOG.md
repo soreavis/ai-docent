@@ -4,6 +4,14 @@ All notable changes to this project are documented here.
 
 This project follows [Keep a Changelog](https://keepachangelog.com/) and [Semantic Versioning](https://semver.org/). Releases are managed by [Release Please](https://github.com/googleapis/release-please) from Conventional Commits — see [CONTRIBUTING.md](CONTRIBUTING.md#releasing).
 
+## [0.3.0](https://github.com/soreavis/ai-docent/compare/v0.2.2...v0.3.0) (2026-09-16)
+
+
+### Features
+
+* brief second-opinion reviewers to refute, with a panel tally ([6451905](https://github.com/soreavis/ai-docent/commit/6451905c2dd04303a1130631407218101c026848))
+* teach worked examples alongside few-shot samples ([e2e366f](https://github.com/soreavis/ai-docent/commit/e2e366fbc73fec1c81aa1e7ae1e691ade9eaaee5))
+
 ## [0.2.2](https://github.com/soreavis/ai-docent/compare/v0.2.1...v0.2.2) (2026-09-15)
 
 
