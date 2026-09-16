@@ -4,6 +4,13 @@ All notable changes to this project are documented here.
 
 This project follows [Keep a Changelog](https://keepachangelog.com/) and [Semantic Versioning](https://semver.org/). Releases are managed by [Release Please](https://github.com/googleapis/release-please) from Conventional Commits — see [CONTRIBUTING.md](CONTRIBUTING.md#releasing).
 
+## [0.4.0](https://github.com/soreavis/ai-docent/compare/v0.3.0...v0.4.0) (2026-09-16)
+
+
+### Features
+
+* teach long-context placement, step-back, options-then-choose, run-it-twice and prefill ([5d1b936](https://github.com/soreavis/ai-docent/commit/5d1b93675ab1c798a32454456d3cee7f8c7eff06))
+
 ## [0.3.0](https://github.com/soreavis/ai-docent/compare/v0.2.2...v0.3.0) (2026-09-16)
 
 
