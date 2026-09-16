@@ -41,6 +41,8 @@ Four parts. How long it takes depends on your answers, and the wizard asks how l
 
 **The wizard.** Six core questions, plus whichever branch questions apply to your answers — usually nine or ten in total, one at a time, and it reacts to your answers rather than marching through a form. It asks your name first. Somewhere in there it asks how you want to be taught, and whether you want the gamified version. Answer honestly, particularly about your current level. Overstating it produces a plan that skips what you actually need.
 
+**Placement.** If you say you're already past the basics, the course doesn't take your word for it: three short questions from the level below the one you want, then it places you on what you answered. A level you didn't sit is recorded as placed, never as passed.
+
 **The plan.** It reads the full curriculum, then builds a version for you: courses reordered, lessons merged or cut, weighted toward whatever is hurting. You get it as a numbered list before anything starts. Change it. That's the point of showing it to you.
 
 **The first lesson.** Concept in a few sentences, then it does the thing on your real material, then you do it, then a harder variation. Hints escalate if you ask: a nudge, then a direction, then a walkthrough.
