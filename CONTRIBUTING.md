@@ -61,7 +61,7 @@ Two layers. `build/validate.py` proves the files are well-formed; the eval suite
 claude plugin eval . --trust-plugin --ablation none --no-publish
 ```
 
-Each case runs twice; with `--ablation none` as above, a case passes only if every grader passes on every run. Cases open with the slash command, which loads the skill directly rather than through the Skill tool, so there is no with/without baseline to compare. It costs real tokens and needs your own login, which is why CI runs the validator and not the evals. Every skill must be the opening command of at least one case, and the validator fails if one is not.
+Each case runs twice; with `--ablation none` as above, a case passes only if every grader passes on every run. Cases open with the slash command, which loads the skill directly rather than through the Skill tool, so there is no with/without baseline to compare. It costs real tokens and needs your own login, which is why CI runs the validator and not the evals. The child session also inherits your own user-level skills and settings, so a reply can cite a reference that exists only on your machine; read a failure before treating it as a course defect. Every skill must be the opening command of at least one case, and the validator fails if one is not.
 
 ```bash
 # Spec, conventions and version lockstep — the same script CI runs
