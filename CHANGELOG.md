@@ -4,6 +4,27 @@ All notable changes to this project are documented here.
 
 This project follows [Keep a Changelog](https://keepachangelog.com/) and [Semantic Versioning](https://semver.org/). Releases are managed by [Release Please](https://github.com/googleapis/release-please) from Conventional Commits — see [CONTRIBUTING.md](CONTRIBUTING.md#releasing).
 
+## [0.5.1](https://github.com/soreavis/ai-docent/compare/v0.5.0...v0.5.1) (2026-09-16)
+
+
+### Features
+
+* behavioural eval suite under evals/, one opening case per skill ([ec679c7](https://github.com/soreavis/ai-docent/commit/ec679c7b54af7007a4ad5b7dc293148bf6c40361))
+* **docs:** one-page cheat-sheets per course, gated to their curricula ([a508772](https://github.com/soreavis/ai-docent/commit/a508772ee45ce06aaacedc8ce6f1e0adca945666))
+* place a claimed level with three questions instead of taking the number ([e056f32](https://github.com/soreavis/ai-docent/commit/e056f32754532bd3b89358c2bbd05ad59c699f25))
+* two more guardrails in every GROUND RULES block, and teach in the learner's language ([c747b67](https://github.com/soreavis/ai-docent/commit/c747b67b9df3c6c4fe9f281bc21a7c83ad280530))
+
+
+### Bug Fixes
+
+* apply the refutation panel's findings to the guardrails, placement, gates and docs ([0077563](https://github.com/soreavis/ai-docent/commit/007756366b1262380b5eae2c649dc8f99c7eab68))
+* close the gaps the eval suite found in the guardrails ([381d14b](https://github.com/soreavis/ai-docent/commit/381d14ba2adb8a6346c7d1e72b34f3ce0509527f))
+
+
+### Miscellaneous Chores
+
+* release 0.5.1 ([c0b129e](https://github.com/soreavis/ai-docent/commit/c0b129e5ac8abd8b6b14509e247f072c3c95d55b))
+
 ## [0.5.0](https://github.com/soreavis/ai-docent/compare/v0.4.0...v0.5.0) (2026-09-16)
 
 
