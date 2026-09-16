@@ -52,6 +52,10 @@ Two reasonable deviations. Skip `foundations` if you already use an agent daily,
 
 If you catch the course in a genuine mistake, say so. It's supposed to correct itself and log it, not defend the claim.
 
+## Have it refuted, not reviewed
+
+Several courses hand your work to a second, fresh session. Brief that session to refute, not to review: a reviewer tends to approve, a refuter has to point at a line or admit it couldn't. `reliability` teaches the full version — independent refuters, a tally, and checking the refutation itself before acting on it — and [Example prompts](example-prompts.md) has the one-line form.
+
 ## Revise, or it goes
 
 Finishing a lesson isn't learning it. Nothing in a course brings material back after the session ends, which is what [`/ai-docent:companion`](companion.md) is for — it drills the situations each course flagged while you were working on them.
