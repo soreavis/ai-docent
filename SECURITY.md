@@ -4,7 +4,7 @@
 
 | Version | Supported |
 |---------|-----------|
-| 0.4.0 <!-- x-release-please-version --> (latest) | Yes |
+| 0.5.0 <!-- x-release-please-version --> (latest) | Yes |
 | Older   | No — update through your install lane |
 
 ## Reporting a Vulnerability
