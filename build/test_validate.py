@@ -94,7 +94,46 @@ def strip_rank_bands(root):
     p.write_text(text.replace(ladder.group(1), re.sub(r"\s*\([^)]*\d[^)]*\)", "", ladder.group(1)), 1))
 
 
+# Built at runtime so this file never contains an address-shaped string itself.
+PLANTED = "ada" + "@" + "mailbox" + "." + "net"
+ESCAPED = PLANTED.replace(".", "\\.")
+
+
+def allowlist_grouped_address(root):
+    """The same leak written as the validator's own regex idiom, host\.(a|b)."""
+    p = root / "build/validate.py"
+    text = p.read_text()
+    marker = 'EMAIL_OK = re.compile(\n    r"'
+    if marker not in text:
+        raise AssertionError("fixture is stale: EMAIL_OK definition moved")
+    grouped = "ada" + "@" + "mailbox\\.(net|org)|"
+    p.write_text(text.replace(marker, marker + grouped, 1))
+
+
+def allowlist_planted_address(root):
+    """The original leak: an address added to the validator's own allowlist."""
+    p = root / "build/validate.py"
+    text = p.read_text()
+    marker = 'EMAIL_OK = re.compile(\n    r"'
+    if marker not in text:
+        raise AssertionError("fixture is stale: EMAIL_OK definition moved")
+    p.write_text(text.replace(marker, marker + ESCAPED + "|", 1))
+
+
 CASES = [
+    ("an escaped address in a doc", lambda r: append(r, "docs/troubleshooting.md", f"\nWrite to {ESCAPED} instead.\n"), "unexpected email"),
+    ("an address allow-listed inside the validator", allowlist_planted_address, "build/validate.py"),
+    ("a grouped regex address allow-listed inside the validator", allowlist_grouped_address, "build/validate.py"),
+    (
+        "runtime note dropped from a skill",
+        lambda r: edit(r, "skills/companion/SKILL.md", "give the form it uses", "use the right form"),
+        "no note for other runtimes",
+    ),
+    (
+        "Codex invocation policy removed",
+        lambda r: (r / "skills/builder/agents/openai.yaml").write_text("policy: {}\n"),
+        "no agents/openai.yaml",
+    ),
     ("frontmatter with an unquoted ': '", unquoted_description, "not valid YAML"),
     ("duplicate frontmatter key", duplicate_key, "duplicate frontmatter key"),
     ("manifest version drift", drift_manifest, "version 9.9.9"),
@@ -110,6 +149,21 @@ CASES = [
         "README level column drift",
         lambda r: append(r, "skills/builder/references/curriculum.md", "\n## LEVEL 6 — extra\n"),
         "curriculum has 6",
+    ),
+    (
+        "angle bracket in a description",
+        lambda r: edit(r, "skills/start/SKILL.md", "Entry point for the ai-docent courses.", "Entry point for the <ai-docent> courses."),
+        "description contains < or >",
+    ),
+    (
+        "progress-file exception dropped from GROUND RULES",
+        lambda r: edit(r, "skills/shipping/SKILL.md", "The one standing exception is this skill's own progress file", "One exception is the progress file"),
+        "GROUND RULES forbid the progress file",
+    ),
+    (
+        "README course size gone stale",
+        lambda r: edit(r, "README.md", "runs roughly 21–23 KB", "runs roughly 15–20 KB"),
+        "says 15–20 KB",
     ),
     (
         "a truncated-card check removed",
@@ -232,8 +286,22 @@ def run(root):
     )
 
 
+# Both address rules are pinned verbatim. Widening either one is the change that
+# let a real address into the public history, so it must fail here as well as
+# in review.
+PINNED = (
+    'r"(git|noreply|support)@github\\.com|[^@]+@users\\.noreply\\.github\\.com|[^@]+@example\\.(com|org)",',
+    'r"(git|noreply|support)@github\\.com|[^@]+@users\\.noreply\\.github\\.com|[^@]+@example\\.(com|org)|[^@]+@[\\w.-]+\\.invalid",',
+)
+
+
 def main():
     failures = []
+    source = (REPO / "build/validate.py").read_text()
+    for rule in PINNED:
+        if rule not in source:
+            failures.append(f"pinned address rule changed or missing: {rule}")
+    print("  ok   address rules match their pins" if not failures else "  FAIL address rules differ from their pins")
 
     with tempfile.TemporaryDirectory() as tmp:
         clean = pathlib.Path(tmp) / "clean"
@@ -263,6 +331,49 @@ def main():
                 print(f"  FAIL {name} — fired with the wrong message")
             else:
                 print(f"  ok   {name}")
+
+    # --history runs on a real git repo, so it gets its own case: an address
+    # committed and then removed must still fail, which a tree scan cannot see.
+    with tempfile.TemporaryDirectory() as tmp:
+        root = pathlib.Path(tmp) / "repo"
+        shutil.copytree(REPO, root, ignore=IGNORE)
+        git = lambda *a: subprocess.run(["git", "-C", str(root), *a], capture_output=True, text=True)
+        git("init", "-q")
+        git("config", "user.email", "ci@users.noreply.github.com")
+        git("config", "user.name", "ci")
+        git("add", "-A")
+        git("commit", "-qm", "base")
+        clean = subprocess.run([sys.executable, str(root / "build/validate.py"), "--history"], capture_output=True, text=True)
+        (root / "docs/note.md").write_text(f"Write to {ESCAPED}.\n")
+        git("add", "-A")
+        git("commit", "-qm", "add")
+        (root / "docs/wide.md").write_bytes(f"Mail {PLANTED}.".encode("utf-16"))
+        git("add", "-A")
+        git("commit", "-qm", "wide")
+        (root / "docs/note.md").unlink()
+        (root / "docs/wide.md").unlink()
+        git("add", "-A")
+        git("commit", "-qm", "remove")
+        git("tag", "-a", "v9.9.9", "-m", f"contact {PLANTED}")
+        tree = run(root)
+        dirty = subprocess.run([sys.executable, str(root / "build/validate.py"), "--history"], capture_output=True, text=True)
+        shallow = pathlib.Path(tmp) / "shallow"
+        subprocess.run(["git", "clone", "-q", "--depth", "1", f"file://{root}", str(shallow)], capture_output=True)
+        thin = subprocess.run([sys.executable, str(shallow / "build/validate.py"), "--history"], capture_output=True, text=True)
+        if clean.returncode != 0:
+            failures.append(f"history baseline: a clean history must pass, got:\n{clean.stdout}")
+        elif tree.returncode != 0:
+            failures.append(f"history: the tree is clean again, so a plain run must pass, got:\n{tree.stdout}")
+        elif dirty.returncode == 0 or "docs/note.md" not in dirty.stdout:
+            failures.append(f"history: an address added then removed was not caught:\n{dirty.stdout}")
+        elif "docs/wide.md" not in dirty.stdout:
+            failures.append(f"history: an address in a UTF-16 file was not caught:\n{dirty.stdout}")
+        elif "tag " not in dirty.stdout:
+            failures.append(f"history: an address in an annotated tag message was not caught:\n{dirty.stdout}")
+        elif thin.returncode == 0 or "shallow clone" not in thin.stdout:
+            failures.append(f"history: a shallow clone passed instead of being refused:\n{thin.stdout}")
+        else:
+            print("  ok   history: removed, UTF-16 and tag-message addresses caught, shallow clone refused")
 
     if failures:
         print(f"\n✘ {len(failures)} gate(s) not proven:")

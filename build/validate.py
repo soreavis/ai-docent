@@ -8,9 +8,11 @@ because a version was edited by hand.
 
 Run locally with `python3 build/validate.py`; CI runs the same script.
 """
+import hashlib
 import json
 import pathlib
 import re
+import subprocess
 import sys
 
 try:
@@ -161,9 +163,13 @@ for skill in skills:
         check(value == skill.name, f"{skill.name}: name '{value}' != folder name")
         check(NAME_RE.fullmatch(value), f"{skill.name}: name '{value}' breaks the charset rule")
         check(len(value) <= 64, f"{skill.name}: name longer than 64 chars")
+        check(not re.search(r"anthropic|claude", value), f"{skill.name}: name contains a reserved word (anthropic, claude)")
     if desc:
         n = len(desc.group(1).strip().strip('"'))
         check(n <= DESC_MAX, f"{skill.name}: description {n} chars, max {DESC_MAX}")
+        # Loaders ingest name and description into the system prompt; an angle
+        # bracket there can read as a tag, and the claude.ai uploader rejects it.
+        check(not re.search(r"[<>]", desc.group(1)), f"{skill.name}: description contains < or >")
 
     skill_version = re.search(r"^  version: (.+)$", fm, re.M)
     check(skill_version, f"{skill.name}: no metadata.version")
@@ -310,6 +316,22 @@ for skill in skills:
         "Never act on their system without being asked" in ground,
         f"{skill.name}: no guard against acting on the learner's system",
     )
+    check(
+        "give the form it uses" in text,
+        f"{skill.name}: hands out /ai-docent: commands with no note for other runtimes",
+    )
+    # Codex ignores disable-model-invocation; agents/openai.yaml is its switch.
+    policy = skill / "agents/openai.yaml"
+    check(
+        policy.exists() and "allow_implicit_invocation: false" in policy.read_text(),
+        f"{skill.name}: no agents/openai.yaml turning off implicit invocation on Codex",
+    )
+    # Phase 4 writes the progress file; without this exception the guard above
+    # forbids it, and the model falls back to a pasted card on every lane.
+    check(
+        "The one standing exception is this skill's own progress file" in ground,
+        f"{skill.name}: GROUND RULES forbid the progress file Phase 4 writes",
+    )
     # Course content must not pin itself to a calendar year: it outlives the year
     # it was written in, and a stale "as of 20XX" reads as fact. Dated records
     # (CHANGELOG, LICENSE) live outside skills/ and are unaffected.
@@ -411,6 +433,19 @@ for tmpl in (".github/ISSUE_TEMPLATE/course_correction.yml", ".github/ISSUE_TEMP
             f"{tmpl}: does not offer {skill.name}",
         )
 
+# The README tells paste-in users how big a course is so they can check a
+# tool's instruction limit. A stale figure is the silent-truncation trap the
+# same sentence warns about, and it went stale once already.
+sizes = [(s / "SKILL.md").stat().st_size / 1000 for s in courses]
+stated = re.search(r"runs roughly (\d+)–(\d+) KB", (ROOT / "README.md").read_text())
+check(stated, "README.md: no 'runs roughly N–M KB' course size")
+if stated:
+    lo, hi = int(stated.group(1)), int(stated.group(2))
+    check(
+        lo <= round(min(sizes)) and hi >= round(max(sizes)) and hi - lo <= 4,
+        f"README.md: says {lo}–{hi} KB, course SKILL.md files are {min(sizes):.1f}–{max(sizes):.1f} KB",
+    )
+
 # The README's level column is the only place the shape of each course is
 # advertised, and nothing about adding a LEVEL heading to a curriculum forces
 # the table to move with it.
@@ -457,34 +492,134 @@ SECRET_SHAPES = [
 # so both private channels exist without an inbox to scrape. Any address that
 # appears here now arrived by accident — which is exactly what to catch, since
 # a published address cannot be unpublished once it has been crawled.
-EMAIL_RE = re.compile(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}")
+EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
+# GitHub's own service and noreply addresses, and the documentation domains.
 EMAIL_OK = re.compile(
-    r"git@github\.com|[^@]+@example\.(com|org)|[^@]+@users\.noreply\.github\.com"
+    r"(git|noreply|support)@github\.com|[^@]+@users\.noreply\.github\.com|[^@]+@example\.(com|org)",
+    re.I,
 )
+# The leak this gate exists for was an address the validator allow-listed for
+# itself, so its own two files get a separate rule that adds only the reserved
+# .invalid TLD its probes use. test_validate.py pins both rules verbatim.
+OWN_OK = re.compile(
+    r"(git|noreply|support)@github\.com|[^@]+@users\.noreply\.github\.com|[^@]+@example\.(com|org)|[^@]+@[\w.-]+\.invalid",
+    re.I,
+)
+OWN_DOMAINS = {"github.com", "users.noreply.github.com", "example.com", "example.org"}
+
+
+def stray_addresses(text, own=False):
+    # Backslashes are stripped first: an address written as a regex, dots
+    # escaped, is invisible to a plain match, and that is the form an earlier
+    # purge missed in this repo's own history.
+    found = [m.group(0) for m in EMAIL_RE.finditer(text.replace("\\", ""))
+             if not (OWN_OK if own else EMAIL_OK).fullmatch(m.group(0))]
+    if own:
+        # The two files that hold regexes also get every domain read after an
+        # @ with the regex syntax removed, alternative by alternative, so a
+        # grouped form such as host\.(com|net) cannot hide an address either.
+        for m in re.finditer(r"@([\w.\\()|?\[\]-]+)", text):
+            for piece in m.group(1).split("|"):
+                if piece.lstrip("(").startswith("["):
+                    continue
+                domain = re.sub(r"[\\()?\[\]]", "", piece).strip(".").lower()
+                if "." in domain and domain not in OWN_DOMAINS and not domain.endswith(".invalid"):
+                    found.append("@" + domain)
+    return found
+
+
+def redact(addr):
+    # A gate that prints the address it caught republishes it in a public CI
+    # log, so only a hash of the local part and the domain are shown.
+    local, _, domain = addr.rpartition("@")
+    return f"{hashlib.sha256(addr.lower().encode()).hexdigest()[:10]}…@{domain}" if local else addr
+
 
 HYGIENE_SKIP = {".git", "dist", "__pycache__", "node_modules", ".venv", "venv"}
 HYGIENE_SUFFIXES = {".md", ".json", ".yml", ".yaml", ".sh", ".txt", ".py"}
+OWN_FILES = ("validate.py", "test_validate.py")
 for f in sorted(ROOT.rglob("*")):
-    # validate.py holds the patterns and test_validate.py holds the probes that
-    # must match them; scanning either would make this gate fail on itself.
     if not f.is_file() or HYGIENE_SKIP & set(f.parts):
         continue
     # Eval runs write transcripts and judge output under evals/results/, which is
     # gitignored and full of tool-call artefacts that look like addresses.
     if "evals/results/" in f.relative_to(ROOT).as_posix():
         continue
-    if f.suffix not in HYGIENE_SUFFIXES or f.name in ("validate.py", "test_validate.py"):
+    if f.suffix not in HYGIENE_SUFFIXES:
         continue
+    # validate.py holds the path and secret patterns and test_validate.py the
+    # probes that must match them, so those two checks skip them. The address
+    # check does not: an allowlist in this file is how a real address once
+    # reached the public history.
+    own = f.name in OWN_FILES
     rel = f.relative_to(ROOT)
     for i, line in enumerate(f.read_text(errors="ignore").splitlines(), 1):
-        if "/Users/" in line:
+        if not own and "/Users/" in line:
             failures.append(f"{rel}:{i}: user-specific absolute path — write ~/ instead")
-        for pattern, what in SECRET_SHAPES:
+        for pattern, what in SECRET_SHAPES if not own else ():
             if re.search(pattern, line):
                 failures.append(f"{rel}:{i}: {what} — never commit a live credential")
-        for m in EMAIL_RE.finditer(line):
-            if not EMAIL_OK.fullmatch(m.group(0)):
-                failures.append(f"{rel}:{i}: unexpected email {m.group(0)}")
+        for addr in stray_addresses(line, own):
+            failures.append(f"{rel}:{i}: unexpected email {redact(addr)}")
+
+# The tree is only the latest snapshot. A line added in one commit and removed
+# in the next is still published, so --history (CI and the pre-push hook) scans
+# every blob, commit message and annotated tag reachable from a branch, tag or
+# remote ref, and every author, committer and tagger identity. The stash and
+# other local-only refs are left out: they are never pushed.
+if "--history" in sys.argv:
+    REFS = ["--branches", "--tags", "--remotes"]
+
+    def git(*a, data=None):
+        return subprocess.run(["git", "-C", str(ROOT), *a], input=data, capture_output=True).stdout
+
+    def texts(raw):
+        # UTF-16 files carry NUL bytes that split an address in a UTF-8 read.
+        out = [raw.decode("utf-8", "ignore")]
+        if b"\x00" in raw:
+            out.append(raw.decode("utf-16", "ignore"))
+        return out
+
+    if git("rev-parse", "--is-shallow-repository").strip() == b"true":
+        failures.append("history: shallow clone — fetch the full history (fetch-depth: 0) first")
+    paths = {}
+    for line in git("rev-list", "--objects", *REFS).decode(errors="ignore").splitlines():
+        sha, _, path = line.partition(" ")
+        paths.setdefault(sha, path)
+    kinds = {}
+    batch = git("cat-file", "--batch-check=%(objectname) %(objecttype)", data="\n".join(paths).encode())
+    for line in batch.decode().splitlines():
+        sha, _, kind = line.partition(" ")
+        kinds[sha] = kind
+    wanted = [s for s, k in kinds.items() if k in ("blob", "tag")]
+    raw = git("cat-file", "--batch", data="\n".join(wanted).encode())
+    pos = 0
+    while pos < len(raw):
+        header_end = raw.index(b"\n", pos)
+        sha, kind, size = raw[pos:header_end].decode().split()
+        body = raw[header_end + 1:header_end + 1 + int(size)]
+        pos = header_end + 1 + int(size) + 1
+        if kind == "blob":
+            own = pathlib.PurePath(paths.get(sha, "")).name in OWN_FILES
+            for text in texts(body):
+                for addr in stray_addresses(text, own):
+                    failures.append(f"history: {paths.get(sha) or sha} (blob {sha[:7]}): unexpected email {redact(addr)}")
+        else:
+            head, _, message = body.decode("utf-8", "ignore").partition("\n\n")
+            tagger = re.search(r"^tagger .*<([^>]*)>", head, re.M)
+            if tagger and not EMAIL_OK.fullmatch(tagger.group(1)):
+                failures.append(f"history: tag {sha[:7]} tagger {redact(tagger.group(1))} is not a noreply address")
+            for addr in stray_addresses(message):
+                failures.append(f"history: tag {sha[:7]} message: unexpected email {redact(addr)}")
+    for entry in git("log", *REFS, "--format=%h%x00%B%x01").decode(errors="ignore").split("\x01"):
+        h, _, body = entry.strip().partition("\x00")
+        for addr in stray_addresses(body):
+            failures.append(f"history: commit {h} message: unexpected email {redact(addr)}")
+    for ident in set(git("log", *REFS, "--format=%ae%n%ce").decode(errors="ignore").split()):
+        if not EMAIL_OK.fullmatch(ident):
+            failures.append(f"history: commit identity {redact(ident)} is not a noreply address")
+    if not wanted:
+        failures.append("history: --history found no objects — run it inside a full git clone")
 
 if failures:
     print(f"✘ {len(failures)} failure(s):")

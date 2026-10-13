@@ -1,0 +1,5 @@
+#!/bin/sh
+# Refuses a push whose history carries a real address or a non-noreply identity,
+# the check CI runs too, but before anything leaves this machine.
+# Enable once per clone: git config core.hooksPath .githooks
+exec python3 "$(git rev-parse --show-toplevel)/build/validate.py" --history

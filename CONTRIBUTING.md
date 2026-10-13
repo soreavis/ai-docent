@@ -48,8 +48,11 @@ Fully automated pull requests — opened by a bot, or by someone who has not rea
 # Clone and load it — the repo root is the plugin
 git clone git@github.com:soreavis/ai-docent.git
 cd ai-docent
+git config core.hooksPath .githooks   # the pre-push privacy check, once per clone
 claude --plugin-dir .
 ```
+
+The pre-push hook runs `python3 build/validate.py --history`, the same check CI runs, so a real address or a non-noreply commit identity is caught before it leaves your machine. Commit with your GitHub noreply address.
 
 Run `/reload-plugins` after edits to pick them up without restarting.
 
@@ -61,11 +64,14 @@ Two layers. `build/validate.py` proves the files are well-formed; the eval suite
 claude plugin eval . --trust-plugin --ablation none --no-publish
 ```
 
-Each case runs twice; with `--ablation none` as above, a case passes only if every grader passes on every run. Cases open with the slash command, which loads the skill directly rather than through the Skill tool, so there is no with/without baseline to compare. It costs real tokens and needs your own login, which is why CI runs the validator and not the evals. The child session also inherits your own user-level skills and settings, so a reply can cite a reference that exists only on your machine; read a failure before treating it as a course defect. Every skill must be the opening command of at least one case, and the validator fails if one is not.
+Each case runs twice; with `--ablation none` as above, a case passes only if every grader passes on every run. Cases open with the slash command, which loads the skill directly rather than through the Skill tool, so there is no with/without baseline to compare. It costs real tokens and needs your own login, which is why CI runs the validator and not the evals. The child session also inherits your own user-level skills and settings, so a reply can cite a reference that exists only on your machine; read a failure before treating it as a course defect. Every case also carries a `no-api-error` regex grader, so a run that ended on an API error fails at least one grader; check the NOTES column, or `cases[].arms.with[].error` in the JSON, before treating a failure as a course defect. The security case is pinned to `model: sonnet` because a model's own safety checks can block its deliberately hostile prompt before the course answers. Every skill must be the opening command of at least one case, and the validator fails if one is not.
 
 ```bash
 # Spec, conventions and version lockstep — the same script CI runs
 python3 build/validate.py
+
+# CI adds --history: every reachable commit, message and author identity
+python3 build/validate.py --history
 
 # Proves each gate still fires on the defect it was written for
 python3 build/test_validate.py
@@ -100,7 +106,9 @@ Run all four. `claude plugin validate .` stops at the marketplace manifest and n
 - the README's level column matches the `## LEVEL n` headings in each curriculum
 - the ten copies of `references/tone.md` are identical, and every `references/` file is loaded by its SKILL.md
 - CI installs the validator's dependency from `build/requirements.txt`, never inline
-- no file carries a credential shape, a user-specific absolute path, or an address that is not a placeholder
+- no file carries a credential shape, a user-specific absolute path, or an address that is not a placeholder — matched after stripping backslashes, so a regex-escaped address counts, and checked in `validate.py` and `test_validate.py` themselves with regex syntax stripped too, against a fixed rule that `test_validate.py` pins verbatim
+- with `--history`, the same address check over every blob, commit message and annotated tag reachable from any branch, tag or remote ref, plus a noreply check on every author, committer and tagger identity; it refuses a shallow clone rather than passing on part of the history
+- every skill hands out its slash commands with a note for other runtimes, and carries `agents/openai.yaml` switching off implicit invocation on Codex
 - every skill carries the edge-case block, a cold-start rebuild, and a mid-session `save`
 - courses carry `Review seeds` and point at the companion; wizards state core/branch/ceiling counts that match the questions actually written
 - every skill is registered in `release-please-config.json`, so its version bumps with the rest
