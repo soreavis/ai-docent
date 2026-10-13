@@ -19,7 +19,7 @@ Go from your first API call to shipping real software powered by Claude: the Mes
 - Keep the key in an environment variable, and put a placeholder in every example. (1.1, woven)
 - Carry the conversation state yourself; the messages array is yours to manage. (1.5)
 - Wrap the call in real error handling with a retry, and fail gracefully on rate limits and overload. (1.6)
-- Define the shape you want, and check the docs for what supports prefilling before you rely on it. (2.1)
+- Define the shape with a schema through structured outputs, and compare it against asking by instruction. (2.1)
 - Parse and validate against a schema before any output is used downstream, and handle the malformed case. (2.3)
 - Structure a repeated prompt so the stable context can hit the cache. (2.4)
 - Reach for batch when the work is high-volume and doesn't need to be live. (2.5)

@@ -54,7 +54,7 @@ Come back after a long gap and it won't dump forty overdue items on you. It take
 
 **Teach you anything new.** If a drill exposes something you never covered, it names the course and stops. A paragraph from the companion has no exercise, no boss fight and no progress card behind it, and the course that owns the material would never know it had been covered.
 
-**Remind you.** There's no scheduler in this architecture. The widening ladder only works if you come back on your own. Ten minutes a week beats an hour a month, and nothing will chase you for either.
+**Remind you on its own.** The widening ladder only works if you come back. Where your setup offers scheduled tasks or routines, ask and it will help you set a revision reminder; it never sets one unasked.
 
 **Score you generously.** An item counts as held only if you answered it correctly in front of it. With game mode on, XP is recomputed from the log each session rather than carried forward — an inflated queue would tell you that you know something you don't, which is the exact opposite of the job.
 

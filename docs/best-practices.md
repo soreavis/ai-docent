@@ -60,7 +60,7 @@ Several courses hand your work to a second, fresh session. Brief that session to
 
 Finishing a lesson isn't learning it. Nothing in a course brings material back after the session ends, which is what [`/ai-docent:companion`](companion.md) is for — it drills the situations each course flagged while you were working on them.
 
-The catch: there's no scheduler, so nothing will chase you. The ladder widens only if you come back regularly, so it's built for short and regular rather than long and rare.
+The catch: the companion can't chase you by itself. If your setup offers scheduled tasks, it can help you set a reminder when you ask. The ladder widens only if you come back regularly, so it's built for short and regular rather than long and rare.
 
 ## Keep the skills you had
 
