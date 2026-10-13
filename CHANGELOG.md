@@ -9,59 +9,59 @@ This project follows [Keep a Changelog](https://keepachangelog.com/) and [Semant
 
 ### Features
 
-* behavioural eval suite under evals/, one opening case per skill ([ec679c7](https://github.com/soreavis/ai-docent/commit/ec679c7b54af7007a4ad5b7dc293148bf6c40361))
-* **docs:** one-page cheat-sheets per course, gated to their curricula ([a508772](https://github.com/soreavis/ai-docent/commit/a508772ee45ce06aaacedc8ce6f1e0adca945666))
-* place a claimed level with three questions instead of taking the number ([e056f32](https://github.com/soreavis/ai-docent/commit/e056f32754532bd3b89358c2bbd05ad59c699f25))
-* two more guardrails in every GROUND RULES block, and teach in the learner's language ([c747b67](https://github.com/soreavis/ai-docent/commit/c747b67b9df3c6c4fe9f281bc21a7c83ad280530))
+* behavioural eval suite under evals/, one opening case per skill ([180fd51](https://github.com/soreavis/ai-docent/commit/180fd5116b1969fd957e6a03a54f90edde4a136f))
+* **docs:** one-page cheat-sheets per course, gated to their curricula ([5068c47](https://github.com/soreavis/ai-docent/commit/5068c478999af83ccead461393820748b0f41d35))
+* place a claimed level with three questions instead of taking the number ([39cc6a0](https://github.com/soreavis/ai-docent/commit/39cc6a09090aadf4a1e570bdea52e1b76f3640a0))
+* two more guardrails in every GROUND RULES block, and teach in the learner's language ([4b63de8](https://github.com/soreavis/ai-docent/commit/4b63de857a15c9c0154ffb50763defc51795219b))
 
 
 ### Bug Fixes
 
-* apply the refutation panel's findings to the guardrails, placement, gates and docs ([0077563](https://github.com/soreavis/ai-docent/commit/007756366b1262380b5eae2c649dc8f99c7eab68))
-* close the gaps the eval suite found in the guardrails ([381d14b](https://github.com/soreavis/ai-docent/commit/381d14ba2adb8a6346c7d1e72b34f3ce0509527f))
+* apply the refutation panel's findings to the guardrails, placement, gates and docs ([17134d9](https://github.com/soreavis/ai-docent/commit/17134d9429c4aa9b3d23d4889ddf6f78f1bac2a9))
+* close the gaps the eval suite found in the guardrails ([fa351e8](https://github.com/soreavis/ai-docent/commit/fa351e8181cce1e76e5d4b8de377ce8db5306c41))
 
 
 ### Miscellaneous Chores
 
-* release 0.5.1 ([c0b129e](https://github.com/soreavis/ai-docent/commit/c0b129e5ac8abd8b6b14509e247f072c3c95d55b))
+* release 0.5.1 ([9615c8c](https://github.com/soreavis/ai-docent/commit/9615c8c56ed4b6451eeb8c1673b610e7cba599d8))
 
 ## [0.5.0](https://github.com/soreavis/ai-docent/compare/v0.4.0...v0.5.0) (2026-09-16)
 
 
 ### Features
 
-* browser agents at the trust boundary, and keeping your own skills ([6eaee97](https://github.com/soreavis/ai-docent/commit/6eaee97f1b33f117442ecc3fe55b041a3cd1e066))
-* check the premise before acting, in shipping 2.6 ([ccc0992](https://github.com/soreavis/ai-docent/commit/ccc0992500c5b393d3f255b513d827b40b9d541e))
-* **foundations:** tour a project you didn't write, learn with it, and handle messy documents ([8c232e6](https://github.com/soreavis/ai-docent/commit/8c232e61705cd3bb375b10ff32c093f331321bd4))
-* **shipping:** licences under house rules, and explaining review time upward ([6f7aaef](https://github.com/soreavis/ai-docent/commit/6f7aaef9c75d73912e3254815721c72f9c8d0e1a))
+* browser agents at the trust boundary, and keeping your own skills ([b937b28](https://github.com/soreavis/ai-docent/commit/b937b2838aef41075de3e399fbca07476534f6f8))
+* check the premise before acting, in shipping 2.6 ([04e3181](https://github.com/soreavis/ai-docent/commit/04e3181ef5b6cb930007e731467682bbc9948c54))
+* **foundations:** tour a project you didn't write, learn with it, and handle messy documents ([5131b71](https://github.com/soreavis/ai-docent/commit/5131b71e6891a883a124acd525c8ac27e437853e))
+* **shipping:** licences under house rules, and explaining review time upward ([d4aa6f0](https://github.com/soreavis/ai-docent/commit/d4aa6f004dc8ff7d098514aa545b592a1cc7fca3))
 
 
 ### Bug Fixes
 
-* apply the refutation panel's residual findings ([f164e2d](https://github.com/soreavis/ai-docent/commit/f164e2d8e2e7ca3a597a85564a891a41d4d4ea3d))
+* apply the refutation panel's residual findings ([e86bbe4](https://github.com/soreavis/ai-docent/commit/e86bbe4187585b53f0473addb0d9e00a1a5e53b4))
 
 ## [0.4.0](https://github.com/soreavis/ai-docent/compare/v0.3.0...v0.4.0) (2026-09-16)
 
 
 ### Features
 
-* teach long-context placement, step-back, options-then-choose, run-it-twice and prefill ([5d1b936](https://github.com/soreavis/ai-docent/commit/5d1b93675ab1c798a32454456d3cee7f8c7eff06))
+* teach long-context placement, step-back, options-then-choose, run-it-twice and prefill ([3ac8ee5](https://github.com/soreavis/ai-docent/commit/3ac8ee54b2029c7f184c130016c8365cf5c1ddfd))
 
 ## [0.3.0](https://github.com/soreavis/ai-docent/compare/v0.2.2...v0.3.0) (2026-09-16)
 
 
 ### Features
 
-* brief second-opinion reviewers to refute, with a panel tally ([6451905](https://github.com/soreavis/ai-docent/commit/6451905c2dd04303a1130631407218101c026848))
-* teach worked examples alongside few-shot samples ([e2e366f](https://github.com/soreavis/ai-docent/commit/e2e366fbc73fec1c81aa1e7ae1e691ade9eaaee5))
+* brief second-opinion reviewers to refute, with a panel tally ([0302a48](https://github.com/soreavis/ai-docent/commit/0302a484ea69d10958c9f42569c9f895a5ad4665))
+* teach worked examples alongside few-shot samples ([34b0370](https://github.com/soreavis/ai-docent/commit/34b0370f88ee361643a85911e1b0624d6cf2e5e8))
 
 ## [0.2.2](https://github.com/soreavis/ai-docent/compare/v0.2.1...v0.2.2) (2026-09-15)
 
 
 ### Bug Fixes
 
-* correct stale versions, counts and dead links across the docs ([42689d2](https://github.com/soreavis/ai-docent/commit/42689d2cd8d224d1b396ae5390884f07820709c3))
-* skip local venvs in the hygiene scan and document gemini --consent ([c5d65b9](https://github.com/soreavis/ai-docent/commit/c5d65b9233f5fd3a406e9993977dad134ab740a2))
+* correct stale versions, counts and dead links across the docs ([d695518](https://github.com/soreavis/ai-docent/commit/d695518acc93124300f7ef1b4b4dfaceb9adf698))
+* skip local venvs in the hygiene scan and document gemini --consent ([766b053](https://github.com/soreavis/ai-docent/commit/766b05342cb11479b94ee391d4a59f224249ba41))
 
 ## [0.2.1](https://github.com/soreavis/ai-docent/compare/v0.2.0...v0.2.1) (2026-08-08)
 
@@ -74,7 +74,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com/) and [Semant
 ### Documentation
 
 * `docs/example-prompts.md` — copyable starting points for people who have just started: the four parts most beginner prompts leave out, the ask-me-questions-first opener, everyday prompts by task, the ones that make an answer checkable, and how to steer a bad answer instead of restarting. It teaches nothing `prompt-craft` doesn't cover in full; it exists so day one doesn't require a course. Listed in `docs/README.md`, and a gate now fails the build if any guide is missing from that index. ([8cf7adb](https://github.com/soreavis/ai-docent/commit/8cf7adb46524a2026c80272db06303d41a31594e))
-* every conduct and security report now routes through GitHub rather than a published address ([cdbabe5](https://github.com/soreavis/ai-docent/commit/cdbabe54dfe73d6e0cf6eed3286ab9fa95abaf22)), and the validator gates secrets and personal data before they can be pushed ([67c964b](https://github.com/soreavis/ai-docent/commit/67c964b98c8093cfbc86c8d529920571f13c235e))
+* every conduct and security report now routes through GitHub rather than a published address ([671c039](https://github.com/soreavis/ai-docent/commit/671c039fafca61d9be5c5194f024495f7f5a471b)), and the validator gates secrets and personal data before they can be pushed ([d92caa9](https://github.com/soreavis/ai-docent/commit/d92caa9a98bbb5596dbbabf7cf78757478d08e34))
 
 ## [0.2.0](https://github.com/soreavis/ai-docent/compare/v0.1.0...v0.2.0) (2026-08-05)
 
