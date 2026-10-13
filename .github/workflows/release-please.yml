@@ -10,6 +10,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      actions: write
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
       tag_name: ${{ steps.release.outputs.tag_name }}
@@ -19,6 +20,17 @@ jobs:
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+      # A release PR opened with GITHUB_TOKEN gets no CI on its own. A
+      # workflow_dispatch is the one event that token can still trigger, so the
+      # version bump is validated before it is merged rather than after.
+      - name: Run CI on the release PR
+        if: steps.release.outputs.prs_created == 'true'
+        # The PR JSON is parsed in the shell: a fromJSON() in env is evaluated
+        # before this step's if, and fails the job whenever no PR was opened.
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ steps.release.outputs.pr }}
+        run: gh workflow run ci.yml --ref "$(jq -r .headBranchName <<<"$PR")" -R "$GITHUB_REPOSITORY"
 
   # Attaching the zips lives here rather than in a `release: published` workflow:
   # a release created with GITHUB_TOKEN does not trigger further workflow runs.
