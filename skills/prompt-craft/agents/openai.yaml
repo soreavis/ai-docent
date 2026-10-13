@@ -1,0 +1,4 @@
+# Codex's switch for implicit invocation, the counterpart of
+# disable-model-invocation in SKILL.md. An explicit $ai-docent:<name> still works.
+policy:
+  allow_implicit_invocation: false

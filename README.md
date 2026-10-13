@@ -40,20 +40,20 @@ Use your platform's native plugin or skill manager where one exists — those la
 
 | Platform | Install | Update |
 |---|---|---|
-| **Claude Code** | `/plugin marketplace add soreavis/ai-docent` then `/plugin install ai-docent@ai-docent` | `/plugin marketplace update ai-docent`, or enable marketplace auto-update |
+| **Claude Code** | `/plugin marketplace add soreavis/ai-docent` then `/plugin install ai-docent@ai-docent` | `claude plugin update ai-docent@ai-docent`, or enable marketplace auto-update |
 | **Codex** | `codex plugin marketplace add soreavis/ai-docent` then `codex plugin add ai-docent@ai-docent` | `codex plugin marketplace upgrade` |
-| **Cursor** | `npx skills add soreavis/ai-docent --skill <course> -a cursor` | `npx skills update` |
+| **Cursor** | `npx skills add soreavis/ai-docent --skill <course> -a cursor -g` | `npx skills update -g` |
 | **Gemini CLI** | `gemini extensions install https://github.com/soreavis/ai-docent` | `gemini extensions update ai-docent` |
-| **Copilot / GitHub CLI** | `gh skill install soreavis/ai-docent <course>` | `gh skill update <course>` |
+| **Copilot / GitHub CLI** | `gh skill install soreavis/ai-docent <course> --agent github-copilot --scope user` | `gh skill update --all` |
 | **Grok** | `grok plugin marketplace add soreavis/ai-docent` then `grok plugin install soreavis/ai-docent --trust` | `grok plugin update ai-docent` |
-| **Claude web / Desktop / Cowork** | Customize → Plugins → **+** → Add marketplace → `https://github.com/soreavis/ai-docent` | automatic on marketplace sync |
+| **Claude web / Desktop / Cowork** | Customize → Plugins → **Add** → Add marketplace → Add from a repository → `soreavis/ai-docent` | **Check for updates** on the marketplace, or turn on **Sync automatically** |
 | **ChatGPT** | Skills → **Create** → **Upload from your computer**, one [release zip](https://github.com/soreavis/ai-docent/releases/latest) per course | re-upload the newer zip |
-| **Other agents** | `npx skills add soreavis/ai-docent --skill <course>` | `npx skills update` |
+| **Other agents** | `npx skills add soreavis/ai-docent --skill <course> -g` | `npx skills update -g` |
 
 `<course>` is one of `foundations`, `prompt-craft`, `reliability`, `shipping`, `long-haul`, `security`, `mechanics`, `builder` — or one of the two support skills, `start` (picks a course for you) and `companion` (drills what you've learned). The plugin lanes include everything automatically; on the single-skill lanes, install the support skills alongside at least one course, since neither has anything to work with on its own.
 
 > [!NOTE]
-> The plugin lanes install **all eight courses at once**. The skill lanes take one course per command by default, which is usually what you want — but `npx skills add soreavis/ai-docent --skill '*'` installs the lot if you'd rather. `gh skill` is in preview and its flags may change. `gemini extensions install` stops at a confirmation prompt; pass `--consent` when scripting it.
+> The plugin lanes install **all eight courses at once**. The skill lanes take one course per command by default, which is usually what you want — but `npx skills add soreavis/ai-docent --skill '*'` installs the lot if you'd rather. `-g` and `--scope user` install for your user, so a course follows you across projects and the update command finds it from any folder; drop them to install into the current project only. `npx skills add` asks you to confirm and may offer an extra helper skill you can decline; pass `-y` to skip the prompt when scripting. `gh skill` is in preview and its flags may change. `gemini extensions install` stops at a confirmation prompt; pass `--consent` when scripting it.
 
 Once installed, if you're not sure where to begin, start here — it asks what's actually going wrong and points you at one course:
 
@@ -61,7 +61,17 @@ Once installed, if you're not sure where to begin, start here — it asks what's
 /ai-docent:start
 ```
 
-It also runs the whole eight-course arc in order as a single guided program, keeping the track's place across sessions. Or skip it and open a course directly:
+That is the Claude Code and Claude-app form. Other runtimes name the same skill differently:
+
+| Where you installed it | Open the launcher with |
+|---|---|
+| Claude Code plugin, the Claude apps, Gemini CLI (interactive) | `/ai-docent:start` |
+| Codex | `$ai-docent:start` |
+| ChatGPT | type `@` and pick `start` |
+| A skill lane into Claude Code (`npx skills ... -a claude-code`) | `/start` |
+| Anywhere else | ask for it by name: "open the ai-docent start skill" |
+
+The same pattern holds for every course below. It also runs the whole eight-course arc in order as a single guided program, keeping the track's place across sessions. Or skip it and open a course directly:
 
 ```
 /ai-docent:foundations
@@ -73,7 +83,7 @@ Once you've finished something, a third skill keeps it from fading:
 /ai-docent:companion
 ```
 
-It drills what you've already covered on a widening schedule, reads across every course's progress at once to spot which habits have gone quiet, and has a five-minute mode for days you have nothing else. It never teaches new material — if a drill exposes a gap, it names the course that covers it and stops. There's no scheduler behind it: coming back is on you, and it says so rather than implying reminders will arrive.
+It drills what you've already covered on a widening schedule, reads across every course's progress at once to spot which habits have gone quiet, and has a five-minute mode for days you have nothing else. It never teaches new material — if a drill exposes a gap, it names the course that covers it and stops. It can't chase you on its own: coming back is on you, and it says so. If your setup offers scheduled tasks or routines, ask and it will help you set a reminder there.
 
 > [!IMPORTANT]
 > **New to this and not sure what to actually type?** Read **[Example prompts](docs/example-prompts.md)** first — a page of copyable starting points, no course required.
@@ -103,7 +113,7 @@ After that new versions arrive on their own. The equivalent update command for e
 
 ### For a team or a repo
 
-Add this to a project's `.claude/settings.json` and everyone who trusts the folder is prompted to install it:
+Add this to a project's `.claude/settings.json`. After trusting the folder, each collaborator runs `claude plugin install ai-docent@ai-docent --scope project` once; without that step Claude Code stops loading the courses after the first session:
 
 ```json
 {
@@ -118,7 +128,7 @@ Add this to a project's `.claude/settings.json` and everyone who trusts the fold
 }
 ```
 
-Team and Enterprise owners on Claude can push it to everyone from **Organization settings → Plugins → Add plugin → GitHub**, using `soreavis/ai-docent`.
+Team and Enterprise owners on Claude can roll it out from **Organization settings → Plugins & skills → Add**. Organization sync only accepts a private or internal repository, so either **Upload a plugin** with a zip of this repo, or **Sync from GitHub** a private repository of your own whose `marketplace.json` lists `https://github.com/soreavis/ai-docent.git`. Then set the plugin's **Default access**. See [the admin guide](https://claude.com/docs/plugins/admin) and [organization sync](https://claude.com/docs/plugins/org-sync).
 
 ### Standalone skill zips
 
@@ -131,7 +141,7 @@ If your runtime takes individual skill folders rather than a plugin — or you'r
 > [!NOTE]
 > **The zip path has no auto-update.** Re-download and re-upload when a new version ships. Prefer a marketplace lane if your runtime has one.
 
-On a tool with no skill support at all — Perplexity Spaces, a plain chat window — paste a course's `SKILL.md` in as the standing instruction and keep its `references/` files to hand. Every course is written to survive this: with no filesystem, the Progress Card becomes your save file, and pasting the most recent one back resumes the course. Check the tool's instruction-length limit first, though — the courses run roughly 15–20 KB each, and a silently truncated course is worse than none.
+On a tool with no skill support at all, such as a plain chat window, paste a course's `SKILL.md` in as the standing instruction and keep its `references/` files to hand. Every course is written to survive this: with no filesystem, the Progress Card becomes your save file, and pasting the most recent one back resumes the course. Check the tool's instruction-length limit first, though — a course's `SKILL.md` alone runs roughly 21–23 KB, and a silently truncated course is worse than none.
 
 ## Where your progress is saved
 

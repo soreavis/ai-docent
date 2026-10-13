@@ -8,7 +8,7 @@ Have something real in mind. Not a practice project. The courses build every exe
 
 ## Pick a course, or let it pick
 
-If you know what's wrong, open that course directly:
+If you know what's wrong, open that course directly. The commands on this page are the Claude Code form; the [README](../README.md#install) has the form for Codex, ChatGPT and the skill lanes.
 
 ```
 /ai-docent:reliability

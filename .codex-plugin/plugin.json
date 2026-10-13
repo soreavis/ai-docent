@@ -19,10 +19,10 @@
   "skills": "./skills",
   "interface": {
     "displayName": "AI Docent",
-    "shortDescription": "Multi-session tutor courses for getting good with AI agents",
+    "shortDescription": "Tutor courses for AI agents",
     "longDescription": "Eight courses covering fundamentals, prompt craft, reliability, shipping, long-haul projects, security, cost, and building. Each is a multi-session tutor: it interviews you, builds a lesson plan around your real work, gates levels behind boss fights, and writes a progress card you can resume from.",
     "developerName": "Julian Soreavis",
-    "category": "Learning",
+    "category": "Education & Research",
     "capabilities": [
       "Teaching",
       "Onboarding",

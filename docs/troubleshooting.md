@@ -2,9 +2,11 @@
 
 ## The command does nothing
 
-Courses don't start themselves. In Claude Code they carry a flag that blocks automatic invocation outright; elsewhere each course describes itself as needing an explicit request. Either way you have to ask for one by name.
+Courses don't start themselves. Claude Code and Codex each carry a setting that blocks automatic invocation outright; elsewhere each course describes itself as needing an explicit request. Either way you have to ask for one by name.
 
 Check the skill is installed and enabled. On plugin lanes that's the plugin manager for your runtime; on zip uploads it's a per-skill toggle. If you installed through a marketplace and nothing appears, the marketplace may have synced without the plugin being enabled.
+
+Check you used your runtime's form of the command: `/ai-docent:<course>` in Claude Code, the Claude apps and Gemini CLI, `$ai-docent:<course>` in Codex, `/<course>` for a skill installed into Claude Code without the plugin, `@` and the course name in ChatGPT. The README's install section has the table.
 
 In Claude Code, `/reload-plugins` picks up changes without a restart.
 
