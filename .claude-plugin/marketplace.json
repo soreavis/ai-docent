@@ -12,7 +12,7 @@
       "name": "ai-docent",
       "source": "./",
       "description": "Eight multi-session tutor courses that take you from beginner to genuine power user of AI agents, with an onboarding wizard, a personalized plan, and progress saved between sessions.",
-      "version": "0.5.1",
+      "version": "0.6.0",
       "category": "learning",
       "strict": true
     }

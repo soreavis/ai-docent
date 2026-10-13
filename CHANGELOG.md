@@ -4,6 +4,25 @@ All notable changes to this project are documented here.
 
 This project follows [Keep a Changelog](https://keepachangelog.com/) and [Semantic Versioning](https://semver.org/). Releases are managed by [Release Please](https://github.com/googleapis/release-please) from Conventional Commits — see [CONTRIBUTING.md](CONTRIBUTING.md#releasing).
 
+## [0.6.0](https://github.com/soreavis/ai-docent/compare/v0.5.1...v0.6.0) (2026-10-13)
+
+
+### Features
+
+* **build:** scan the whole history for personal data, before and after push ([0efd042](https://github.com/soreavis/ai-docent/commit/0efd042f77d8b023072d363164e99cf6b5780e9d))
+* install and open the courses correctly on every runtime ([93f3336](https://github.com/soreavis/ai-docent/commit/93f333620f17c5a61628a86577d84154be036f36))
+
+
+### Bug Fixes
+
+* bring the courses in line with current Claude products ([712e8c8](https://github.com/soreavis/ai-docent/commit/712e8c8b1c4389fa5b8b7369e4eb334193ec7f33))
+
+
+### Documentation
+
+* CLAUDE.md loads AGENTS.md from the repo root ([e4d111d](https://github.com/soreavis/ai-docent/commit/e4d111d17cf4e4581da25f7792b6dd861de69493))
+* point CHANGELOG commit links at the rewritten history ([67f3689](https://github.com/soreavis/ai-docent/commit/67f36892c546b5ac8089c83b7657ee785fcc82a2))
+
 ## [0.5.1](https://github.com/soreavis/ai-docent/compare/v0.5.0...v0.5.1) (2026-09-16)
 
 
